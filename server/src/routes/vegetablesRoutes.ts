@@ -1,5 +1,5 @@
 import {Router} from 'express';
-
+import vegetablesController from '../controller/vegetablesController';
 class VegetablesRoutes {
 
     public router: Router = Router();
@@ -9,7 +9,7 @@ class VegetablesRoutes {
     }
 
     config(): void {
-         this.router.get('/',(req, res) => res.send('verduritas frescas'));
+         this.router.get('/', vegetablesController.index);
     }
     
 }
