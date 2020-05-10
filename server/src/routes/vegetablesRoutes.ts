@@ -9,7 +9,11 @@ class VegetablesRoutes {
     }
 
     config(): void {
-         this.router.get('/', vegetablesController.index);
+         this.router.get('/', vegetablesController.list),
+         this.router.get('/:id', vegetablesController.getOne),
+         this.router.post('/', vegetablesController.create),
+         this.router.put('/:id', vegetablesController.update),
+         this.router.delete('/:id', vegetablesController.delete)
     }
     
 }

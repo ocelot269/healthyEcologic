@@ -11,7 +11,11 @@ class VegetablesRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', vegetablesController_1.default.index);
+        this.router.get('/', vegetablesController_1.default.list),
+            this.router.get('/:id', vegetablesController_1.default.getOne),
+            this.router.post('/', vegetablesController_1.default.create),
+            this.router.put('/:id', vegetablesController_1.default.update),
+            this.router.delete('/:id', vegetablesController_1.default.delete);
     }
 }
 const vegetablesRoutes = new VegetablesRoutes();
