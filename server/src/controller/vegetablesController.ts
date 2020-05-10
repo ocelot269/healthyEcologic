@@ -29,11 +29,15 @@ class VegetablesController {
     res.json({ mensaje: "Verdura creada" });
   }
 
-  public update(req: Request, res: Response) {
-    res.json({ texto: "Actualizando la verdura " + req.params.id });
+  public async update(req: Request, res: Response): Promise<void> {
+    const { id } = req.params;
+    await db.query("UPDATE products set ? where id = ?",[req.body, id]);
+    res.json({ message: "Actualizando la verdura " + req.params.id });
   }
 
-  public delete(req: Request, res: Response) {
+  public async delete(req: Request, res: Response): Promise<void> {
+    const { id } = req.params;
+    await db.query("DELETE FROM products WHERE id = ?", [id]);
     res.json({ texto: "Eliminando la id " + req.params.id });
   }
 }

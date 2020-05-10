@@ -45,10 +45,18 @@ class VegetablesController {
         });
     }
     update(req, res) {
-        res.json({ texto: "Actualizando la verdura " + req.params.id });
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            yield database_1.default.query("UPDATE products set ? where id = ?", [req.body, id]);
+            res.json({ message: "Actualizando la verdura " + req.params.id });
+        });
     }
     delete(req, res) {
-        res.json({ texto: "Eliminando la id " + req.params.id });
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            yield database_1.default.query("DELETE FROM products WHERE id = ?", [id]);
+            res.json({ texto: "Eliminando la id " + req.params.id });
+        });
     }
 }
 const vegetablesController = new VegetablesController();
