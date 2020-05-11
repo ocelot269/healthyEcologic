@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HealthyFormComponent } from './components/healthy-form/healthy-form.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
-
+import { FormsModule } from '@angular/forms';
+import { SliderModule } from 'primeng/slider';
+import { ProductService } from "./services/products.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,9 @@ import { ProductsListComponent } from './components/products-list/products-list.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    SliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
