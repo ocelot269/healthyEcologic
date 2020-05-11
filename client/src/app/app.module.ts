@@ -8,7 +8,10 @@ import { HealthyFormComponent } from './components/healthy-form/healthy-form.com
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { FormsModule } from '@angular/forms';
 import { SliderModule } from 'primeng/slider';
-import { ProductService } from "./services/products.service";
+import { ProductsService } from './services/products.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +24,11 @@ import { ProductService } from "./services/products.service";
     FormsModule,
     AppRoutingModule,
     SliderModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
