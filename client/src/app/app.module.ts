@@ -7,10 +7,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HealthyFormComponent } from './components/healthy-form/healthy-form.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { FormsModule } from '@angular/forms';
-import { SliderModule } from 'primeng/slider';
+import { CardModule} from 'primeng/card';
 import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    SliderModule,
+    CardModule,
     HttpClientModule,
+    ButtonModule
   ],
   providers: [
     ProductsService

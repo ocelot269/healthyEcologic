@@ -1,1 +1,15 @@
-<p>products-list works!</p>
+<h1>productos relacionados con tu busqueda</h1>
+<div *ngFor="let product of products">
+  <p-card header="{{product.name}}" subheader="Subheader" [style]="{width: '360px'}" styleClass="ui-card-shadow" >
+    <!--"-->
+    <p-header>
+        <img src="Card" src="{{product.image}}">
+    </p-header>
+    <div>{{product.description}}</div>
+    <p-footer>
+        <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
+        <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+    </p-footer>
+  </p-card>
+</div>
+
