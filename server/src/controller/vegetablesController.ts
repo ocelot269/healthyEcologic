@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import db from "../database";
+
 class VegetablesController {
   public async list(req: Request, res: Response) {
     await db.query("SELECT * FROM products", function (err, result, fields) {
@@ -32,13 +33,13 @@ class VegetablesController {
   public async update(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     await db.query("UPDATE products set ? where id = ?",[req.body, id]);
-    res.json({ message: "Actualizando la verdura " + req.params.id });
+    res.json({ mensaje: "Actualizando la verdura " + req.params.id });
   }
 
   public async delete(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     await db.query("DELETE FROM products WHERE id = ?", [id]);
-    res.json({ texto: "Eliminando la id " + req.params.id });
+    res.json({ mensaje: "Eliminando la id " + req.params.id });
   }
 }
 
