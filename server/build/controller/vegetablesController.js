@@ -26,7 +26,7 @@ class VegetablesController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const products = yield database_1.default.query("SELECT * FROM products WHERE id = ?", [id], function (err, result, fields) {
+            const products = yield database_1.default.query("SELECT * FROM products WHERE id_product = ?", [id], function (err, result, fields) {
                 if (err)
                     throw err;
                 if (result.length > 0) {
@@ -41,21 +41,30 @@ class VegetablesController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query("INSERT INTO products set ?", [req.body]);
-            res.json({ mensaje: "Verdura creada" });
+            res.json({ mensaje: "Producto creado" });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("UPDATE products set ? where id = ?", [req.body, id]);
-            res.json({ mensaje: "Actualizando la verdura " + req.params.id });
+            yield database_1.default.query("UPDATE products set ? where id_product = ?", [req.body, id]);
+            res.json({ mensaje: "Actualizando el producto con id " + req.params.id });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("DELETE FROM products WHERE id = ?", [id]);
-            res.json({ mensaje: "Eliminando la id " + req.params.id });
+            yield database_1.default.query("DELETE FROM products WHERE id_product = ?", [id]);
+            res.json({ mensaje: "Eliminando el producto con id " + req.params.id });
+        });
+    }
+    getListUniqueProducts(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query("SELECT DISTINCT name_product, product_description, image from products;", function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
         });
     }
 }

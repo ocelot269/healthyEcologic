@@ -43,6 +43,20 @@ class UsersController {
     await db.query("DELETE FROM users WHERE id_user = ?", [id]);
     res.json({ mensaje: "Eliminando la id " + req.params.id });
   }
+
+   public async obteinAllProductProvider(req: Request, res: Response): Promise<void> {
+    const { id } = req.params;
+    await db.query("SELECT u.user_name , p.name_product , p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id],
+    function (err, result, fields) {
+        if (err) throw err;
+        if (result.length > 0) {
+          res.json(result);
+        } else {
+          res.status(404).json({ text: "no tiene productos asociados" });
+        }
+      });
+    
+  }  
 }
 
 const usersController = new UsersController();

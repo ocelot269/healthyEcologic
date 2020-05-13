@@ -60,6 +60,21 @@ class UsersController {
             res.json({ mensaje: "Eliminando la id " + req.params.id });
         });
     }
+    obteinAllProductProvider(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            yield database_1.default.query("SELECT u.user_name , p.name_product , p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    res.json(result);
+                }
+                else {
+                    res.status(404).json({ text: "no tiene productos asociados" });
+                }
+            });
+        });
+    }
 }
 const usersController = new UsersController();
 exports.default = usersController;
