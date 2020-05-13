@@ -1,0 +1,23 @@
+
+
+nav {
+  background-color: #00A96F;
+}
+
+#search {
+  border-color: white;
+  background-color: #0088A9 !important;
+}
+
+#input-search {
+border: none;
+}
+
+#div-search {
+display: flex;
+flex-direction: row;
+}
+
+#buscador {
+  margin-right: 50px;
+}
