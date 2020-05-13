@@ -1,14 +1,27 @@
 <h1>productos relacionados con tu busqueda</h1>
-<div *ngFor="let product of products">
+<div *ngFor="let product of products;let i=index">
+  {{i}}
   <p-card header="{{product.name}}" subheader="Subheader" [style]="{width: '360px'}" styleClass="ui-card-shadow" >
-    <!--"-->
     <p-header>
         <img src="Card" src="{{product.image}}">
     </p-header>
     <div>{{product.description}}</div>
     <p-footer>
-        <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
-        <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-6 ui-lg-4">
+            <span>Unidades</span>
+            <input id="input" type="number" size="99999" pInputText [(ngModel)]="this.product.unidades">
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-4">
+          <span>kilos</span>
+          <input id="input" type="number" min="1" size="99999" pInputText [(ngModel)]="this.product.kilos">
+      </div>
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-lg-4">
+        El precio es: {{this.product.price}} €
+       </div>
+        <button pButton type="button" label="añadir" icon="pi pi-check" style="margin-right: .25em" (click)="guardarActulizarProducto(this.product,i)"></button>
+        <button pButton type="button" label="borrar" icon="pi pi-times" class="ui-button-secondary" (click)="borrarProducto(i)"></button>
     </p-footer>
   </p-card>
 </div>

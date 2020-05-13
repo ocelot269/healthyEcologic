@@ -17,13 +17,15 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InputMaskModule} from 'primeng/inputmask';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HealthyFormComponent,
-    ProductsListComponent
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MessagesModule,
     DropdownModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputMaskModule
   ],
   providers: [
     ProductsService
