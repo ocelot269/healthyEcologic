@@ -12,6 +12,7 @@ class VegetablesRoutes {
     }
     config() {
         this.router.get('/', vegetablesController_1.default.list),
+            this.router.get('/listProduct', vegetablesController_1.default.getListUniqueProducts),
             this.router.get('/:id', vegetablesController_1.default.getOne),
             this.router.post('/', vegetablesController_1.default.create),
             this.router.put('/:id', vegetablesController_1.default.update),

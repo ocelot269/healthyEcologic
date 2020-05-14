@@ -36,7 +36,7 @@ export class ProductsListComponent implements OnInit {
     };
     this.productsServices.updateProduct(this.products[index].id, productoNuevo).subscribe(
       res => {
-        console.log(res.texto);
+        console.log(res);
       },
       err => console.log(err)
     );;
