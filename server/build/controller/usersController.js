@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class VegetablesController {
+class UsersController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query("SELECT * FROM products", function (err, result, fields) {
+            yield database_1.default.query("SELECT * FROM users", function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
@@ -26,47 +26,55 @@ class VegetablesController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const products = yield database_1.default.query("SELECT * FROM products WHERE id_product = ?", [id], function (err, result, fields) {
+            console.log(req.params);
+            const products = yield database_1.default.query("SELECT * FROM users WHERE id_user = ?", [id], function (err, result, fields) {
                 if (err)
                     throw err;
                 if (result.length > 0) {
                     res.json(result);
                 }
                 else {
-                    res.status(404).json({ text: "no existe el producto con ese id" });
+                    res.status(404).json({ text: "no existe el usuario" });
                 }
             });
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query("INSERT INTO products set ?", [req.body]);
-            res.json({ mensaje: "Producto creado" });
+            yield database_1.default.query("INSERT INTO users set ?", [req.body]);
+            console.log(req.body);
+            res.json({ mensaje: "usuario creado" });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("UPDATE products set ? where id_product = ?", [req.body, id]);
-            res.json({ mensaje: "Actualizando el producto con id " + req.params.id });
+            yield database_1.default.query("UPDATE users set ? where id_user = ?", [req.body, id]);
+            res.json({ mensaje: "Actualizando el usuario con id " + req.params.id });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("DELETE FROM products WHERE id_product = ?", [id]);
-            res.json({ mensaje: "Eliminando el producto con id " + req.params.id });
+            yield database_1.default.query("DELETE FROM users WHERE id_user = ?", [id]);
+            res.json({ mensaje: "Eliminando la id " + req.params.id });
         });
     }
-    getListUniqueProducts(req, res) {
+    obteinAllProductProvider(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query("SELECT DISTINCT name_product, product_description, image from products;", function (err, result, fields) {
+            const { id } = req.params;
+            yield database_1.default.query("SELECT u.user_name , p.name_product , p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id], function (err, result, fields) {
                 if (err)
                     throw err;
-                res.json(result);
+                if (result.length > 0) {
+                    res.json(result);
+                }
+                else {
+                    res.status(404).json({ text: "no tiene productos asociados" });
+                }
             });
         });
     }
 }
-const vegetablesController = new VegetablesController();
-exports.default = vegetablesController;
+const usersController = new UsersController();
+exports.default = usersController;
