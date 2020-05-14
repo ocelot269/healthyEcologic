@@ -13,7 +13,11 @@ const routes: Routes = [
     component:ProductsListComponent
   },
   {
-    path:'healthy/form',
+    path:'proveedor/registro',
+    component:HealthyFormComponent
+  },
+  {
+    path:'cliente/registro',
     component:HealthyFormComponent
   }
 ];
