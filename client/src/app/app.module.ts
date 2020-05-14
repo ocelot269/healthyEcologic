@@ -18,6 +18,7 @@ import {MessageModule} from 'primeng/message';
 import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {InputMaskModule} from 'primeng/inputmask';
     NavigationComponent,
     HealthyFormComponent,
     ProductsListComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
