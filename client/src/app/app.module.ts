@@ -20,6 +20,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
 import { FooterComponent } from './components/footer/footer.component';
 import { StockComponent } from './components/stock/stock.component';
+import {DialogModule} from 'primeng/dialog';
+import {FieldsetModule} from 'primeng/fieldset';
+import {GalleriaModule} from 'primeng/galleria';
+import {FileUploadModule} from 'primeng/fileupload';
+
 
 
 @NgModule({
@@ -45,7 +50,11 @@ import { StockComponent } from './components/stock/stock.component';
     DropdownModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    InputMaskModule
+    InputMaskModule,
+    DialogModule,
+    FieldsetModule,
+    GalleriaModule,
+    FileUploadModule
   ],
   providers: [
     ProductsService

@@ -8,13 +8,14 @@ import {ProductsService} from "../../services/products.service";
 })
 export class CardProductComponent implements OnInit {
   @Input() products: any = [];
-
+  @Input() idUser: any = [];
   constructor(private productsServices : ProductsService) { }
 
    producto: any = {
-    name: '',
-    description: '',
-    unidades: 0,
+    id_provider:'',
+    name_product: '',
+    product_description: '',
+    units: 0,
     price: 0,
     kilos:0,
     image:''
@@ -27,15 +28,16 @@ export class CardProductComponent implements OnInit {
   guardarActulizarProducto(producto, index:number){
     this.noNegativo();
     this.redondearUnidades();
-    let productoNuevo = {
-      name: this.products[index].name,
-      description: this.products[index].description,
-      unidades: producto.unidades,
+    let productoNuevo:any = {
+      id_provider: '3',
+      name_product: this.products[index].name_product,
+      product_description: this.products[index].product_description,
+      units: producto.units,
       price: this.products[index].price,
       kilos:producto.kilos,
       image:this.products[index].image,
     };
-    this.productsServices.updateProduct(this.products[index].id, productoNuevo).subscribe(
+    this.productsServices.updateProduct(this.products[index].id_product, productoNuevo).subscribe(
       res => {
         console.log(res);
       },
@@ -45,8 +47,8 @@ export class CardProductComponent implements OnInit {
   }
 
   noNegativo(){
-    if (this.producto.unidades < 0){
-      this.producto.unidades = 0;
+    if (this.producto.units < 0){
+      this.producto.units = 0;
     }
 
     if (this.producto.kilos < 0) {
@@ -55,25 +57,40 @@ export class CardProductComponent implements OnInit {
   }
 
   redondearUnidades(){
-    Math.floor(this.producto.unidades);
+    Math.floor(this.producto.units);
   }
 
   borrarProducto(i){
 
-      this.productsServices.deleteProduct(this.products[i].id).subscribe(
+      this.productsServices.deleteProduct(this.products[i].id_product).subscribe(
       res => {
-        this.products.splice(i,i+1);
+        console.log(i);
+        this.products.splice(i,1);
       },
       err => console.log(err)
     )
   }
 
   getListProduct(){
+
     this.productsServices.getProductList().subscribe(
       res => {
         this.products = res;
+        console.log(res)
       },
       err => console.log(err)
     );
   }
+
+  añadirProduct(){
+
+    this.productsServices.addProduct(this.producto).subscribe(
+      res => {
+        this.products = res;
+        console.log(res)
+      },
+      err => console.log(err)
+    );
+  }
+
 }

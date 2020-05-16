@@ -1,5 +1,5 @@
 <div class="ui-g-12 ui-md-6 ui-lg-4" *ngFor="let product of products;let i=index">
-  <p-card header="{{product.name_product}}" [style]="{width: '280px'}" styleClass="ui-card-shadow" >
+<p-card header="{{product.name_product}}" styleClass="ui-card-shadow">
     <p-header>
         <img src="Card" src="{{product.image}}">
     </p-header>
@@ -7,20 +7,19 @@
     <p-footer>
       <div class="ui-g-12 ui-fluid">
         <div class="ui-g-12">
-          El precio es: {{this.product.price}} €
+          El precio es: <input style="width: 90%;" id="input" type="number" size="99999" pInputText [(ngModel)]="this.product.price"> €
         </div>
         <div class="ui-g-6">
-            <span>Unidades</span>
+            <span>Unidades:</span>
             <input style="width: 80%;" id="input" type="number" size="99999" pInputText [(ngModel)]="this.product.units">
         </div>
         <div class="ui-g-6">
-          <span>kilos</span>
+          <span>kilos:</span>
           <input style="width: 80%;" id="input" type="number" min="1" size="99999" pInputText [(ngModel)]="this.product.kilos">
         </div>
       </div>
-        <button style="margin-left: 5%;" pButton type="button" label="añadir" icon="pi pi-check"  (click)="guardarActulizarProducto(this.product,i)"></button>
-        <button style="margin-left: 13%;"  pButton type="button" label="borrar" icon="pi pi-times" class="ui-button-danger" (click)="borrarProducto(i)"></button>
-
+        <button style="margin-left: 5%;" pButton type="button" label="Actualizar" icon="pi pi-check"  (click)="guardarActulizarProducto(this.product,i)"></button>
+        <button style="margin-left: 13%;"  pButton type="button" label="Borrar" icon="pi pi-times" class="ui-button-danger" (click)="borrarProducto(i)"></button>
       </p-footer>
   </p-card>
 </div>
