@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HealthyFormComponent } from './components/healthy-form/healthy-form.component';
-import { ProductsListComponent } from './components/products-list/products-list.component';
+import { CardProductComponent } from './components/card-products/card-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule} from 'primeng/card';
 import { ProductsService } from './services/products.service';
@@ -18,6 +18,14 @@ import {MessageModule} from 'primeng/message';
 import {DropdownModule} from 'primeng/dropdown';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
+import { FooterComponent } from './components/footer/footer.component';
+import { StockComponent } from './components/stock/stock.component';
+import {DialogModule} from 'primeng/dialog';
+import {FieldsetModule} from 'primeng/fieldset';
+import {GalleriaModule} from 'primeng/galleria';
+import {FileUploadModule} from 'primeng/fileupload';
+import { HealthyLoginComponent } from './components/healthy-login/healthy-login.component';
+
 
 
 @NgModule({
@@ -25,7 +33,10 @@ import {InputMaskModule} from 'primeng/inputmask';
     AppComponent,
     NavigationComponent,
     HealthyFormComponent,
-    ProductsListComponent,
+    CardProductComponent,
+    FooterComponent,
+    StockComponent,
+    HealthyLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +52,11 @@ import {InputMaskModule} from 'primeng/inputmask';
     DropdownModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    InputMaskModule
+    InputMaskModule,
+    DialogModule,
+    FieldsetModule,
+    GalleriaModule,
+    FileUploadModule
   ],
   providers: [
     ProductsService

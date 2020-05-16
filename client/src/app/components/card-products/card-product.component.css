@@ -1,0 +1,18 @@
+margin {
+  margin: 10px !important;
+}
+
+width {
+  width: 80%;
+}
+
+
+center {
+  display: flex;
+  justify-content: flex-start;
+}
+
+rigth {
+  display: flex;
+  justify-content: flex-end;
+}
