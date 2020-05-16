@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const auth_1 = __importDefault(require("../auth"));
 const database_1 = __importDefault(require("../database"));
 class UsersController {
     list(req, res) {
@@ -39,10 +40,42 @@ class UsersController {
             });
         });
     }
+    getUserByUserNamePass(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const users = yield database_1.default.query('SELECT * FROM users WHERE user_name = ?', req.body.user_name, function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    auth_1.default.compare(req.body.password, result[0].password).then((validUser) => {
+                        if (validUser) {
+                            res.json({ message: 'Bienvenido ' + req.body.user_name });
+                        }
+                        else {
+                            res.json({ message: 'contraseña incorrecta' });
+                        }
+                    });
+                }
+                else {
+                    res.json({ message: 'El usuario ' + req.body.user_name + ' No existe' });
+                }
+            });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query("INSERT INTO users set ?", [req.body]);
-            console.log(req.body);
+            let newUser;
+            auth_1.default.encryptPassword(req.body.password).then((hash) => {
+                newUser = {
+                    user_name: req.body.user_name,
+                    user_type: req.body.user_type,
+                    user_surnames: req.body.user_surnames,
+                    user_email: req.body.user_email,
+                    user_description: req.body.user_description,
+                    user_gender: req.body.user_gender,
+                    password: hash
+                };
+                database_1.default.query("INSERT INTO users set ?", newUser);
+            });
             res.json({ mensaje: "usuario creado" });
         });
     }
