@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductsListComponent} from "./components/products-list/products-list.component";
+import { CardProductComponent} from "./components/card-products/card-product.component";
 import { HealthyFormComponent } from "./components/healthy-form/healthy-form.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
+import { StockComponent } from "./components/stock/stock.component";
+import { HealthyLoginComponent } from "./components/healthy-login/healthy-login.component";
+
+
 const routes: Routes = [
   {
     path: '',
@@ -10,7 +14,7 @@ const routes: Routes = [
   },
   {
     path:'proveedor/stock',
-    component:ProductsListComponent
+    component:StockComponent
   },
   {
     path:'proveedor/registro',
@@ -19,6 +23,10 @@ const routes: Routes = [
   {
     path:'cliente/registro',
     component:HealthyFormComponent
+  },
+  {
+    path:'login',
+    component:HealthyLoginComponent
   }
 ];
 

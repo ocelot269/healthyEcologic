@@ -1,0 +1,88 @@
+<div class="ui-g">
+  <div class="ui-g-12 margin">
+    <h3 class="ui-g-5">Listado de productos de {{this.products[0].user_name}}</h3>
+    <div class="ui-g-5"></div>
+    <button class="ui-g-2" style="margin-top: 10px;" pButton type="button" label="Añadir Producto" icon="pi pi-check" (click)="this.showDialog()"></button>
+  </div>
+
+  <div class="ui-g-5">
+  </div>
+
+  <div class="ui-g-12">
+    <app-card-product [products]="this.products"></app-card-product>
+  </div>
+
+
+</div>
+
+<p-dialog header="Title" [(visible)]="showModal" [style]="{width: '75vw'}" [transitionOptions]="'0ms'" modal="true">
+  <p-fieldset [transitionOptions]="'0ms'">
+    <p-header>Añadir Producto</p-header>
+    <div class="ui-g-12">
+      <div class="ui-g-7">
+        <form [formGroup]="newProduct">
+        <!-- (ngSubmit)="onSubmit(newProduct.value)" -->
+         <p-toast [style]="{marginTop: '80px'}"  position="top-left"></p-toast>
+
+          <div class="ui-g-12">
+            <span class="ui-g-4">Nombre del producto:</span>
+             <input formControlName="name_product" style="width: 50%;" type="text" pInputText />
+          </div>
+          <div class="ui-g-12">
+            <span class="ui-g-4">Precio del producto:</span>
+             <input formControlName="price" style="width: 50%;" type="number" pInputText />
+          </div>
+          <div class="ui-g-12">
+            <span class="ui-g-4"> Unidades del producto:</span>
+            <input formControlName="units" style="width: 50%;" type="number" pInputText />
+          </div>
+          <div class="ui-g-12">
+            <span class="ui-g-4">Peso en kilos:</span>
+             <input formControlName="kilos" style="width: 50%;" type="number" pInputText />
+          </div>
+          <div class="ui-g-12">
+            <span class="ui-g-4">Descripcion del producto:</span>
+            <textarea formControlName="product_description" [rows]="5" [cols]="52" pInputTextarea autoResize="autoResize" placeholder="El producto es contiene vitaminitas a,b,c y su color se debe a..."></textarea>
+          </div>
+          <h3 class="first">Selecciona una imagen para tu producto</h3>
+          <p-fileUpload name="myfile[]" customUpload="true"  (uploadHandler)="onUpload($event)" (onRemove)="resetearImagen()"  (onClear)="resetearImagen()" accept="image/*">
+            <ng-template pTemplate="content">
+                  <ul *ngIf="uploadedFiles.length">
+                      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                  </ul>
+              </ng-template>
+          </p-fileUpload>
+        </form>
+      </div>
+      <div class="ui-g-5"  *ngIf="this.newProduct.value.image">
+        <p-card styleClass="ui-card-shadow">
+          <p-header>
+            <img src="Card" src="{{this.newProduct.value.image}}">
+            <div class="ui-g-12" style="text-align: center;" *ngIf="this.newProduct.value.name_product" >{{this.newProduct.value.name_product}}</div>
+
+          </p-header>
+            <div class="ui-g-12" *ngIf="this.newProduct.value.product_description">
+              La descripcion es {{this.newProduct.value.product_description}}
+            </div>
+            <p-footer>
+              <div class="ui-g-12 ui-fluid">
+                <div class="ui-g-12" *ngIf="this.newProduct.value.price">
+                  El precio es: {{this.newProduct.value.price}} €
+                </div>
+                <div class="ui-g-6" *ngIf="this.newProduct.value.units">
+                  El numero de unidades es: {{this.newProduct.value.units}}
+                </div>
+                <div class="ui-g-6" *ngIf="this.newProduct.value.kilos">
+                  El numero de kilos es: {{this.newProduct.value.kilos}}
+                </div>
+              </div>
+              <div class="center">
+                <button pButton [disabled]="!this.newProduct.valid" type="button" label="añadir" icon="pi pi-check"  (click)="crearProducto(this.newProduct.value)"></button>
+              </div>
+            </p-footer>
+      </p-card>
+      </div>
+    </div>
+</p-fieldset>
+</p-dialog>
+

@@ -31,4 +31,7 @@ export class ProductsService {
     return this.http.delete(`${this.API_URL}/vegetables/${id}`);
   }
 
+  getProductsByProviderList(id: string){
+    return this.http.get(`${this.API_URL}/users/products/${id}`);
+  }
 }
