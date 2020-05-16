@@ -24,6 +24,7 @@ import {DialogModule} from 'primeng/dialog';
 import {FieldsetModule} from 'primeng/fieldset';
 import {GalleriaModule} from 'primeng/galleria';
 import {FileUploadModule} from 'primeng/fileupload';
+import { HealthyLoginComponent } from './components/healthy-login/healthy-login.component';
 
 
 
@@ -35,6 +36,7 @@ import {FileUploadModule} from 'primeng/fileupload';
     CardProductComponent,
     FooterComponent,
     StockComponent,
+    HealthyLoginComponent,
   ],
   imports: [
     BrowserModule,

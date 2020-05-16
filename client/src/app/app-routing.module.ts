@@ -4,6 +4,8 @@ import { CardProductComponent} from "./components/card-products/card-product.com
 import { HealthyFormComponent } from "./components/healthy-form/healthy-form.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { StockComponent } from "./components/stock/stock.component";
+import { HealthyLoginComponent } from "./components/healthy-login/healthy-login.component";
+
 
 const routes: Routes = [
   {
@@ -21,6 +23,10 @@ const routes: Routes = [
   {
     path:'cliente/registro',
     component:HealthyFormComponent
+  },
+  {
+    path:'login',
+    component:HealthyLoginComponent
   }
 ];
 
