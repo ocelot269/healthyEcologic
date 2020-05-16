@@ -13,6 +13,7 @@ class UsersRoutes {
         this.router.get('/', usersController.list),
         this.router.get('/products/:id', usersController.obteinAllProductProvider),
         this.router.get('/:id', usersController.getOne),
+        this.router.post('/login', usersController.getUserByUserNamePass),
         this.router.post('/', usersController.create),
         this.router.put('/:id', usersController.update),
         this.router.delete('/:id', usersController.delete)

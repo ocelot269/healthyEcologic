@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import Auth from '../auth';
 import db from "../database";
 
 class UsersController {
@@ -26,9 +27,42 @@ class UsersController {
     );
   }
 
+
+     public async getUserByUserNamePass (req : Request, res : Response): Promise<any>{
+        
+        const users = await db.query('SELECT * FROM users WHERE user_name = ?', req.body.user_name,function (err, result, fields) {
+          if (err) throw err;
+          if (result.length > 0) {
+            Auth.compare(req.body.password,result[0].password).then((validUser) => {
+                    if(validUser){
+                        res.json({message: 'Bienvenido ' + req.body.user_name});    
+                    }
+                    else{
+                        res.json({message: 'contraseña incorrecta'}); 
+                    }
+              });
+            } else {
+                res.json({message: 'El usuario ' + req.body.user_name + ' No existe' }); 
+            }
+          }
+        );
+    }
+
   public async create(req: Request, res: Response): Promise<void> {
-    await db.query("INSERT INTO users set ?", [req.body]);
-    console.log(req.body);
+    let newUser ;
+    Auth.encryptPassword(req.body.password).then((hash) => {
+         newUser ={
+            user_name: req.body.user_name,
+            user_type: req.body.user_type,
+            user_surnames: req.body.user_surnames,
+            user_email: req.body.user_email,
+            user_description: req.body.user_description,
+            user_gender: req.body.user_gender,
+            password: hash
+        }
+        db.query("INSERT INTO users set ?", newUser);
+    });
+
     res.json({ mensaje: "usuario creado" });
   }
 
