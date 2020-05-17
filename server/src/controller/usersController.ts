@@ -34,8 +34,9 @@ class UsersController {
           if (err) throw err;
           if (result.length > 0) {
             Auth.compare(req.body.password,result[0].password).then((validUser) => {
+                    console.log(result);
                     if(validUser){
-                        res.json({message: 'Bienvenido ' + req.body.user_name});    
+                        res.json(result);    
                     }
                     else{
                         res.json({message: 'contraseña incorrecta'}); 
@@ -80,7 +81,7 @@ class UsersController {
 
    public async obteinAllProductProvider(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    await db.query("SELECT u.user_name , p.name_product , p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id],
+    await db.query("SELECT u.user_name , p.name_product , p.product_description, p.image, p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id],
     function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {

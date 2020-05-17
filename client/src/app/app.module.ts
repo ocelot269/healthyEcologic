@@ -20,12 +20,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputMaskModule} from 'primeng/inputmask';
 import { FooterComponent } from './components/footer/footer.component';
 import { StockComponent } from './components/stock/stock.component';
-import {DialogModule} from 'primeng/dialog';
-import {FieldsetModule} from 'primeng/fieldset';
-import {GalleriaModule} from 'primeng/galleria';
-import {FileUploadModule} from 'primeng/fileupload';
+import { DialogModule} from 'primeng/dialog';
+import { FieldsetModule} from 'primeng/fieldset';
+import { GalleriaModule} from 'primeng/galleria';
+import { FileUploadModule} from 'primeng/fileupload';
 import { HealthyLoginComponent } from './components/healthy-login/healthy-login.component';
-
+import { LoginService } from './services/login.service';
 
 
 @NgModule({
@@ -59,7 +59,8 @@ import { HealthyLoginComponent } from './components/healthy-login/healthy-login.
     FileUploadModule
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
