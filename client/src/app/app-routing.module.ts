@@ -5,6 +5,7 @@ import { HealthyFormComponent } from "./components/healthy-form/healthy-form.com
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { StockComponent } from "./components/stock/stock.component";
 import { HealthyLoginComponent } from "./components/healthy-login/healthy-login.component";
+import { ProductsComponent } from './components/products/products.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'login',
     component:HealthyLoginComponent
+  },
+  {
+    path:'productos',
+    component:ProductsComponent
   }
 ];
 
