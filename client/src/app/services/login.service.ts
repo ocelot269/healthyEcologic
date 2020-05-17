@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   private idUser:any;
-  private logged:boolean;
+  private logged:boolean = false;
 
   constructor() { }
 
@@ -19,9 +19,13 @@ export class LoginService {
       return this.idUser ? this.idUser : localStorage.getItem('idUser');
     }
 
-    isLogged() {
-      return this.logged = this.idUser > 0 ? true : false;
+    setLogged(data: any){
+      this.logged = data;
+      localStorage.setItem('logeado', data);
     }
 
+    isLogged() {
+      return <any> localStorage.getItem('logeado');
+    }
 }
 

@@ -30,7 +30,8 @@ export class HealthyLoginComponent implements OnInit {
       this.userService.validationUser(value).subscribe(
         res => {
           this.loginService.setIdUser(res[0].id_user);
-          this.router.navigateByUrl('/proveedor/stock', { state: { hello: 'world' } });
+          this.loginService.setLogged(true);
+          this.router.navigateByUrl('/', { state: { hello: 'world' } });
         },
         err => console.log(err)
       );
