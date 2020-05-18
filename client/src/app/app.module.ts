@@ -27,6 +27,7 @@ import { FileUploadModule} from 'primeng/fileupload';
 import { HealthyLoginComponent } from './components/healthy-login/healthy-login.component';
 import { LoginService } from './services/login.service';
 import { ProductsComponent } from './components/products/products.component';
+import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { ProductsComponent } from './components/products/products.component';
     StockComponent,
     HealthyLoginComponent,
     ProductsComponent,
+    ShoppingBasketComponent,
   ],
   imports: [
     BrowserModule,

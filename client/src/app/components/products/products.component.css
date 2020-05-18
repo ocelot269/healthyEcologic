@@ -1,0 +1,6 @@
+.fixed {
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  min-height: 500px;
+}

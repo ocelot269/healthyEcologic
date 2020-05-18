@@ -1,3 +1,4 @@
+<div class="row col-7">
 <div class="ui-g-12 ui-md-6 ui-lg-4" *ngFor="let product of products;let i=index">
 <p-card header="{{product.name_product}}" styleClass="ui-card-shadow">
     <p-header>
@@ -12,7 +13,7 @@
         <ng-template #client> El precio es {{this.product.price}} €</ng-template>
       </div>
       <div class="ui-g-6">
-      <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else unidades" >
+      <!-- <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else unidades" >
             <span>Unidades:</span>
             <input style="width: 80%;" id="input" type="number" size="99999"  pInputText [(ngModel)]="this.product.units">
       </div>
@@ -21,7 +22,7 @@
       <div *ngIf="this.user[0].user_type == 'Cliente'">
         <span>Numero unidades desea:</span>
         <input style="width: 80%;" id="input" type="number" min="0" [max]="this.product.units" size="99999" pInputText [(ngModel)]="this.product.buyUnits">
-      </div>
+      </div> -->
     </div>
 
 
@@ -47,5 +48,6 @@
         </ng-template>
       </p-footer>
   </p-card>
+</div>
 </div>
 
