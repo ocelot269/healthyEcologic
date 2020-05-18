@@ -1,11 +1,17 @@
 <app-navigation></app-navigation>
 <div class="container wrapper">
   <div class="row">
-    <router-outlet></router-outlet>
-  </div>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-3">
+      One of three columns
+    </div>
 
+  </div>
+  <div class="push"></div>
 </div>
-<div class="push"></div>
+
 <div class="footer">
   <app-footer></app-footer>
 </div>

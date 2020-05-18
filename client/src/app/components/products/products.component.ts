@@ -25,4 +25,8 @@ export class ProductsComponent implements OnInit {
     );
     }
 
+    productosCarrito(event){
+      console.log(event)
+    }
+
 }
