@@ -29,6 +29,7 @@ import { LoginService } from './services/login.service';
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
 import { BasketComponent } from './components/basket/basket.component';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { BasketComponent } from './components/basket/basket.component';
     ProductsComponent,
     ShoppingBasketComponent,
     BasketComponent,
+    PaymentFormComponent,
   ],
   imports: [
     BrowserModule,

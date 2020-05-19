@@ -1,0 +1,67 @@
+<main class="checkout">
+
+  <div class="pay">
+
+    <h1>Payment Method</h1>
+
+    <div class="payment-methods">
+
+      <label for="payment-type-credit-card" class="toggle-label">
+        <img src="../../../assets/imagenes/card.png">
+        <span>Credit Card</span>
+      </label>
+
+      <label for="payment-type-paypal" class="toggle-label">
+        <img src="../../../assets/imagenes/paypal.png" class="toggle-label">
+        <span>PayPal</span>
+      </label>
+
+      <label for="card-flip" class="toggle-label">
+        <img src="../../../assets/imagenes/repetir.png" style="width: 34px;">
+        <span>Flip Card</span>
+      </label>
+
+    </div>
+
+    <input type="radio" class="toggle-checkbox" id="payment-type-credit-card" checked="checked" name="payment-methods">
+    <div class="payment-info credit-card flip-container">
+      <input type="checkbox" class="toggle-checkbox" id="card-flip">
+      <div class="flip">
+        <div class="front">
+          <h1>Credit Card   <img src="../../../assets/imagenes/card.png" style="width: 100px; margin-left: 80px;"> </h1>
+          <div class="numbers">
+            <input type="text" class="numbers-1" maxlength="4">
+            <input type="text" class="numbers-2" maxlength="4">
+            <input type="text" class="numbers-3" maxlength="4">
+            <input type="text" class="numbers-4" maxlength="4">
+          </div>
+          <input type="text" class="name" placeholder="Cardholder Name">
+          <div class="expiration">
+            <h2>Expiration</h2>
+            <input type="text" class="month" placeholder="Month">
+            <input type="text" class="year" placeholder="Year">
+          </div>
+        </div>
+        <div class="back">
+          <div class="strip"></div>
+          <div class="signature">
+            <div class="ccv">
+              <input type="text" class="cvv" placeholder="CVV / Security Code">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="radio" class="toggle-checkbox" id="payment-type-paypal" name="payment-methods">
+    <section class="payment-info paypal">
+      <h1><img src="../../../assets/imagenes/paypal.png"> PayPal</h1>
+      <input type="text" placeholder="PayPal Email Address">
+      <input type="password" placeholder="Password">
+      <button type="submit" class="material-button">
+        <img src="../../../assets/imagenes/paypal.png">
+        Pay with PayPal
+      </button>
+    </section>
+
+  </div>
+</main>

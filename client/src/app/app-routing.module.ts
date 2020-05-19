@@ -7,6 +7,7 @@ import { StockComponent } from "./components/stock/stock.component";
 import { HealthyLoginComponent } from "./components/healthy-login/healthy-login.component";
 import { ProductsComponent } from './components/products/products.component';
 import { BasketComponent } from './components/basket/basket.component';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path:'cesta',
     component:BasketComponent
+  },
+  {
+    path:'pago',
+    component:PaymentFormComponent
   }
 ];
 
