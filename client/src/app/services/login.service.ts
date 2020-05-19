@@ -7,7 +7,7 @@ export class LoginService {
 
   private idUser:any;
   private logged:boolean = false;
-
+  private productsBasket:any = [];
   constructor() { }
 
     setIdUser(data:any) {
@@ -26,6 +26,19 @@ export class LoginService {
 
     isLogged() {
       return <any> localStorage.getItem('logeado');
+    }
+
+    getProductsBasket(){
+      return this.productsBasket ? this.productsBasket : JSON.parse(localStorage.getItem('productsBasketList'));
+    }
+
+    setProductsBasket(list){
+      this.productsBasket = [];
+      this.productsBasket = list;
+
+      localStorage.setItem('productsBasketList', JSON.stringify(list));
+
+
     }
 }
 

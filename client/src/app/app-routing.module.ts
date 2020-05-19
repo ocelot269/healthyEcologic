@@ -6,6 +6,7 @@ import { NavigationComponent } from "./components/navigation/navigation.componen
 import { StockComponent } from "./components/stock/stock.component";
 import { HealthyLoginComponent } from "./components/healthy-login/healthy-login.component";
 import { ProductsComponent } from './components/products/products.component';
+import { BasketComponent } from './components/basket/basket.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:'productos',
     component:ProductsComponent
+  },
+  {
+    path:'cesta',
+    component:BasketComponent
   }
 ];
 

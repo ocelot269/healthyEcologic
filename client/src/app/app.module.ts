@@ -28,6 +28,7 @@ import { HealthyLoginComponent } from './components/healthy-login/healthy-login.
 import { LoginService } from './services/login.service';
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
+import { BasketComponent } from './components/basket/basket.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ShoppingBasketComponent } from './components/shopping-basket/shopping-b
     HealthyLoginComponent,
     ProductsComponent,
     ShoppingBasketComponent,
+    BasketComponent,
   ],
   imports: [
     BrowserModule,

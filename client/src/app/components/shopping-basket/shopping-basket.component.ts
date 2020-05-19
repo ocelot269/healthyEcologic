@@ -27,4 +27,9 @@ export class ShoppingBasketComponent implements OnInit {
     });
     return total;
   }
+
+  borrarProductoCesta(i){
+    console.log(this.basketElements[i]);
+    this.basketElements.splice(i,1);
+  }
 }

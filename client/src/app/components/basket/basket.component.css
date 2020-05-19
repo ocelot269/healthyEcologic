@@ -1,0 +1,28 @@
+img {
+  width: 30%;
+  height: 10%;
+}
+
+span {
+ font-size: 1.9em !important;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+#bodyProductos {
+  font-weight: lighter;
+  font-size: large;
+}
+
+#totalCesta {
+  padding-top: 150px !important;
+  padding-left: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+.button {
+  width: 100%;
+  background-color: #00A99C;
+}
