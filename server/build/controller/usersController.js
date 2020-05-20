@@ -47,8 +47,9 @@ class UsersController {
                     throw err;
                 if (result.length > 0) {
                     auth_1.default.compare(req.body.password, result[0].password).then((validUser) => {
+                        console.log(result);
                         if (validUser) {
-                            res.json({ message: 'Bienvenido ' + req.body.user_name });
+                            res.json(result);
                         }
                         else {
                             res.json({ message: 'contraseña incorrecta' });
@@ -96,7 +97,7 @@ class UsersController {
     obteinAllProductProvider(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query("SELECT u.user_name , p.name_product , p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id], function (err, result, fields) {
+            yield database_1.default.query("SELECT u.user_name , p.id_product ,p.name_product , p.product_description, p.image, p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id], function (err, result, fields) {
                 if (err)
                     throw err;
                 if (result.length > 0) {

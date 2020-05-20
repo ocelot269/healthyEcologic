@@ -1,8 +1,8 @@
 <div class="login">
 	<h1>Login<img src="../../../assets/imagenes/healthyEcologic.png" width="80" height="70" alt="healthyEcologic"></h1>
-    <form method="post">
-    	<input type="text" name="u" placeholder="Username" required="required" />
-        <input type="password" name="p" placeholder="Password" required="required" />
+  <form [formGroup]="formUsuario" (ngSubmit)="validarUsuario(formUsuario.value)">
+    	  <input type="text" formControlName="user_name" placeholder="Nombre" required="required" />
+        <input type="password" formControlName="password" placeholder="Contraseña" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Entra</button>
     </form>
 </div>

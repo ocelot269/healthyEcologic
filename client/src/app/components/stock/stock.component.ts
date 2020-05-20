@@ -5,7 +5,8 @@ import {Validators,FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {MessageService} from 'primeng/api';
 import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 
 @Component({
@@ -24,14 +25,15 @@ export class StockComponent implements OnInit {
               private productsService:ProductsService,
               private fb: FormBuilder,
               private messageService: MessageService,
-              @Inject(DOCUMENT) private document: Document
+              @Inject(DOCUMENT) private document: Document,
+              public activatedRoute: ActivatedRoute,
+              private loginService:LoginService
     ) { }
 
 
   ngOnInit(): void {
-
         this.newProduct = this.fb.group({
-            'id_provider':new FormControl('3', Validators.required),
+            'id_provider':new FormControl(this.loginService.getIdUser()),
             'name_product': new FormControl('', Validators.required),
             'product_description': new FormControl('', Validators.required),
             'units': new FormControl('', Validators.required),
@@ -39,12 +41,11 @@ export class StockComponent implements OnInit {
             'kilos': new FormControl('', Validators.required),
             'image': new FormControl(''),
         });
-
         this.getProductListById();
   }
 
     getProductListById(){
-      this.productsService.getProductsByProviderList('3').subscribe(
+      this.productsService.getProductsByProviderList(this.loginService.getIdUser()).subscribe(
       res => {
         this.products = res;
       },

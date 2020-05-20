@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,11 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  value = 100;
-
-  constructor() { }
+  user = null;
+  constructor(private loginService: LoginService,
+              private userService: UserService) { }
 
   ngOnInit() {
+    this.user = this.getUser(this.loginService.getIdUser());
   }
 
+  isLogged(){
+    return this.loginService.isLogged();
+  }
+
+  userType(){
+    return this.user.user_type;
+  }
+
+
+  getUser(id: string){
+    return this.userService.getUser(id).subscribe(
+      res => {
+        this.user = res[0];
+        console.log(this.user);
+      },
+      err => console.log(err)
+    );
+  }
 }
