@@ -42,7 +42,8 @@ const routes: Routes = [
   {
     path:'pago',
     component:PaymentFormComponent
-  }
+  },
+
 ];
 
 @NgModule({

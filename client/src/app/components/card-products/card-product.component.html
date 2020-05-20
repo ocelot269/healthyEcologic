@@ -1,16 +1,17 @@
-<div class="row col-7">
 <div class="ui-g-12 ui-md-6 ui-lg-4" *ngFor="let product of products;let i=index">
 <p-card header="{{product.name_product}}" styleClass="ui-card-shadow">
     <p-header>
         <img src="Card" src="{{product.image}}">
     </p-header>
-    <div>{{product.product_description}}</div>
+    <div>{{product.product_description.substring(0,100)}}</div>
     <div class="ui-g-12 ui-fluid">
       <div class="ui-g-12">
-        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else client">
+        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else client" class="ui-g-9">
           El precio es: <input style="width: 90%;" id="input" type="number" size="99999" pInputText [(ngModel)]="this.product.price"> €
         </div>
-        <ng-template #client> El precio es {{this.product.price}} €</ng-template>
+        <div class="ui-g">
+          <ng-template #client> El precio es {{this.product.price}} €</ng-template>
+        </div>
       </div>
       <div class="ui-g-6">
       <!-- <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else unidades" >
@@ -25,17 +26,15 @@
       </div> -->
     </div>
 
-
-
-      <div class="ui-g-6">
-        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else kilos" >
+      <div class="ui-g-12">
+        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else kilos">
         <span>kilos:</span>
         <input style="width: 80%;" id="input" type="number" min="1" size="99999" pInputText [(ngModel)]="this.product.kilos">
         </div>
-        <ng-template #kilos> Los kilos son {{this.product.kilos}}</ng-template>
-        <div *ngIf="this.user[0].user_type == 'Cliente'">
+        <ng-template #kilos> Cantidad de kilos disponibles: {{this.product.kilos}}</ng-template>
+        <div *ngIf="this.user[0].user_type == 'Cliente'" class="ui-g-12">
           <span>Numero kilos desea:</span>
-          <input style="width: 80%;" id="input" type="number" size="99999" min="0" [max]="this.product.kilos" pInputText [(ngModel)]="this.product.buyKilos">
+          <input style="width: 30%;" id="input" type="number" size="99999" min="0" [max]="this.product.kilos" pInputText [(ngModel)]="this.product.buyKilos">
         </div>
       </div>
     </div>
@@ -48,6 +47,5 @@
         </ng-template>
       </p-footer>
   </p-card>
-</div>
 </div>
 
