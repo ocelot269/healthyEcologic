@@ -1,6 +1,6 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 
-<form [formGroup]="formUsuario" (ngSubmit)="registrarUsuario(formUsuario.value)">
+<form [formGroup]="formUsuario" >
     <p-panel>
       <p-header>
         <h3>Formulario de registro para {{tipoUsuario}}</h3>
@@ -93,7 +93,7 @@
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2"></div>
                 <div class="ui-grid-col-6">
-                    <button pButton type="submit" label="Submit" [disabled]="!formUsuario.valid" routerLink="/"></button>
+                    <button pButton type="submit" label="button" [disabled]="!formUsuario.valid" (click)="registrarUsuario(formUsuario.value)" routerLink="/"></button>
                 </div>
                 <div class="ui-grid-col-4"></div>
             </div>
