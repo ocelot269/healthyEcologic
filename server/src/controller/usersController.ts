@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import Auth from '../auth';
 import db from "../database";
 
 class UsersController {
@@ -26,9 +27,43 @@ class UsersController {
     );
   }
 
+
+     public async getUserByUserNamePass (req : Request, res : Response): Promise<any>{
+        
+        const users = await db.query('SELECT * FROM users WHERE user_name = ?', req.body.user_name,function (err, result, fields) {
+          if (err) throw err;
+          if (result.length > 0) {
+            Auth.compare(req.body.password,result[0].password).then((validUser) => {
+                    console.log(result);
+                    if(validUser){
+                        res.json(result);    
+                    }
+                    else{
+                        res.json({message: 'contraseña incorrecta'}); 
+                    }
+              });
+            } else {
+                res.json({message: 'El usuario ' + req.body.user_name + ' No existe' }); 
+            }
+          }
+        );
+    }
+
   public async create(req: Request, res: Response): Promise<void> {
-    await db.query("INSERT INTO users set ?", [req.body]);
-    console.log(req.body);
+    let newUser ;
+    Auth.encryptPassword(req.body.password).then((hash) => {
+         newUser ={
+            user_name: req.body.user_name,
+            user_type: req.body.user_type,
+            user_surnames: req.body.user_surnames,
+            user_email: req.body.user_email,
+            user_description: req.body.user_description,
+            user_gender: req.body.user_gender,
+            password: hash
+        }
+        db.query("INSERT INTO users set ?", newUser);
+    });
+
     res.json({ mensaje: "usuario creado" });
   }
 
@@ -46,7 +81,7 @@ class UsersController {
 
    public async obteinAllProductProvider(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    await db.query("SELECT u.user_name , p.name_product , p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id],
+    await db.query("SELECT u.user_name , p.id_product ,p.name_product , p.product_description, p.image, p.units , p.price , p.kilos FROM users as u INNER JOIN products as p ON u.id_user = p.id_provider WHERE u.id_user = ?", [id],
     function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {

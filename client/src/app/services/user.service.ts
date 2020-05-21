@@ -23,9 +23,9 @@ export class UserService {
      return this.http.post(`${this.API_URL}/users`, user);
   }
 
-  // updateProduct(id:string , updateProduct: Product){
-  //   return this.http.put(`${this.API_URL}/vegetables/${id}`, updateProduct);
-  // }
+  validationUser(dates: any){
+    return this.http.post(`${this.API_URL}/users/login`, dates);
+  }
 
   // deleteProduct(id: string){
   //   return this.http.delete(`${this.API_URL}/vegetables/${id}`);
