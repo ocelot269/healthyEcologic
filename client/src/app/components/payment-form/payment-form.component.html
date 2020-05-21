@@ -1,26 +1,24 @@
 <main class="checkout">
 
+  <form [formGroup]="formularioTargeta" >
+
   <div class="pay">
 
-    <h1>Payment Method</h1>
-
     <div class="payment-methods">
-
-      <label for="payment-type-credit-card" class="toggle-label">
-        <img src="../../../assets/imagenes/card.png">
-        <span>Credit Card</span>
-      </label>
+        <label for="payment-type-credit-card" class="toggle-label">
+          <img src="../../../assets/imagenes/card.png">
+          <span>Tarjeta de crédito</span>
+        </label>
 
       <label for="payment-type-paypal" class="toggle-label">
         <img src="../../../assets/imagenes/paypal.png" class="toggle-label">
         <span>PayPal</span>
       </label>
 
-      <label for="card-flip" class="toggle-label">
+      <label for="card-flip" class="toggle-label" style="margin-left: 6.5%;">
         <img src="../../../assets/imagenes/repetir.png" style="width: 34px;">
-        <span>Flip Card</span>
+        <span>Girar tarjeta</span>
       </label>
-
     </div>
 
     <input type="radio" class="toggle-checkbox" id="payment-type-credit-card" checked="checked" name="payment-methods">
@@ -28,40 +26,53 @@
       <input type="checkbox" class="toggle-checkbox" id="card-flip">
       <div class="flip">
         <div class="front">
-          <h1>Credit Card   <img src="../../../assets/imagenes/card.png" style="width: 100px; margin-left: 80px;"> </h1>
+          <h2>Tarjeta de crédito<img src="../../../assets/imagenes/card.png" style="width: 100px; margin-left: 80px;"> </h2>
           <div class="numbers">
-            <input type="text" class="numbers-1" maxlength="4">
-            <input type="text" class="numbers-2" maxlength="4">
-            <input type="text" class="numbers-3" maxlength="4">
-            <input type="text" class="numbers-4" maxlength="4">
+            <input type="text" formControlName="digitosParte1" placeholder="1234" class="numbers-1" maxlength="4" required>
+            <input type="text" formControlName="digitosParte2" placeholder="1234" class="numbers-2" maxlength="4" required>
+            <input type="text" formControlName="digitosParte3" placeholder="1234" class="numbers-3" maxlength="4" required>
+            <input type="text" formControlName="digitosParte4" placeholder="1234" class="numbers-4" maxlength="4" required>
           </div>
-          <input type="text" class="name" placeholder="Cardholder Name">
+          <input type="text" class="name" formControlName="nombre" placeholder="Nombre titular" required>
           <div class="expiration">
-            <h2>Expiration</h2>
-            <input type="text" class="month" placeholder="Month">
-            <input type="text" class="year" placeholder="Year">
+            <h2>Caducidad</h2>
+            <input type="text" class="month" formControlName="month" placeholder="Mes" required>
+            <input type="text" class="year"  formControlName="year" placeholder="Año" required>
           </div>
         </div>
         <div class="back">
           <div class="strip"></div>
           <div class="signature">
             <div class="ccv">
-              <input type="text" class="cvv" placeholder="CVV / Security Code">
+              <input type="text" class="cvv" formControlName="cvv" placeholder="CVV / Codigo de seguridad" required>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+
     <input type="radio" class="toggle-checkbox" id="payment-type-paypal" name="payment-methods">
     <section class="payment-info paypal">
-      <h1><img src="../../../assets/imagenes/paypal.png"> PayPal</h1>
+      <h1><img src="../../../assets/imagenes/paypal.png">PayPal</h1>
       <input type="text" placeholder="PayPal Email Address">
       <input type="password" placeholder="Password">
       <button type="submit" class="material-button">
         <img src="../../../assets/imagenes/paypal.png">
-        Pay with PayPal
+        Paga con paypal
       </button>
     </section>
 
   </div>
+  <div class="ui-g-12" style="display: flex;justify-content: center;height: 70px;">
+    <button class="material-button" type="button" style="width: 20%;" [disabled]="!formularioTargeta.valid" routerLink="/">
+      <img src="../../../assets/imagenes/target.png">
+      Pagar</button>
+  </div>
+
+ </form>
+
 </main>
+
+

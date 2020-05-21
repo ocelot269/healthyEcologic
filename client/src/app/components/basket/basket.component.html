@@ -9,18 +9,24 @@
 
 
     </p-header>
-    <div class="ui-g-9">
+    <div class="ui-g-6">
       <h4>Productos</h4>
     </div>
-    <div class="ui-g-3">
+    <div class="ui-g-4">
+      <h4>Kilos</h4>
+    </div>
+    <div class="ui-g-2">
       <h4>PVP</h4>
     </div>
 
     <div id="bodyProductos" *ngFor="let item of listaCesta; let i=index">
-      <div class="ui-g-9" >
+      <div class="ui-g-6" >
         {{item.name_product}}
       </div>
-      <div class="ui-g-3">
+      <div class="ui-g-4">
+        {{item.buyKilos}}
+      </div>
+      <div class="ui-g-2">
         {{item.price}} €
       </div>
     </div>

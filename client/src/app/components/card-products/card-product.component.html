@@ -21,7 +21,7 @@
 
       <ng-template #unidades> Las unidades son {{this.product.units}}</ng-template>
       <div *ngIf="this.user[0].user_type == 'Cliente'">
-        <span>Numero unidades desea:</span>
+        <span>Número unidades:</span>
         <input style="width: 80%;" id="input" type="number" min="0" [max]="this.product.units" size="99999" pInputText [(ngModel)]="this.product.buyUnits">
       </div> -->
     </div>
@@ -33,7 +33,7 @@
         </div>
         <ng-template #kilos> Cantidad de kilos disponibles: {{this.product.kilos}}</ng-template>
         <div *ngIf="this.user[0].user_type == 'Cliente'" class="ui-g-12">
-          <span>Numero kilos desea:</span>
+          <span>Número kilos:</span>
           <input style="width: 30%;" id="input" type="number" size="99999" min="0" [max]="this.product.kilos" pInputText [(ngModel)]="this.product.buyKilos">
         </div>
       </div>

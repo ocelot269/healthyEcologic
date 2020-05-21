@@ -52,6 +52,7 @@ export class HealthyFormComponent implements OnInit {
     registrarUsuario(value: any) {
         this.submitted = true;
         delete value.repitePassword;
+        console.log(value);
         this.userService.addUser(value).subscribe(
           res => {
             console.log(res);

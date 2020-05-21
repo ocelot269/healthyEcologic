@@ -1,5 +1,6 @@
 import {Router} from 'express';
 import vegetablesController from '../controller/vegetablesController';
+
 class VegetablesRoutes {
 
     public router: Router = Router();
