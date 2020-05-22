@@ -68,9 +68,22 @@ export class PaymentFormComponent implements OnInit {
       this.billService.createBill(dates).subscribe(
           res => {
             this.products.forEach(element => {
-              console.log(element);
-              console.log(res[0].id);
-            });
+               let dates = {
+                  id_product: element.id_product,
+                  id_order: res[0].id,
+                  id_user: element.id_provider,
+                  units: element.units,
+                  kilos: element.buyKilos,
+                  price: element.price * element.price
+                  };
+                  this.billService.createBillDetails(dates).subscribe(
+                      respuesta => {
+                      console.log("soy una respueta" + respuesta);
+                      err => console.log(err);
+                         },
+                    err => console.log(err)
+                  );
+              });
           },
           err => console.log(err)
         );

@@ -9,7 +9,7 @@ class BillRoutes {
     }
 
     config(): void {
-        //  this.router.get('/:id', billController.getBill),
+         this.router.get('/:id', billController.getBillById),
          this.router.post('/', billController.create),
          this.router.delete('/:id', billController.delete)
     }   

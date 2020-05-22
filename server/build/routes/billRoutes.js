@@ -11,8 +11,8 @@ class BillRoutes {
         this.config();
     }
     config() {
-        //  this.router.get('/:id', billController.getBill),
-        this.router.post('/', billController_1.default.create),
+        this.router.get('/:id', billController_1.default.getBillById),
+            this.router.post('/', billController_1.default.create),
             this.router.delete('/:id', billController_1.default.delete);
     }
 }

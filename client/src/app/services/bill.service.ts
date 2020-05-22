@@ -20,4 +20,8 @@ export class BillService {
   createBillDetails(dates){
       return this.http.post(`${this.API_URL}/bill/details`, dates);
   }
+
+
+
+
 }
