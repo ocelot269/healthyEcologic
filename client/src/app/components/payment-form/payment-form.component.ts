@@ -36,6 +36,12 @@ export class PaymentFormComponent implements OnInit {
         'year': new FormControl('', Validators.compose([Validators.required,Validators.minLength(4),Validators.maxLength(4)])),
         'cvv': new FormControl('', Validators.compose([Validators.required,Validators.minLength(3),Validators.maxLength(3)]))
     });
+
+     this.billService.getBillById(13).subscribe(
+        res => {
+        console.log(res);
+        err => console.log(err);
+      });
   }
 
     calcularTotal(){
@@ -54,7 +60,7 @@ export class PaymentFormComponent implements OnInit {
         if (form.hasOwnProperty(key)) {
           const element = form[key];
           if (element) {
-
+              //vacio de momento
           }else {
             return this.messageService.add({severity:'error', summary: 'Datos Incorrectos', detail:'Datos no validos'});        }
           }

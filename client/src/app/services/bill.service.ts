@@ -21,6 +21,9 @@ export class BillService {
       return this.http.post(`${this.API_URL}/bill/details`, dates);
   }
 
+  getBillById(id){
+      return this.http.get(`${this.API_URL}/bill/${id}`);
+  }
 
 
 

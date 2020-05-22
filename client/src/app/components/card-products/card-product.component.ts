@@ -113,7 +113,6 @@ export class CardProductComponent implements OnInit {
       buyKilos: product.buyKilos,
       buyUnits: product.buyUnits,
     };
-    console.log(productoNuevo);
     this.onRequestBuy.emit(productoNuevo);
   }
 
