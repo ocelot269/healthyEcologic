@@ -33,7 +33,6 @@ export class CardProductComponent implements OnInit {
     this.userService.getUser(this.loginService.getIdUser()).subscribe(
       res => {
         this.user = res;
-        console.log(this.user);
       },
       err => console.log(err)
     );
@@ -80,7 +79,6 @@ export class CardProductComponent implements OnInit {
   borrarProducto(i){
       this.productsServices.deleteProduct(this.products[i].id_product).subscribe(
       res => {
-        console.log(i);
         this.products.splice(i,1);
       },
       err => console.log(err)
@@ -91,7 +89,6 @@ export class CardProductComponent implements OnInit {
     this.productsServices.addProduct(this.producto).subscribe(
       res => {
         this.products = res;
-        console.log(res)
       },
       err => console.log(err)
     );

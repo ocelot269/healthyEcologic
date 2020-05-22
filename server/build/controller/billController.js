@@ -38,7 +38,16 @@ class BillController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query("INSERT INTO orders set ?", [req.body]);
-            res.json({ mensaje: "factura creada" });
+            yield database_1.default.query("SELECT MAX(id_order) AS id FROM orders", function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result) {
+                    res.json(result);
+                }
+                else {
+                    res.status(404).json({ text: "obteniendo factura" });
+                }
+            });
         });
     }
     delete(req, res) {

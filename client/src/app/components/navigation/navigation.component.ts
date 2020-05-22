@@ -29,7 +29,6 @@ export class NavigationComponent implements OnInit {
     return this.userService.getUser(id).subscribe(
       res => {
         this.user = res[0];
-        console.log(this.user);
       },
       err => console.log(err)
     );

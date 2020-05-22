@@ -14,7 +14,6 @@ export class BasketComponent implements OnInit {
 
   ngOnInit(): void {
     this.listaCesta = JSON.parse(localStorage.getItem('productsBasketList'));
-    console.log(JSON.parse(localStorage.getItem('productsBasketList')));
   }
 
   calcularTotal(){

@@ -16,7 +16,6 @@ export class ShoppingBasketComponent implements OnInit {
 
 
   calcularCantidad(i){
-    console.log(this.basketElements[i])
     return this.basketElements[i].buyKilos * this.basketElements[i].price;
   }
 
@@ -29,7 +28,6 @@ export class ShoppingBasketComponent implements OnInit {
   }
 
   borrarProductoCesta(i){
-    console.log(this.basketElements[i]);
     this.basketElements.splice(i,1);
   }
 }

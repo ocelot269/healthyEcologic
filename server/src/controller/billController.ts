@@ -27,7 +27,16 @@ class BillController {
 
    public async create(req: Request, res: Response): Promise<void> {
     await db.query("INSERT INTO orders set ?", [req.body]);
-    res.json({ mensaje: "factura creada"});
+    await db.query("SELECT MAX(id_order) AS id FROM orders",
+        function (err, result, fields) {
+            if (err) throw err;
+            if (result) {
+            res.json(result);
+            } else {
+            res.status(404).json({ text: "obteniendo factura" });
+            }
+        }
+    );
   }
 
   public async delete(req: Request, res: Response): Promise<void> {

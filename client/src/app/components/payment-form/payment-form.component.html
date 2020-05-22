@@ -28,23 +28,23 @@
         <div class="front">
           <h2>Tarjeta de crédito<img src="../../../assets/imagenes/card.png" style="width: 100px; margin-left: 80px;"> </h2>
           <div class="numbers">
-            <input type="text" formControlName="digitosParte1" placeholder="1234" class="numbers-1" maxlength="4" required>
-            <input type="text" formControlName="digitosParte2" placeholder="1234" class="numbers-2" maxlength="4" required>
-            <input type="text" formControlName="digitosParte3" placeholder="1234" class="numbers-3" maxlength="4" required>
-            <input type="text" formControlName="digitosParte4" placeholder="1234" class="numbers-4" maxlength="4" required>
+            <input type="text" formControlName="digitsPart1" placeholder="1234" class="numbers-1" maxlength="4" minlength="4" required>
+            <input type="text" formControlName="digitsPart2" placeholder="1234" class="numbers-2" maxlength="4" minlength="4" required>
+            <input type="text" formControlName="digitsPart3" placeholder="1234" class="numbers-3" maxlength="4" minlength="4" required>
+            <input type="text" formControlName="digitsPart4" placeholder="1234" class="numbers-4" maxlength="4" minlength="4" required>
           </div>
-          <input type="text" class="name" formControlName="nombre" placeholder="Nombre titular" required>
+          <input type="text" class="name" formControlName="name" placeholder="Nombre titular" required>
           <div class="expiration">
             <h2>Caducidad</h2>
-            <input type="text" class="month" formControlName="month" placeholder="Mes" required>
-            <input type="text" class="year"  formControlName="year" placeholder="Año" required>
+            <input type="text" class="month" formControlName="month" placeholder="Mes" minlength="2" maxlength="2" required>
+            <input type="text" class="year"  formControlName="year" placeholder="Año" maxlength="2" minlength="2" required>
           </div>
         </div>
         <div class="back">
           <div class="strip"></div>
           <div class="signature">
             <div class="ccv">
-              <input type="text" class="cvv" formControlName="cvv" placeholder="CVV / Codigo de seguridad" required>
+              <input type="text" class="cvv" formControlName="cvv" minlength="3" maxlength="3" placeholder="CVV / Codigo de seguridad" required>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
 
   </div>
   <div class="ui-g-12" style="display: flex;justify-content: center;height: 70px;">
-    <button class="material-button" type="button" style="width: 20%;" [disabled]="!formularioTargeta.valid" routerLink="/">
+    <button class="material-button" type="button" style="width: 20%;" (click)="validarForm(this.formularioTargeta.value)" >
       <img src="../../../assets/imagenes/target.png">
       Pagar</button>
   </div>
@@ -76,3 +76,4 @@
 </main>
 
 
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

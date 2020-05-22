@@ -30,7 +30,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
-
+import { BillService } from './services/bill.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
   ],
   providers: [
     ProductsService,
-    LoginService
+    LoginService,
+    BillService
   ],
   bootstrap: [AppComponent]
 })
