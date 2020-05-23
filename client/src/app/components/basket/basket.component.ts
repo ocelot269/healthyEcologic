@@ -18,10 +18,13 @@ export class BasketComponent implements OnInit {
 
   calcularTotal(){
     let totalCesta = 0;
-    this.listaCesta.forEach(element => {
+    if ( this.listaCesta) {
+      this.listaCesta.forEach(element => {
       totalCesta+= element.buyKilos * element.price;
     });
     return totalCesta;
+    }
+
   }
 
 

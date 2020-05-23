@@ -1,6 +1,6 @@
 <div>
   <div class="ui-g-9"><h2>Productos cesta</h2></div>
-  <div class="ui-g-3" *ngIf="basketElements.length !== 0" style="display: flex; justify-content: center;align-items: center; padding-top: 15px; padding-bottom: 15px;"><p-button label="Ir cesta"></p-button></div>
+  <div class="ui-g-3" *ngIf="basketElements.length !== 0" style="display: flex; justify-content: center;align-items: center; padding-top: 15px; padding-bottom: 15px;"><p-button *ngIf="this.irCesta" label="Ir cesta" [routerLink]="['/cesta']" routerLinkActive="router-link-active" ></p-button></div>
 
   <div *ngIf="basketElements.length !== 0;else vacio">
     <div class="ui-g-12">
@@ -36,9 +36,8 @@
   </div>
   </div>
 
-
     <ng-template #vacio>
-      <div class="ui-g-12 opacity">
+      <div class="ui-g-12">
         <p-card header="Sin productos" [style]="{width: '460px'}"></p-card>
       </div>
     </ng-template>

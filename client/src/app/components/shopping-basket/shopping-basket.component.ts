@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShoppingBasketComponent implements OnInit {
   @Input() basketElements: any = [];
-
+  @Input() irCesta: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -29,5 +29,7 @@ export class ShoppingBasketComponent implements OnInit {
 
   borrarProductoCesta(i){
     this.basketElements.splice(i,1);
+    localStorage.removeItem("productsBasketList");
+    localStorage.setItem('productsBasketList', JSON.stringify(this.basketElements));
   }
 }

@@ -31,6 +31,8 @@ import { ShoppingBasketComponent } from './components/shopping-basket/shopping-b
 import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { BillService } from './services/bill.service';
+import { HomeComponent } from './components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { BillService } from './services/bill.service';
     ShoppingBasketComponent,
     BasketComponent,
     PaymentFormComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,

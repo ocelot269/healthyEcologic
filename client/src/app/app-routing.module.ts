@@ -8,12 +8,13 @@ import { HealthyLoginComponent } from "./components/healthy-login/healthy-login.
 import { ProductsComponent } from './components/products/products.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component:NavigationComponent,
+    component: HomeComponent,
   },
   {
     path:'proveedor/stock',

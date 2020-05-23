@@ -35,10 +35,13 @@
         </li>
         </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 collapse navbar-collapse" *ngIf="this.isLogged()">
-          <li class="nav-item">
-            <a class="navbar-brand" routerLink="/" routerLinkActive="active" >
-              <img src="../../../assets/imagenes/profile.png" width="30" height="30" alt="perfil">
-              Perfil</a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="../../../assets/imagenes/profile.png" width="30" height="30" alt="Ajustes">Ajustes</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/cliente/registro" routerLinkActive="active">Mi perfil</a>
+                <a class="dropdown-item" routerLink="/proveedor/registro" routerLinkActive="active">Historial de compras</a>
+              </div>
           </li>
           <li class="nav-item">
             <a class="navbar-brand" routerLink="/cesta" routerLinkActive="active" >
