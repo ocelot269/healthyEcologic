@@ -1,9 +1,10 @@
 <div class="row">
-  <div class="ui-g-12">
+  <div class="ui-g-2"></div>
+  <div class="ui-g-10">
     <div class="ui-g-7">
       <app-card-product [products]="this.products" (onRequestBuy)="obtenerProductosCarrito($event)"></app-card-product>
     </div>
-    <div class="ui-g-5">
+    <div class="ui-g-4">
     <app-shopping-basket [basketElements]="this.elementosCarro"></app-shopping-basket>
     </div>
     <p-toast styleClass="custom-toast" position="bottom-center" [showTransformOptions]="'translateX(-100%)'"></p-toast>
