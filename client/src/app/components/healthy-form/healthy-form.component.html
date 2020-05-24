@@ -73,16 +73,16 @@
 
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2">
-                    Descripcion:
+                    Descripción:
                 </div>
                 <div class="ui-grid-col-6">
-                    <textarea  [rows]="5" [cols]="30" pInputTextarea autoResize="true" style="width: 100%;" type="text" formControlName="user_description" placeholder="Descripcion personal"></textarea>
+                    <textarea  [rows]="5" [cols]="30" pInputTextarea autoResize="true" style="width: 100%;" type="text" formControlName="user_description" placeholder="Descripción personal"></textarea>
                 </div>
                 <div class="ui-grid-col-4"></div>
             </div>
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2">
-                    Genero *:
+                    Género *:
                 </div>
                 <div class="ui-grid-col-6">
                     <p-dropdown [options]="genero" formControlName="user_gender"></p-dropdown>
@@ -94,7 +94,7 @@
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2"></div>
                 <div class="ui-grid-col-6">
-                    <button pButton type="submit" label="button" [disabled]="!formUsuario.valid" (click)="registrarUsuario(formUsuario.value)" routerLink="/"></button>
+                    <button pButton type="submit" label="Enviar" [disabled]="!formUsuario.valid" (click)="registrarUsuario(formUsuario.value)" routerLink="/"></button>
                 </div>
                 <div class="ui-grid-col-4"></div>
             </div>

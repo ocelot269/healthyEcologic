@@ -1,6 +1,6 @@
 <div>
-  <div class="ui-g-9"><h2>Productos cesta</h2></div>
-  <div class="ui-g-3" *ngIf="basketElements.length !== 0" style="display: flex; justify-content: center;align-items: center; padding-top: 15px; padding-bottom: 15px;"><p-button *ngIf="this.irCesta" label="Ir cesta" [routerLink]="['/cesta']" routerLinkActive="router-link-active" ></p-button></div>
+  <div class="ui-g-8"><h2>Cesta</h2></div>
+  <div class="ui-g-4" *ngIf="basketElements.length !== 0" style="display: flex; justify-content: center;align-items: center; padding-top: 15px; padding-bottom: 15px;"><p-button *ngIf="this.irCesta" label="Ir cesta" [routerLink]="['/cesta']" routerLinkActive="router-link-active" ></p-button></div>
 
   <div *ngIf="basketElements.length !== 0;else vacio">
     <div class="ui-g-12">

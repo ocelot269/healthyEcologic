@@ -43,7 +43,7 @@ export class HealthyFormComponent implements OnInit {
         });
 
         this.genero = [
-          {label:'Selecciona genero', value:''},
+          {label:'Selecciona género', value:''},
           {label:'Hombre', value:'Hombre'},
           {label:'Mujer', value:'Mujer'}
         ];

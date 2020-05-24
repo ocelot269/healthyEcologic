@@ -16,7 +16,9 @@ export class ShoppingBasketComponent implements OnInit {
 
 
   calcularCantidad(i){
+    //  this.actualizarProducto(i);
     return this.basketElements[i].buyKilos * this.basketElements[i].price;
+
   }
 
   calcularTotalCesta(){
@@ -32,4 +34,15 @@ export class ShoppingBasketComponent implements OnInit {
     localStorage.removeItem("productsBasketList");
     localStorage.setItem('productsBasketList', JSON.stringify(this.basketElements));
   }
+
+  // actualizarProducto(i){
+  //   let id = this.basketElements[i].id_product;
+  //   console.log();
+  //   if ( this.basketElements.includes(id)) {
+  //     console.log("incluido");
+  //   } else {
+  //     console.log("no ncluido");
+  //   }
+
+  // }
 }

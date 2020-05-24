@@ -32,6 +32,7 @@ import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { BillService } from './services/bill.service';
 import { HomeComponent } from './components/home/home.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { HomeComponent } from './components/home/home.component';
     BasketComponent,
     PaymentFormComponent,
     HomeComponent,
+    PerfilComponent,
 
   ],
   imports: [
@@ -73,7 +75,8 @@ import { HomeComponent } from './components/home/home.component';
   providers: [
     ProductsService,
     LoginService,
-    BillService
+    BillService,
+    NavigationComponent
   ],
   bootstrap: [AppComponent]
 })

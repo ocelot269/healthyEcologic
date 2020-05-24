@@ -9,7 +9,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -43,6 +43,10 @@ const routes: Routes = [
   {
     path:'pago',
     component:PaymentFormComponent
+  },
+  {
+    path:'perfil',
+    component:PerfilComponent
   },
 
 ];
