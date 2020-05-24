@@ -33,7 +33,7 @@ export class NavigationComponent implements OnInit {
 
   getNameUser(){
     if (localStorage.getItem('user_name')) {
-      return localStorage.getItem('user_name')
+      return localStorage.getItem('user_name');
     }
   }
 
