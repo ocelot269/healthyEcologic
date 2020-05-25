@@ -32,15 +32,30 @@ export class ProductsComponent implements OnInit {
     }
 
     obtenerProductosCarrito(event){
+      let encontrado = false;
      if (event.buyKilos < event.kilos || event.buyKilos) {
        if (event.buyKilos > 0 ||  event.buyKilos) {
+        this.elementosCarro.forEach((element,index) => {
+          let totalKilos = event.buyKilos + element.buyKilos;
+          if (event.id_product == element.id_product &&  totalKilos < event.kilos ) {
+            this.elementosCarro[index].buyKilos = totalKilos;
+            encontrado = true;
+          }else if (event.id_product == element.id_product &&  totalKilos >= event.kilos ){
+            this.elementosCarro[index] = event;
+            encontrado = true;
+          }
+        });
+        if(!encontrado){
           this.elementosCarro.push(event);
           this.loginService.setProductsBasket(this.elementosCarro);
+        }
+
        }else {
          this.messageService.add({severity:'error', summary: 'No añadida cantidad', detail: event.buyKilos + ' unidades añadidas'});
        }
-     }
-     else { this.messageService.add({severity:'error', summary: 'Sin stock', detail:'sobrepasaste el limite con ' + event.buyKilos}); }
+     }else {
+       this.messageService.add({severity:'error', summary: 'Error con los kilos', detail:'Kilos no validos'});
+      }
     }
 
 }

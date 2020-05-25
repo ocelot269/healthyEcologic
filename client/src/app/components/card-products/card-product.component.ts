@@ -10,7 +10,8 @@ import {UserService} from "../../services/user.service";
 })
 export class CardProductComponent implements OnInit {
   @Input() products: any = [];
-  user=null;
+  @Input() stock:boolean = false;
+  user  = null;
   @Output() onRequestBuy = new EventEmitter<any>();
 
   constructor(private productsServices: ProductsService,
@@ -30,13 +31,14 @@ export class CardProductComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.userService.getUser(this.loginService.getIdUser()).subscribe(
+    if (this.loginService.getIdUser()) {
+          this.userService.getUser(this.loginService.getIdUser()).subscribe(
       res => {
         this.user = res;
       },
       err => console.log(err)
     );
-
+    }
   }
 
   guardarActulizarProducto(producto, index:number){

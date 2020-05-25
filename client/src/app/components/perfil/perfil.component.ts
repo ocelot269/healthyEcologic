@@ -25,11 +25,11 @@ export class PerfilComponent implements OnInit {
         this.perfilUser = res[0];
         console.log(res[0]);
             this.userPerfilForm = this.fb.group({
-        'user_name': new FormControl({value: this.perfilUser.user_name , disabled: this.disabled}, Validators.required),
-        'user_surnames': new FormControl({value:  this.perfilUser.user_surnames , disabled: this.disabled}, Validators.required),
-        'user_email': new FormControl({value:  this.perfilUser.user_email , disabled: this.disabled}, Validators.compose([Validators.required, Validators.minLength(6)])),
-        'user_gender': new FormControl({value: this.perfilUser.user_gender , disabled: this.disabled}, Validators.required),
-        'user_description': new FormControl({value: this.perfilUser.user_description , disabled: this.disabled} , Validators.required)
+        'user_name': new FormControl({value: this.perfilUser.user_name , disabled: this.disabled}),
+        'user_surnames': new FormControl({value:  this.perfilUser.user_surnames , disabled: this.disabled}),
+        'user_email': new FormControl({value:  this.perfilUser.user_email , disabled: this.disabled}, Validators.compose([Validators.minLength(6)])),
+        'user_gender': new FormControl({value: this.perfilUser.user_gender , disabled: this.disabled}),
+        'user_description': new FormControl({value: this.perfilUser.user_description , disabled: this.disabled})
     });
       },
       err => console.log(err)
@@ -43,7 +43,17 @@ export class PerfilComponent implements OnInit {
     }else {
       this.userPerfilForm.enable();
     }
-
   }
 
+  actualizarPerfil(dates){
+    console.log(dates);
+     this.userService.updateUser('2',dates).subscribe(
+      res => {
+        this.messageService.add({severity:'success', summary: 'Actualizado correctamente', detail:'Actualizado correctamente'});
+      },
+      err => {
+        this.messageService.add({severity:'error', summary: 'Error al actualizar', detail:'Validacion no valida'});
+      }
+    );
+  }
 }

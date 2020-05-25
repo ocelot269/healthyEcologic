@@ -12,6 +12,9 @@ export class ShoppingBasketComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('productsBasketList')) {
+      this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
+    }
   }
 
 

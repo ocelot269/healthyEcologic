@@ -8,8 +8,8 @@
     </p-header>
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
-                    Nombre *:
+                <div class="ui-grid-col-2 colorInput">
+                    Nombre * :
                 </div>
                 <div class="ui-grid-col-6">
                     <input pInputText type="text" formControlName="user_name" placeholder="Obligatorio"/>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
+                <div class="ui-grid-col-2 colorInput">
                     Apellidos *:
                 </div>
                 <div class="ui-grid-col-6">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="ui-grid-row">
-              <div class="ui-grid-col-2">
+              <div class="ui-grid-col-2 colorInput">
                   Email *:
               </div>
               <div class="ui-grid-col-6">
@@ -46,7 +46,7 @@
 
 
             <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
+                <div class="ui-grid-col-2 colorInput">
                     Contraseña *:
                 </div>
                 <div class="ui-grid-col-6">
@@ -59,7 +59,7 @@
             </div>
 
             <div class="ui-grid-row ui-grid ">
-              <div class="ui-grid-col-2">
+              <div class="ui-grid-col-2 colorInput">
                   Repite Contraseña *:
               </div>
               <div class="ui-grid-col-6">
@@ -72,7 +72,7 @@
           </div>
 
             <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
+                <div class="ui-grid-col-2 colorInput">
                     Descripción:
                 </div>
                 <div class="ui-grid-col-6">
@@ -81,7 +81,7 @@
                 <div class="ui-grid-col-4"></div>
             </div>
             <div class="ui-grid-row">
-                <div class="ui-grid-col-2">
+                <div class="ui-grid-col-2 colorInput">
                     Género *:
                 </div>
                 <div class="ui-grid-col-6">
@@ -94,7 +94,7 @@
             <div class="ui-grid-row">
                 <div class="ui-grid-col-2"></div>
                 <div class="ui-grid-col-6">
-                    <button pButton type="submit" label="Enviar" [disabled]="!formUsuario.valid" (click)="registrarUsuario(formUsuario.value)" routerLink="/"></button>
+                    <button pButton type="submit" label="Enviar" [disabled]="!formUsuario.valid" (click)="registrarUsuario(formUsuario.value)"  style="background-color: #0088A9;border-color: blanchedalmond;" routerLink="/"></button>
                 </div>
                 <div class="ui-grid-col-4"></div>
             </div>
