@@ -73,6 +73,8 @@ class UsersController {
                     user_email: req.body.user_email,
                     user_description: req.body.user_description,
                     user_gender: req.body.user_gender,
+                    phone: req.body.phone,
+                    direction: req.body.direction,
                     password: hash
                 };
                 database_1.default.query("INSERT INTO users set ?", newUser);

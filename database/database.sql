@@ -22,7 +22,9 @@ CREATE TABLE users(
     user_email VARCHAR(70) NOT NULL,
     user_description VARCHAR(255) NOT NULL,
     user_gender VARCHAR(6)NOT NULL,
-    password VARCHAR(255)NOT NULL
+    password VARCHAR(255)NOT NULL,
+    phone INT(9),
+    direction VARCHAR(244)
 );
 
 CREATE TABLE orders(

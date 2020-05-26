@@ -29,7 +29,9 @@ export class PerfilComponent implements OnInit {
         'user_surnames': new FormControl({value:  this.perfilUser.user_surnames , disabled: this.disabled}),
         'user_email': new FormControl({value:  this.perfilUser.user_email , disabled: this.disabled}, Validators.compose([Validators.minLength(6)])),
         'user_gender': new FormControl({value: this.perfilUser.user_gender , disabled: this.disabled}),
-        'user_description': new FormControl({value: this.perfilUser.user_description , disabled: this.disabled})
+        'user_description': new FormControl({value: this.perfilUser.user_description , disabled: this.disabled}),
+        'phone': new FormControl({value: this.perfilUser.phone , disabled: this.disabled}, Validators.required),
+        'direction': new FormControl({value: this.perfilUser.direction , disabled: this.disabled}, Validators.required),
     });
       },
       err => console.log(err)

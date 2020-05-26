@@ -48,7 +48,7 @@
                   Telefono *:
               </div>
               <div class="ui-grid-col-6">
-                  <input pInputText type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/>
+                  <input pInputText type="tel" id="phone" name="phone" formControlName="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/>
               </div>
               <div class="ui-grid-col-4">
                   <p-message severity="error" text="El email es Obligatorio" *ngIf="!userPerfilForm.controls['user_email'].valid&&userPerfilForm.controls['user_email'].dirty"></p-message>
@@ -60,14 +60,14 @@
                     Dirección *:
                 </div>
                 <div class="ui-grid-col-6">
-                    <input pInputText type="text"/>
+                    <input pInputText type="text" formControlName="direction" />
                 </div>
                 <div class="ui-grid-col-4">
                     <p-message severity="error" text="nombre no cargado" *ngIf="!userPerfilForm.controls['user_name'].valid&&userPerfilForm.controls['user_name'].dirty"></p-message>
               </div>
             </div>
           </div>
-            <div class="ui-grid-row">
+            <!-- <div class="ui-grid-row">
               <div class="ui-grid-col-2 colorInput">
                   Dni *:
               </div>
@@ -77,8 +77,7 @@
               <div class="ui-grid-col-4">
                   <p-message severity="error" text="El email es Obligatorio" *ngIf="!userPerfilForm.controls['user_email'].valid&&userPerfilForm.controls['user_email'].dirty"></p-message>
               </div>
-            </div>
-
+            </div> -->
               <div class="ui-grid-row">
                   <div class="ui-grid-col-2 colorInput">
                       Descripción:
