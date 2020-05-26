@@ -1,0 +1,42 @@
+<div class="ui-g-2"></div>
+<div class="ui-g-4">
+  <div class="ui-g-12 centrado">
+    <img
+      alt="healthyEcologic"
+      [src]="this.product.image"
+      data-holder-rendered="true"
+    />
+  </div>
+</div>
+
+<div class="ui-g-4 centrado">
+  <div class="ui-g-12">
+    <div class="ui-g-12"></div>
+      <div class="ui-g-2"></div>
+      <div class="ui-g-10">
+        <div class="container">
+          <h1>{{ this.product.name_product }}</h1>
+          <span class="price">{{ this.product.price }}EUR</span>
+        </div>
+
+        <br>
+
+          <h4>Descripción del producto</h4>
+          <div class="container">
+          {{product.product_description}}
+          </div>
+          <div class="ui-g-12">
+            <button
+          style="margin-top: 6px;"
+          pButton
+          type="button"
+          label="Añadir a la cesta"
+          class="ui-button-info"></button>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+
+<div class="ui-g-2"></div>

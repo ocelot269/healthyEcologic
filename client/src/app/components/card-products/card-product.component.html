@@ -1,7 +1,7 @@
 <div class="ui-g-12 ui-md-6 ui-lg-4" *ngFor="let product of products;let i=index">
 <p-card styleClass="ui-card-shadow">
     <p-header>
-        <img src="Card" src="{{product.image}}">
+        <img src="Card" src="{{product.image}}" (click)="irDetalles(product.id_product)">
         <div class="title">
           <h4>{{product.name_product}}</h4>
         </div>

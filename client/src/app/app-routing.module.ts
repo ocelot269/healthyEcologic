@@ -11,6 +11,7 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
 import { HomeComponent } from './components/home/home.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
+import { DetailsProductComponent } from './components/details-product/details-product.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path:'historial',
     component:ShoppingHistoryComponent
+  },
+  {
+    path:'detalles/:id',
+    component:DetailsProductComponent
   },
 
 ];

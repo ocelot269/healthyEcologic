@@ -1,0 +1,25 @@
+.centrado {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.centrado > img {
+  margin-top: 15px;
+  width: 100%;
+  min-height: 100px;
+  height: 400px;
+  border-radius: 50px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.price {
+  color: red;
+  font-size:xx-large;
+}

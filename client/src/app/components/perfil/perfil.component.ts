@@ -24,7 +24,7 @@ export class PerfilComponent implements OnInit {
       res => {
         this.perfilUser = res[0];
         console.log(res[0]);
-            this.userPerfilForm = this.fb.group({
+        this.userPerfilForm = this.fb.group({
         'user_name': new FormControl({value: this.perfilUser.user_name , disabled: this.disabled}),
         'user_surnames': new FormControl({value:  this.perfilUser.user_surnames , disabled: this.disabled}),
         'user_email': new FormControl({value:  this.perfilUser.user_email , disabled: this.disabled}, Validators.compose([Validators.minLength(6)])),
@@ -49,7 +49,7 @@ export class PerfilComponent implements OnInit {
 
   actualizarPerfil(dates){
     console.log(dates);
-     this.userService.updateUser('2',dates).subscribe(
+     this.userService.updateUser(this.perfilUser.id_user , dates).subscribe(
       res => {
         this.messageService.add({severity:'success', summary: 'Actualizado correctamente', detail:'Actualizado correctamente'});
       },

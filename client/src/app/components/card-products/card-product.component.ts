@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {ProductsService} from "../../services/products.service";
 import {LoginService} from "../../services/login.service";
 import {UserService} from "../../services/user.service";
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-card-product',
@@ -16,7 +17,9 @@ export class CardProductComponent implements OnInit {
 
   constructor(private productsServices: ProductsService,
               private loginService: LoginService,
-              private userService:UserService,) { }
+              private userService:UserService,
+              private router: Router
+              ) { }
 
    producto: any = {
     id_provider:'',
@@ -116,6 +119,10 @@ export class CardProductComponent implements OnInit {
       buyUnits: product.buyUnits,
     };
     this.onRequestBuy.emit(productoNuevo);
+  }
+
+  irDetalles(id){
+     this.router.navigate(['/detalles/'+id]);
   }
 
 }

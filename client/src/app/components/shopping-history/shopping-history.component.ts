@@ -8,7 +8,7 @@ import { BillService } from "../../services/bill.service";
 })
 export class ShoppingHistoryComponent implements OnInit {
   userId = null;
-  listShopping: any = [];
+  listShopping: any = null;
   constructor(
       private billService: BillService,
   ) { }
@@ -19,9 +19,11 @@ export class ShoppingHistoryComponent implements OnInit {
        this.billService.getHistoyShoppingByIdUser(this.userId).subscribe(
         res => {
           this.listShopping = res;
-        console.log(res);
-        err => console.log(err);
-    });
+          console.log(res);
+        },
+        err =>{
+          console.log(err);
+        });
     }
 
   }

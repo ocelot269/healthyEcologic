@@ -34,6 +34,7 @@ import { BillService } from './services/bill.service';
 import { HomeComponent } from './components/home/home.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
+import { DetailsProductComponent } from './components/details-product/details-product.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ShoppingHistoryComponent } from './components/shopping-history/shopping
     HomeComponent,
     PerfilComponent,
     ShoppingHistoryComponent,
+    DetailsProductComponent,
 
   ],
   imports: [
