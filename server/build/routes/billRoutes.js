@@ -13,7 +13,8 @@ class BillRoutes {
     config() {
         this.router.get('/:id', billController_1.default.getBillById),
             this.router.post('/', billController_1.default.create),
-            this.router.delete('/:id', billController_1.default.delete);
+            this.router.delete('/:id', billController_1.default.delete),
+            this.router.get('/history/:id', billController_1.default.getHistoyShoppingByIdUser);
     }
 }
 const billRoutes = new BillRoutes();

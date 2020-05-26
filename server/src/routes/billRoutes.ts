@@ -11,7 +11,8 @@ class BillRoutes {
     config(): void {
          this.router.get('/:id', billController.getBillById),
          this.router.post('/', billController.create),
-         this.router.delete('/:id', billController.delete)
+         this.router.delete('/:id', billController.delete),
+         this.router.get('/history/:id', billController.getHistoyShoppingByIdUser)
     }   
     
 }

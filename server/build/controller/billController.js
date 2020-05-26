@@ -55,6 +55,24 @@ class BillController {
             res.json({ mensaje: "Eliminando la factura con id " + req.params.id });
         });
     }
+    getHistoyShoppingByIdUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            console.log(id);
+            const listProducts = yield database_1.default.query("select o.id_order, u.user_name, u.user_surnames, o.price , o.created_at from users as u INNER JOIN orders as o " +
+                " ON u.id_user = o.id_user " +
+                " where u.id_user = " + [id] + " order by created_at desc", function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    res.json(result);
+                }
+                else {
+                    res.status(404).json({ text: "error al obtener ultimas compras" });
+                }
+            });
+        });
+    }
 }
 const billController = new BillController();
 exports.default = billController;

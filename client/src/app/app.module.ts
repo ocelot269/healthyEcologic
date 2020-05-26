@@ -33,7 +33,7 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
 import { BillService } from './services/bill.service';
 import { HomeComponent } from './components/home/home.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
-
+import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +50,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     PaymentFormComponent,
     HomeComponent,
     PerfilComponent,
+    ShoppingHistoryComponent,
 
   ],
   imports: [

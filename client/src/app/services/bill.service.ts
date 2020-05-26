@@ -25,6 +25,10 @@ export class BillService {
       return this.http.get(`${this.API_URL}/bill/${id}`);
   }
 
+  getHistoyShoppingByIdUser(id){
+      return this.http.get(`${this.API_URL}/bill/history/${id}`);
+  }
+
 
 
 }

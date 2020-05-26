@@ -42,6 +42,24 @@ class BillController {
     res.json({ mensaje: "Eliminando la factura con id " + req.params.id });
   }
 
+  public async getHistoyShoppingByIdUser(req: Request, res: Response): Promise<any> {
+    const { id } = req.params;
+    console.log(id);
+    const listProducts = await db.query(
+        "select o.id_order, u.user_name, u.user_surnames, o.price , o.created_at from users as u INNER JOIN orders as o " +
+        " ON u.id_user = o.id_user " +
+        " where u.id_user = "+ [id]  + " order by created_at desc",
+        function (err, result, fields) {
+            if (err) throw err;
+            if (result.length > 0) {
+              res.json(result);
+            } else {
+            res.status(404).json({ text: "error al obtener ultimas compras" });
+            }
+        }
+    );
+  }
+
 
 }
 
