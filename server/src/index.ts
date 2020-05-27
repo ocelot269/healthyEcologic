@@ -7,6 +7,7 @@ import vegetablesRoutes from './routes/vegetablesRoutes'
 import usersRoutes from './routes/usersRoutes'
 import billRoutes from './routes/billRoutes'
 import billDetailsRoutes from './routes/billDetailsRoutes'
+import commentRoutes from './routes/commentRoutes';
 
 class Server{
 
@@ -32,6 +33,7 @@ class Server{
         this.app.use('/api/users', usersRoutes);
         this.app.use('/api/bill', billRoutes);
         this.app.use('/api/bill/details', billDetailsRoutes);
+        this.app.use('/api/comments', commentRoutes);
     }
 
     start(): void {
