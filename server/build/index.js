@@ -11,6 +11,7 @@ const vegetablesRoutes_1 = __importDefault(require("./routes/vegetablesRoutes"))
 const usersRoutes_1 = __importDefault(require("./routes/usersRoutes"));
 const billRoutes_1 = __importDefault(require("./routes/billRoutes"));
 const billDetailsRoutes_1 = __importDefault(require("./routes/billDetailsRoutes"));
+const commentRoutes_1 = __importDefault(require("./routes/commentRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -30,6 +31,7 @@ class Server {
         this.app.use('/api/users', usersRoutes_1.default);
         this.app.use('/api/bill', billRoutes_1.default);
         this.app.use('/api/bill/details', billDetailsRoutes_1.default);
+        this.app.use('/api/comments', commentRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {
