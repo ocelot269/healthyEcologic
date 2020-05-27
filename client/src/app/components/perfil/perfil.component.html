@@ -1,0 +1,121 @@
+<div class="ui-g-2"></div>
+<div class="ui-g-8" *ngIf=" this.userPerfilForm">
+  <div class="ui-g-9">
+    <form [formGroup]="userPerfilForm">
+      <p-panel id="panel">
+        <p-header>
+          <h3>Perfil usuario</h3>
+      </p-header>
+          <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2 colorInput">
+                  Nombre *:
+              </div>
+              <div class="ui-grid-col-6">
+                  <input pInputText type="text" formControlName="user_name"/>
+              </div>
+              <div class="ui-grid-col-4">
+                  <p-message severity="error" text="nombre no cargado" *ngIf="!userPerfilForm.controls['user_name'].valid&&userPerfilForm.controls['user_name'].dirty"></p-message>
+            </div>
+          </div>
+              <div class="ui-grid-row">
+                  <div class="ui-grid-col-2 colorInput">
+                      Apellidos *:
+                  </div>
+                  <div class="ui-grid-col-6">
+                      <input pInputText type="text" formControlName="user_surnames"/>
+                  </div>
+                  <div class="ui-grid-col-4">
+                      <p-message severity="error" text="apellido no cargado" *ngIf="!userPerfilForm.controls['user_surnames'].valid&&userPerfilForm.controls['user_surnames'].dirty"></p-message>
+                  </div>
+              </div>
+
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2 colorInput">
+                  Email *:
+              </div>
+              <div class="ui-grid-col-6">
+                  <input pInputText type="text" formControlName="user_email"/>
+              </div>
+              <div class="ui-grid-col-4">
+                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!userPerfilForm.controls['user_email'].valid&&userPerfilForm.controls['user_email'].dirty"></p-message>
+              </div>
+            </div>
+
+
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2 colorInput">
+                  Telefono *:
+              </div>
+              <div class="ui-grid-col-6">
+                  <input pInputText type="tel" id="phone" name="phone" formControlName="phone" placeholder="666888444" pattern="[0-9]{9}" required/>
+              </div>
+              <div class="ui-grid-col-4">
+                  <p-message severity="error" text="El telefono no respeta el patron" *ngIf="!userPerfilForm.controls['phone'].valid&&userPerfilForm.controls['phone'].dirty"></p-message>
+              </div>
+            </div>
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+              <div class="ui-grid-row">
+                <div class="ui-grid-col-2 colorInput">
+                    Dirección *:
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText type="text" formControlName="direction" />
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="dirección no cargada" *ngIf="!userPerfilForm.controls['direction'].valid&&userPerfilForm.controls['direction'].dirty"></p-message>
+              </div>
+            </div>
+          </div>
+            <!-- <div class="ui-grid-row">
+              <div class="ui-grid-col-2 colorInput">
+                  Dni *:
+              </div>
+              <div class="ui-grid-col-6">
+                  <input pInputText type="text" name="dni" placeholder="Introduzca su DNI" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" />
+              </div>
+              <div class="ui-grid-col-4">
+                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!userPerfilForm.controls['user_email'].valid&&userPerfilForm.controls['user_email'].dirty"></p-message>
+              </div>
+            </div> -->
+              <div class="ui-grid-row">
+                  <div class="ui-grid-col-2 colorInput">
+                      Descripción:
+                  </div>
+                  <div class="ui-grid-col-6">
+                      <textarea pInputTextarea type="text" formControlName="user_description"></textarea>
+                  </div>
+                  <div class="ui-grid-col-4"></div>
+              </div>
+              <div class="ui-grid-row">
+                  <div class="ui-grid-col-2 colorInput">
+                      Género *:
+                  </div>
+                  <div class="ui-grid-col-6">
+                    <input pInputText type="text" formControlName="user_gender" />
+                  </div>
+                  <div class="ui-grid-col-4">
+                      <p-message severity="error" text="género no cargado" *ngIf="!userPerfilForm.controls['user_gender'].valid&&userPerfilForm.controls['user_gender'].dirty"></p-message>
+                  </div>
+              </div>
+              <div class="ui-grid-row">
+                  <div class="ui-grid-col-6">
+                      <button pButton type="button" label="Enviar"  style="background-color: #20A900;border-color: blanchedalmond;" (click)="actualizarPerfil(userPerfilForm.value)" ></button>
+                  </div>
+                  <div class="ui-grid-col-6">
+                    <button pButton type="button" label="Editar" style="background-color: #0088A9;border-color: blanchedalmond;" (click)="editarPerfil()"></button>
+                    <!-- [disabled]="!userPerfilForm.valid" -->
+                  </div>
+              </div>
+
+          </div>
+      </p-panel>
+  </form>
+  </div>
+  <div class="ui-g-3" style="display: flex;justify-content: center;align-items: center;">
+    <img src="../../../assets/imagenes/healthyEcologic.png" alt="">
+  </div>
+</div>
+<div class="ui-g-2"></div>
+
+<p-toast [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'"></p-toast>

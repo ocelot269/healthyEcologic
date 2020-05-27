@@ -1,3 +1,18 @@
 input {
   width: 100%;
 }
+
+.prueba {
+  position: relative;
+  top: 100wh;
+}
+
+.colorInput {
+  color: #20A900;
+  font-weight: 800;
+}
+
+:host >>> .ui-panel .ui-panel-titlebar {
+  background-color: #00A96F !important;
+  color: white;
+  }

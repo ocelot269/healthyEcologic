@@ -20,3 +20,17 @@ rigth {
   display: flex;
   justify-content: flex-end;
 }
+
+
+:host ::ng-deep .title {
+  font-weight: bolder 800;
+  justify-content: center;
+  display: flex;
+  margin-top: 15px;
+}
+
+.datosCard {
+  color: #00A96F;
+  font-weight: bolder;
+  font-size: initial;
+}

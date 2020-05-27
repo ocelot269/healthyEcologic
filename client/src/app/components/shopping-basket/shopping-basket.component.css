@@ -1,3 +1,21 @@
 img {
   width: 100px;
 }
+
+.opacity {
+  opacity:0.6;
+}
+
+h2 {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  min-height: 70px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

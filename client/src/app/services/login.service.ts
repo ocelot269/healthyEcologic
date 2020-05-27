@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
-  private idUser:any;
+  private idUser:any = null;
   private logged:boolean = false;
   private productsBasket:any = [];
   constructor() { }

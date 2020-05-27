@@ -1,34 +1,42 @@
-<div class="ui-g-7">
+<div class="row">
+<div class="ui-g-2"></div>
+<div class="ui-g-5">
   <app-shopping-basket #basket [basketElements]="this.listaCesta"></app-shopping-basket>
 </div>
-<div class="ui-g-5">
+<div class="ui-g-3">
   <p-fieldset>
     <p-header>
       <img src="../../../assets/imagenes/healthyEcologic.png" alt="healthyEcologic">
       <span>Total cesta</span>
-
-
     </p-header>
-    <div class="ui-g-9">
+    <div class="ui-g-6">
       <h4>Productos</h4>
     </div>
-    <div class="ui-g-3">
+    <div class="ui-g-4">
+      <h4>Kilos</h4>
+    </div>
+    <div class="ui-g-2">
       <h4>PVP</h4>
     </div>
 
     <div id="bodyProductos" *ngFor="let item of listaCesta; let i=index">
-      <div class="ui-g-9" >
+      <div class="ui-g-6" >
         {{item.name_product}}
       </div>
-      <div class="ui-g-3">
+      <div class="ui-g-4">
+        {{item.buyKilos}}
+      </div>
+      <div class="ui-g-2">
         {{item.price}} €
       </div>
     </div>
 
     <div id="totalCesta">
      <h3>Total cesta: {{calcularTotal()}} €</h3>
-     <button class="button" style="border: none; min-height: 50px;font-size: x-large;margin-top: 10px;" [routerLink]="['/pago']" pButton type="button" label="Pagar"></button>
+     <button class="button" style="border: none; min-height: 50px;font-size: x-large;margin-top: 10px;" [disabled]="!this.calcularTotal()" [routerLink]="['/pago']" pButton type="button" label="Pagar"></button>
     </div>
   </p-fieldset>
 
+</div>
+<div class="ui-g-2"></div>
 </div>
