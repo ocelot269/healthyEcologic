@@ -8,16 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShoppingBasketComponent implements OnInit {
   @Input() basketElements: any = [];
-
+  @Input() irCesta: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('productsBasketList')) {
+      this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
+    }
   }
 
 
   calcularCantidad(i){
-    console.log(this.basketElements[i])
+    //  this.actualizarProducto(i);
     return this.basketElements[i].buyKilos * this.basketElements[i].price;
+
   }
 
   calcularTotalCesta(){
@@ -29,7 +33,19 @@ export class ShoppingBasketComponent implements OnInit {
   }
 
   borrarProductoCesta(i){
-    console.log(this.basketElements[i]);
     this.basketElements.splice(i,1);
+    localStorage.removeItem("productsBasketList");
+    localStorage.setItem('productsBasketList', JSON.stringify(this.basketElements));
   }
+
+  // actualizarProducto(i){
+  //   let id = this.basketElements[i].id_product;
+  //   console.log();
+  //   if ( this.basketElements.includes(id)) {
+  //     console.log("incluido");
+  //   } else {
+  //     console.log("no ncluido");
+  //   }
+
+  // }
 }

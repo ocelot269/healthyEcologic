@@ -13,16 +13,20 @@ export class BasketComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.listaCesta = JSON.parse(localStorage.getItem('productsBasketList'));
-    console.log(JSON.parse(localStorage.getItem('productsBasketList')));
+    if (localStorage.getItem('productsBasketList')) {
+      this.listaCesta = JSON.parse(localStorage.getItem('productsBasketList'));
+    }
   }
 
   calcularTotal(){
     let totalCesta = 0;
-    this.listaCesta.forEach(element => {
+    if ( this.listaCesta) {
+      this.listaCesta.forEach(element => {
       totalCesta+= element.buyKilos * element.price;
     });
     return totalCesta;
+    }
+
   }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {ProductsService} from "../../services/products.service";
 import {LoginService} from "../../services/login.service";
 import {UserService} from "../../services/user.service";
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-card-product',
@@ -10,12 +11,15 @@ import {UserService} from "../../services/user.service";
 })
 export class CardProductComponent implements OnInit {
   @Input() products: any = [];
-  user=null;
+  @Input() stock:boolean = false;
+  user  = null;
   @Output() onRequestBuy = new EventEmitter<any>();
 
   constructor(private productsServices: ProductsService,
               private loginService: LoginService,
-              private userService:UserService,) { }
+              private userService:UserService,
+              private router: Router
+              ) { }
 
    producto: any = {
     id_provider:'',
@@ -30,14 +34,14 @@ export class CardProductComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.userService.getUser(this.loginService.getIdUser()).subscribe(
+    if (this.loginService.getIdUser()) {
+          this.userService.getUser(this.loginService.getIdUser()).subscribe(
       res => {
         this.user = res;
-        console.log(this.user);
       },
       err => console.log(err)
     );
-
+    }
   }
 
   guardarActulizarProducto(producto, index:number){
@@ -80,7 +84,6 @@ export class CardProductComponent implements OnInit {
   borrarProducto(i){
       this.productsServices.deleteProduct(this.products[i].id_product).subscribe(
       res => {
-        console.log(i);
         this.products.splice(i,1);
       },
       err => console.log(err)
@@ -91,7 +94,6 @@ export class CardProductComponent implements OnInit {
     this.productsServices.addProduct(this.producto).subscribe(
       res => {
         this.products = res;
-        console.log(res)
       },
       err => console.log(err)
     );
@@ -106,6 +108,7 @@ export class CardProductComponent implements OnInit {
 
     let productoNuevo:any = {
       id_provider: product.id_provider,
+      id_product: product.id_product,
       name_product: product.name_product,
       product_description: product.product_description,
       units: product.units,
@@ -116,6 +119,10 @@ export class CardProductComponent implements OnInit {
       buyUnits: product.buyUnits,
     };
     this.onRequestBuy.emit(productoNuevo);
+  }
+
+  irDetalles(id){
+     this.router.navigate(['/detalles/'+id]);
   }
 
 }

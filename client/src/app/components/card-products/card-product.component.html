@@ -1,50 +1,53 @@
 <div class="ui-g-12 ui-md-6 ui-lg-4" *ngFor="let product of products;let i=index">
-<p-card header="{{product.name_product}}" styleClass="ui-card-shadow">
+<p-card styleClass="ui-card-shadow">
     <p-header>
-        <img src="Card" src="{{product.image}}">
+        <img src="Card" src="{{product.image}}" (click)="irDetalles(product.id_product)">
+        <div class="title">
+          <h4>{{product.name_product}}</h4>
+        </div>
     </p-header>
-    <div>{{product.product_description.substring(0,100)}}</div>
-    <div class="ui-g-12 ui-fluid">
-      <div class="ui-g-12">
-        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else client" class="ui-g-9">
-          El precio es: <input style="width: 90%;" id="input" type="number" size="99999" pInputText [(ngModel)]="this.product.price"> €
-        </div>
-        <div class="ui-g">
-          <ng-template #client> El precio es {{this.product.price}} €</ng-template>
-        </div>
-      </div>
-      <div class="ui-g-6">
-      <!-- <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else unidades" >
-            <span>Unidades:</span>
-            <input style="width: 80%;" id="input" type="number" size="99999"  pInputText [(ngModel)]="this.product.units">
-      </div>
-
-      <ng-template #unidades> Las unidades son {{this.product.units}}</ng-template>
-      <div *ngIf="this.user[0].user_type == 'Cliente'">
-        <span>Número unidades:</span>
-        <input style="width: 80%;" id="input" type="number" min="0" [max]="this.product.units" size="99999" pInputText [(ngModel)]="this.product.buyUnits">
-      </div> -->
-    </div>
-
-      <div class="ui-g-12">
-        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else kilos">
-        <span>kilos:</span>
-        <input style="width: 80%;" id="input" type="number" min="1" size="99999" pInputText [(ngModel)]="this.product.kilos">
-        </div>
-        <ng-template #kilos> Cantidad de kilos disponibles: {{this.product.kilos}}</ng-template>
-        <div *ngIf="this.user[0].user_type == 'Cliente'" class="ui-g-12">
-          <span>Número kilos:</span>
-          <input style="width: 30%;" id="input" type="number" size="99999" min="0" [max]="this.product.kilos" pInputText [(ngModel)]="this.product.buyKilos">
+    <!-- <div>{{product.product_description.substring(0,100)}}</div> -->
+      <div *ngIf="stock; else clientPrecio">
+        <div class="ui-g-12 ui-fluid" >
+          <div style="margin-top: 4px;"  class="ui-g-4 datosCard">
+            Precio:
+          </div>
+          <div class="ui-g-8 datosCard">
+            <input style="width: 70%;" id="input" type="number" size="99999" pInputText [(ngModel)]="this.product.price">
+            <span style="margin-top: 4px;">€</span>
+          </div>
         </div>
       </div>
-    </div>
-    <p-footer>
-        <div *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'; else button">
-          <button  style="margin-left: 5%;" pButton type="button" label="Actualizar" icon="pi pi-check"  (click)="guardarActulizarProducto(this.product,i)"></button>
-          <button *ngIf="this.user[0].user_type == 'provider' || this.user[0].user_type == 'admin'" style="margin-left: 13%;"  pButton type="button" label="Borrar" icon="pi pi-times" class="ui-button-danger" (click)="borrarProducto(i)"></button>
-        </div>
-        <ng-template #button><button  style="margin-left: 5%;" pButton type="button" label="Añadir a la cesta" (click)="this.agregarProductoCesta(this.product,i)"  icon="pi pi-check"></button>
+      <div class="ui-g">
+        <ng-template #clientPrecio>
+          <span class="datosCard">Precio:</span> {{this.product.price}}€
         </ng-template>
+      </div>
+
+    <div *ngIf="stock; else kilos" >
+      <div class="ui-g-12">
+        <div  class="ui-g-4 datosCard">
+          Kilos:
+        </div>
+        <div class="ui-g-8">
+          <input style="width: 70%;" id="input" type="number" min="1" size="99999" pInputText [(ngModel)]="this.product.kilos">
+        </div>
+      </div>
+    </div>
+    <div class="ui-g">
+      <ng-template #kilos>
+         <span class="datosCard">Cantidad de kilos:</span> {{this.product.kilos}} kg
+         <span class="datosCard">Añadir kilos:</span><input style="width: 30%;" id="input" type="number" min="1" size="99999" pInputText [(ngModel)]="this.product.buyKilos"> kg
+      </ng-template>
+
+    </div>
+
+    <p-footer>
+        <div *ngIf="stock ; else button">
+          <button pButton type="button" style="background: #0088a9;border-color: #0088a9; margin-right: 5px;" label="modificar" (click)="guardarActulizarProducto(this.product,i)"></button>
+          <button style="margin-left: 5px;"   pButton type="button" label="Borrar" class="ui-button-danger" (click)="borrarProducto(i)"></button>
+        </div>
+        <ng-template #button style="background: #0088a9;border-color: #0088a9; margin-left: 20px;" ><button  pButton type="button" label="Añadir a la cesta" (click)="this.agregarProductoCesta(this.product,i)"></button></ng-template>
       </p-footer>
   </p-card>
 </div>

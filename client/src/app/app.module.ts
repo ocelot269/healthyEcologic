@@ -30,7 +30,12 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShoppingBasketComponent } from './components/shopping-basket/shopping-basket.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
-
+import { BillService } from './services/bill.service';
+import { HomeComponent } from './components/home/home.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
+import { DetailsProductComponent } from './components/details-product/details-product.component';
+import { ComentsComponent } from './components/coments/coments.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,12 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
     ShoppingBasketComponent,
     BasketComponent,
     PaymentFormComponent,
+    HomeComponent,
+    PerfilComponent,
+    ShoppingHistoryComponent,
+    DetailsProductComponent,
+    ComentsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -68,7 +79,9 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
   ],
   providers: [
     ProductsService,
-    LoginService
+    LoginService,
+    BillService,
+    NavigationComponent
   ],
   bootstrap: [AppComponent]
 })

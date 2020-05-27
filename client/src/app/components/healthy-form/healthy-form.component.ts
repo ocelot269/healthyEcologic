@@ -3,7 +3,7 @@ import {Validators,FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {SelectItem} from 'primeng/api';
 import {MessageService} from 'primeng/api';
 import {UserService} from "../../services/user.service";
-import { Router,RouterStateSnapshot  } from '@angular/router';
+import { Router, RouterStateSnapshot  } from '@angular/router';
 
 
 @Component({
@@ -40,10 +40,13 @@ export class HealthyFormComponent implements OnInit {
             'user_gender': new FormControl('', Validators.required),
             'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(9)])),
             'repitePassword': new FormControl('', Validators.compose([Validators.required, Validators.minLength(9)])),
+            'phone': new FormControl('', Validators.required),
+            'direction': new FormControl('', Validators.required),
+
         });
 
         this.genero = [
-          {label:'Selecciona genero', value:''},
+          {label:'Selecciona género', value:''},
           {label:'Hombre', value:'Hombre'},
           {label:'Mujer', value:'Mujer'}
         ];

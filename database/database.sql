@@ -22,7 +22,9 @@ CREATE TABLE users(
     user_email VARCHAR(70) NOT NULL,
     user_description VARCHAR(255) NOT NULL,
     user_gender VARCHAR(6)NOT NULL,
-    password VARCHAR(255)NOT NULL
+    password VARCHAR(255)NOT NULL,
+    phone INT(9),
+    direction VARCHAR(244)
 );
 
 CREATE TABLE orders(
@@ -45,4 +47,14 @@ CREATE TABLE ordersDetails(
 	FOREIGN KEY (id_user) REFERENCES users(id_user),
 	FOREIGN KEY (id_product) REFERENCES products(id_product),
 	FOREIGN KEY (id_order) REFERENCES orders(id_order)
+);
+
+CREATE TABLE comments(
+	id_comment INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_product INT(11)NOT NULL,
+    id_user INT(11)NOT NULL,
+	comment VARCHAR(1000),
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (id_user) REFERENCES users(id_user),
+	FOREIGN KEY (id_product) REFERENCES products(id_product)
 );

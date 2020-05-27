@@ -9,8 +9,8 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/productos" routerLinkActive="active">Productos<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item" *ngIf="this.userType() == 'proveedor' || this.userType() == 'admin'">
-                <a class="nav-link" routerLink="/proveedor/stock" routerLinkActive="active">Stock</a>
+            <li class="nav-item" *ngIf="this.getUserType()" >
+                <a *ngIf="this.getUserType() == 'proveedor' || this.getUserType() == 'admin'"class="nav-link" routerLink="/proveedor/stock" routerLinkActive="active">Stock</a>
             </li>
         </ul>
         <div>
@@ -35,10 +35,13 @@
         </li>
         </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 collapse navbar-collapse" *ngIf="this.isLogged()">
-          <li class="nav-item">
-            <a class="navbar-brand" routerLink="/" routerLinkActive="active" >
-              <img src="../../../assets/imagenes/profile.png" width="30" height="30" alt="perfil">
-              Perfil</a>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <img src="../../../assets/imagenes/profile.png" width="30" height="30" alt="Ajustes">{{this.getNameUser()}}</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/perfil" routerLinkActive="active" >Mi perfil</a>
+                <a class="dropdown-item" routerLink="/historial" routerLinkActive="active" >Historial de compras</a>
+              </div>
           </li>
           <li class="nav-item">
             <a class="navbar-brand" routerLink="/cesta" routerLinkActive="active" >

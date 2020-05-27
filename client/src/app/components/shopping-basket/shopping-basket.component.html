@@ -1,13 +1,16 @@
 <div>
-  <h1>Cesta de la compra</h1>
+  <div class="ui-g-8"><h2>Cesta</h2></div>
+  <div class="ui-g-4" *ngIf="basketElements.length !== 0" style="display: flex; justify-content: center;align-items: center; padding-top: 15px; padding-bottom: 15px;"><p-button *ngIf="this.irCesta" label="Ir cesta" [routerLink]="['/cesta']" routerLinkActive="router-link-active" ></p-button></div>
+
   <div *ngIf="basketElements.length !== 0;else vacio">
+    <div class="ui-g-12">
     <p-card *ngFor="let element of basketElements; let i=index" [style]="{width: '100%'}">
       <p-header>
-        <div class="row col-12">
-          <div class="ui-g-3">
+        <div class="row col-12" >
+          <div class="ui-g-5">
             <img src="Card" [src]="element.image">
           </div>
-          <div class="ui-g-9">
+          <div class="ui-g-7" style="display: flex; justify-content: center;align-items: center;">
             <h4>{{element.name_product}}</h4>
           </div>
         </div>
@@ -24,17 +27,19 @@
         </div>
       </div>
       <p-footer>
-       Total producto es: {{this.calcularCantidad(i)}} €
+       Total producto: {{this.calcularCantidad(i)}} €
       </p-footer>
     </p-card>
     <div class="ui-g-12">
-      Total Cesta es: {{this.calcularTotalCesta()}} €
+      Total Cesta: {{this.calcularTotalCesta()}} €
     </div>
   </div>
-
+  </div>
 
     <ng-template #vacio>
-      <p-card header="Sin productos" [style]="{width: '460px'}"></p-card>
+      <div class="ui-g-12">
+        <p-card header="Sin productos" [style]="{width: '460px'}"></p-card>
+      </div>
     </ng-template>
 </div>
 
