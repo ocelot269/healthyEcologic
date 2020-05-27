@@ -35,6 +35,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
 import { DetailsProductComponent } from './components/details-product/details-product.component';
+import { ComentsComponent } from './components/coments/coments.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { DetailsProductComponent } from './components/details-product/details-pr
     PerfilComponent,
     ShoppingHistoryComponent,
     DetailsProductComponent,
+    ComentsComponent,
 
   ],
   imports: [
