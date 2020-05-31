@@ -1,4 +1,10 @@
-# HealthyEcologic
+<img src="../master/client/src/assets/imagenes/healthyEcologic.png">
+
+# HealthyEcologic 
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 #### 1. Motivación
 
@@ -49,23 +55,34 @@ caso (mejor que no se de).
 + Arquitectura de la aplicación y tecnologías utilizadas.
 
 	HealthyEcologic es una web de compra-venta de alimentos para versión escritorio que se desarrollará con el patrón de modelo-vista-controlador(MVC) y utilizará una metodología de desarrollo por Prototipos.
+	
+   **Vista** :
+	 **Angular**: Todo el front o vista estará diseñado con Angular framework de javascript la versión que utilizaré es 8.0.3.
+	 **PrimeNG**: Nos provee de componentes para el front o vista del proyecto y la versión que utilizaré es 8.0.0.
+	 
+   **Controlador** :
+	**Node** : Será nuestro backend y crearemos la API REST del proyecto y la versión de node es 12.4.0.
 
-	Este patrón, también conocido como patrón MVC, divide una aplicación interactiva en 3 partes:
+   **Modelo**: 
+	**Mysql**: Será la base de datos del proyecto y contendrá todos los datos y la versión que utilizaré es 10.4.11.
+	
+   **Control de versiones**:
+	**Git**: Lo usaremos como control de versión y la versión que utilizaremos es 2.19.1.
+	
++ Dependencias del proyecto
 
-	**modelo**: Es la representación de la información con la cual el sistema opera, por lo tanto gestiona todos los accesos a dicha información, tanto consultas como actualizaciones, implementando también los privilegios de acceso que se hayan descrito en las especificaciones de la aplicación . Envía a la 'vista' aquella parte de la información que en cada momento se le solicita para que sea mostrada (típicamente a un usuario). Las peticiones de acceso o manipulación de información llegan al 'modelo' a través del 'controlador'.
-
-	**vista** : Presenta el 'modelo' (información y lógica de negocio) en un formato adecuado para interactuar (usualmente la interfaz de usuario)
-
-	**controlador** :responde a eventos (usualmente acciones del usuario) e invoca peticiones al 'modelo' cuando se hace alguna solicitud sobre la información (por ejemplo, editar un documento o un registro en una base de datos). También puede enviar comandos a su 'vista' asociada si se solicita un cambio en la forma en que se presenta el 'modelo'
-
-En La Vista Utilizo Angular, Framework De Javascript Junto A Primeng Que Te Provee De Componentes Para Angular.
-
-En El Controlador Utilizaré Node.Js Que Es Javascript Orientado A Eventos AsíNcronos, Node.Js Está DiseñAdo Para Crear Aplicaciones Network Escalables , Y Es Not Blocking Permite Que Las Operaciones De Entrada  Siempre Tengan Salida,Funciona Perfecta Con La AsincroníA Ya Que Está Hecha Con Javascript Como Nuestro Front Y Compatibilidad Con La Base De Datos Que Utilizaremos En El Proyecto.
-
-En El Modelo Utilizaré Mysql Una Base De Datos Relacional La Cual Me Permitirá Hacer Las Tablas Y Sus Relaciones Al Ser Una Sql .
-
-<img src="../master/healthyecologic/client/src/assets/imagenes/healthyEcologic.png"> 
-
+   **Cors**: Te permite hacer middleware para conectar backend y el front facilitando los problemas que te puede dar los CORS y la versión que utilizaré 2.8.6.
+   **Express**: Te ofrece  un conjunto sólido de características para las aplicaciones web y móviles  y la versión que usaré es  4.17.6. 
+   **Mysql**: Este es un controlador node.js para mysql y la versión que utilizaré es 2.15.10.
+   **Promise-mysql**: Es la misma librería para conectar sql pero soporta promise gracias a bluebird y la versión que utilizaré es 4.1.3.
+   **Bcryptjs**: Sirve para securizar las contraseñas y la versión que utilizaré es 2.4.3.
+   **Morgan**:  Te permite ver el registro de peticiones HTTP y la versión que utilizaré es 1.9.0.
+   **Typescript**:  Es una librería que permite dar tipos a las variables javascript y utilizaré la versión 3.8.3.
+   **Nodemon**: Recarga el script automáticamente cuando hacemos cualquier en él 2.0.3.
+	
+	
+	
+	
 + Diagrama de componentes. [doc]
 + Opcional: Diagrama E/R de la base de datos (o el que proceda).
 
