@@ -8,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShoppingBasketComponent implements OnInit {
   @Input() basketElements: any = [];
-  @Input() irCesta: boolean = false;
+  @Input() goBasket: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,11 +22,11 @@ export class ShoppingBasketComponent implements OnInit {
   }
 
 
-  calcularCantidad(i){
+  calculateQuantity(i){
     return this.basketElements[i].buyKilos * this.basketElements[i].price;
   }
 
-  calcularTotalCesta(){
+  calculateAllCesta(){
     let total = 0;
     this.basketElements.forEach(element => {
       total+= element.buyKilos * element.price;
@@ -34,20 +35,10 @@ export class ShoppingBasketComponent implements OnInit {
     return total;
   }
 
-  borrarProductoCesta(i){
+  deleteProductBasket(i){
     this.basketElements.splice(i,1);
     localStorage.removeItem("productsBasketList");
     localStorage.setItem('productsBasketList', JSON.stringify(this.basketElements));
   }
 
-  // actualizarProducto(i){
-  //   let id = this.basketElements[i].id_product;
-  //   console.log();
-  //   if ( this.basketElements.includes(id)) {
-  //     console.log("incluido");
-  //   } else {
-  //     console.log("no ncluido");
-  //   }
-
-  // }
 }
