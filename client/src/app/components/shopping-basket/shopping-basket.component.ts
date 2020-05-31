@@ -12,16 +12,17 @@ export class ShoppingBasketComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('productsBasketList')) {
-      this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
+    console.log(this.basketElements);
+    if (this.basketElements.length == 0) {
+      if (localStorage.getItem('productsBasketList')) {
+        this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
+      }
     }
   }
 
 
   calcularCantidad(i){
-    //  this.actualizarProducto(i);
     return this.basketElements[i].buyKilos * this.basketElements[i].price;
-
   }
 
   calcularTotalCesta(){
@@ -29,6 +30,7 @@ export class ShoppingBasketComponent implements OnInit {
     this.basketElements.forEach(element => {
       total+= element.buyKilos * element.price;
     });
+    localStorage.setItem('productsBasketList', JSON.stringify(this.basketElements));
     return total;
   }
 

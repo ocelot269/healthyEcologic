@@ -10,11 +10,13 @@ export class ComentsComponent implements OnInit {
   @Input() idProduct = null;
   listComents = null;
   comment = null;
+  idUser= null;
   constructor(private commentService : CommentService) { }
 
   ngOnInit(): void {
     console.log(this.idProduct);
     this.listaComentarios();
+    this.idUser = localStorage.getItem('idUser');
   }
 
 
