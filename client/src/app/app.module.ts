@@ -9,6 +9,8 @@ import { CardProductComponent } from './components/card-products/card-product.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule} from 'primeng/card';
 import { ProductsService } from './services/products.service';
+import { CommentService } from './services/comment.service';
+
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
@@ -81,7 +83,8 @@ import { ComentsComponent } from './components/coments/coments.component';
     ProductsService,
     LoginService,
     BillService,
-    NavigationComponent
+    NavigationComponent,
+    CommentService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,9 @@
  * Detalle: #c7cacb
  * Fondo: #dee1e3
  ----------------------------------*/
+
+
+
  * {
   margin: 0;
   padding: 0;
@@ -50,6 +53,11 @@ body {
 .comments-list {
  margin-top: 30px;
  position: relative;
+}
+
+.derecha {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /**
