@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CardProductComponent} from "./components/card-products/card-product.component";
+import { CardProductComponent} from "./components/card-product/card-product.component";
 import { HealthyFormComponent } from "./components/healthy-form/healthy-form.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { StockComponent } from "./components/stock/stock.component";
@@ -9,7 +9,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { HomeComponent } from './components/home/home.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
 import { DetailsProductComponent } from './components/details-product/details-product.component';
 
@@ -48,7 +48,7 @@ const routes: Routes = [
   },
   {
     path:'perfil',
-    component:PerfilComponent
+    component:ProfileComponent
   },
   {
     path:'historial',
