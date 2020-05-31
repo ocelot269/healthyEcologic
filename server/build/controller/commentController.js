@@ -20,7 +20,7 @@ class CommentController {
             yield database_1.default.query("select u.user_name , c.comment, c.created_at " +
                 " from users as u INNER JOIN comments as c " +
                 " ON u.id_user = c.id_user " +
-                " where c.id_product = ?", [id], function (err, result, fields) {
+                " where c.id_product = " + [id] + " order by created_at desc", function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);

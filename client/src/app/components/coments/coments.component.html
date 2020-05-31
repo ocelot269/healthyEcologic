@@ -2,25 +2,23 @@
 <div class="comments-container">
   <h1>Comentarios</h1>
 
-  <textarea [rows]="5" [cols]="77" pInputTextarea placeholder="comentarios"></textarea>
-
-
-
+  <textarea *ngIf="this.idUser" [rows]="5" [cols]="77" pInputTextarea placeholder="comentarios"  [(ngModel)]="this.comment"></textarea>
+  <div class="derecha"  *ngIf="this.idUser"><p-button label="Enviar" (click)="crearComentario()"></p-button></div>
   <ul id="comments-list" class="comments-list">
-    <li>
+    <li *ngFor="let comment of listComents; let i=index">
       <div class="comment-main-level">
         <!-- Avatar -->
         <div class="comment-avatar"><img src="../../../assets/imagenes/persona.png" alt=""></div>
         <!-- Contenedor del Comentario -->
         <div class="comment-box">
           <div class="comment-head">
-            <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
-            <span>hace 20 minutos</span>
+            <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">{{comment.user_name}}</a></h6>
+            <span>Desde {{ comment.created_at | date: 'dd/MM/yyyy hh:mm a' }} </span>
             <i class="fa fa-reply"></i>
             <i class="fa fa-heart"></i>
           </div>
           <div class="comment-content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                {{comment.comment}}
           </div>
         </div>
       </div>

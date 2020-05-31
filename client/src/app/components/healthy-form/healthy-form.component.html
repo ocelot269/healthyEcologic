@@ -47,7 +47,7 @@
                   Telefono *:
               </div>
               <div class="ui-grid-col-6">
-                  <input pInputText type="tel" formControlName="phone" id="phone" placeholder="123-45-678" pattern="[0-9]{9}" required />
+                  <input pInputText type="tel" formControlName="phone" id="phone" placeholder="666888000" pattern="[0-9]{9}" required />
               </div>
               <div class="ui-grid-col-3">
                   <p-message severity="error" text="No coincide con el patron" *ngIf="!formUsuario.controls['phone'].valid&&formUsuario.controls['phone'].dirty"></p-message>
@@ -60,7 +60,7 @@
                     Dirección *:
                 </div>
                 <div class="ui-grid-col-6">
-                    <input pInputText type="text" formControlName="direction" />
+                    <input pInputText type="text" formControlName="direction" placeholder="Calle inventada numero 12"/>
                 </div>
                 <div class="ui-grid-col-3">
                     <p-message severity="error" text="dirección no añadida" *ngIf="!formUsuario.controls['direction'].valid&&formUsuario.controls['direction'].dirty"></p-message>
@@ -75,7 +75,7 @@
                     Contraseña *:
                 </div>
                 <div class="ui-grid-col-6">
-                    <input pInputText type="password" formControlName="password" placeholder="Contraseña minimo 6 caracteres"/>
+                    <input pInputText type="password" formControlName="password" placeholder="Contraseña minimo 9 caracteres"/>
                 </div>
                 <div class="ui-grid-col-3">
                 <p-message severity="error" [text]="formUsuario.controls['password'].errors['required'] ? 'La contraseña es requerida' : formUsuario.controls['password'].errors['minlength'] ? 'No menos de 9 caracteres' : ''"

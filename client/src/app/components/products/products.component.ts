@@ -20,6 +20,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductList();
+   if (JSON.parse(localStorage.getItem('productsBasketList')).length > 0) {
+       this.elementosCarro =  JSON.parse(localStorage.getItem('productsBasketList'));
+    }
   }
 
   getProductList(){

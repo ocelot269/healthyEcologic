@@ -49,7 +49,8 @@ class UsersController {
                     auth_1.default.compare(req.body.password, result[0].password).then((validUser) => {
                         console.log(result);
                         if (validUser) {
-                            res.json(result);
+                            res.json({ message: 'usuario logeado',
+                                resultado: result[0] });
                         }
                         else {
                             res.json({ message: 'contraseña incorrecta' });
@@ -57,7 +58,7 @@ class UsersController {
                     });
                 }
                 else {
-                    res.json({ message: 'El usuario ' + req.body.user_name + ' No existe' });
+                    res.json({ message: 'El usuario ' + req.body.user_name + ' no existe' });
                 }
             });
         });
