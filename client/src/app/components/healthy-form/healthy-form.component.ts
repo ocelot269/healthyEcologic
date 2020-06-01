@@ -14,64 +14,58 @@ import { Router, RouterStateSnapshot  } from '@angular/router';
 })
 export class HealthyFormComponent implements OnInit {
 
-    formUsuario: FormGroup;
+    formUser: FormGroup;
 
-    submitted: boolean;
+    gender: SelectItem[];
 
-    genero: SelectItem[];
-
-    descripcion: string;
-
-    tipoUsuario: string = 'Cliente';
+    userType: string = 'Cliente';
     constructor(private fb: FormBuilder, private messageService: MessageService,
     private userService : UserService,
     private router: Router) {}
 
     ngOnInit() {
 
-        this.seleccionarTipoUsuario();
+        this.selectTypeUser();
 
-        this.formUsuario = this.fb.group({
+        this.formUser = this.fb.group({
             'user_name': new FormControl('', Validators.required),
-            'user_type': new FormControl(this.tipoUsuario),
+            'user_type': new FormControl(this.userType),
             'user_surnames': new FormControl('', Validators.required),
             'user_email': new FormControl('', Validators.compose([Validators.required, Validators.email])),
             'user_description': new FormControl(''),
             'user_gender': new FormControl('', Validators.required),
             'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(9)])),
-            'repitePassword': new FormControl('', Validators.compose([Validators.required, Validators.minLength(9)])),
+            'repeatPassword': new FormControl('', Validators.compose([Validators.required, Validators.minLength(9)])),
             'phone': new FormControl('', Validators.required),
             'direction': new FormControl('', Validators.required),
 
         });
 
-        this.genero = [
+        this.gender = [
           {label:'Selecciona género', value:''},
           {label:'Hombre', value:'Hombre'},
           {label:'Mujer', value:'Mujer'}
         ];
     }
 
-    registrarUsuario(value: any) {
-        this.submitted = true;
-        delete value.repitePassword;
-        console.log(value);
+    registerUser(value: any) {
+        delete value.repeatPassword;
         this.userService.addUser(value).subscribe(
           res => {
             console.log(res);
+            this.messageService.add({severity:'info', summary:'Registrado correctamente', detail:'Formulario enviado'});
           },
           err => console.log(err)
         );
-        this.messageService.add({severity:'info', summary:'Success', detail:'Form Submitted'});
     }
 
 
-    seleccionarTipoUsuario(){
+    selectTypeUser(){
       const snapshot: RouterStateSnapshot = this.router.routerState.snapshot;
-      snapshot.root['_urlSegment'].children.primary.segments[0].path === 'proveedor' ? this.tipoUsuario = snapshot.root['_urlSegment'].children.primary.segments[0].path : 'Cliente';
+      snapshot.root['_urlSegment'].children.primary.segments[0].path === 'proveedor' ? this.userType = snapshot.root['_urlSegment'].children.primary.segments[0].path : 'Cliente';
     }
 
-    get diagnostic() { return JSON.stringify(this.formUsuario.value); }
+    get diagnostic() { return JSON.stringify(this.formUser.value); }
 
 }
 
