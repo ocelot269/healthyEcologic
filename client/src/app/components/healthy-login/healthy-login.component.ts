@@ -15,27 +15,25 @@ import {MessageService} from 'primeng/api';
 })
 export class HealthyLoginComponent implements OnInit {
 
-  formUsuario: FormGroup;
+  formUser: FormGroup;
   constructor(private fb: FormBuilder,
               private userService: UserService,
               private router: Router,
               private loginService: LoginService,
               private navigationComponent:NavigationComponent,
               private messageService: MessageService) { }
+
   ngOnInit(): void {
-        this.formUsuario = this.fb.group({
+        this.formUser = this.fb.group({
           'user_name': new FormControl('', Validators.required),
           'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(9)])),
   });
   }
 
-  validarUsuario(value: any) {
+  validateUser(value: any) {
       this.userService.validationUser(value).subscribe(
         res => {
-          console.log(res);
-          console.log(!res['message'].includes("no existe"));
           if (res['message'].includes("usuario logeado")) {
-            console.log(res);
             this.loginService.setIdUser(res['resultado']['id_user']);
             this.loginService.setLogged(true);
             localStorage.setItem('user_type', res['resultado']['user_type']);
@@ -46,7 +44,6 @@ export class HealthyLoginComponent implements OnInit {
           }else if (res['message'].includes("contraseña incorrecta")){
               this.messageService.add({severity:'error', summary: 'Contraseña incorrecta', detail:'La contraseña no es correcta'});
           }
-
         },
         err => {
           console.log(err);

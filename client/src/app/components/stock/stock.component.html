@@ -94,8 +94,8 @@
             name="myfile[]"
             customUpload="true"
             (uploadHandler)="onUpload($event)"
-            (onRemove)="resetearImagen()"
-            (onClear)="resetearImagen()"
+            (onRemove)="resetImage()"
+            (onClear)="resetImage()"
             accept="image/*"
           >
             <ng-template pTemplate="content">
@@ -145,7 +145,7 @@
                 type="button"
                 label="añadir"
                 icon="pi pi-check"
-                (click)="crearProducto(this.newProduct.value)"
+                (click)="createProduct(this.newProduct.value)"
               ></button>
             </div>
           </p-footer>
