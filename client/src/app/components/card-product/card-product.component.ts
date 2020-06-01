@@ -82,6 +82,8 @@ export class CardProductComponent implements OnInit {
   }
 
   borrarProducto(i){
+    console.log(i);
+    console.log(this.products);
       this.productsServices.deleteProduct(this.products[i].id_product).subscribe(
       res => {
         this.products.splice(i,1);

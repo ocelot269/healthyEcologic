@@ -3,7 +3,7 @@
   <h1>Comentarios</h1>
 
   <textarea *ngIf="this.idUser" [rows]="5" [cols]="77" pInputTextarea placeholder="comentarios"  [(ngModel)]="this.comment"></textarea>
-  <div class="derecha"  *ngIf="this.idUser"><p-button label="Enviar" (click)="crearComentario()"></p-button></div>
+  <div class="derecha"  *ngIf="this.idUser"><p-button label="Enviar" (click)="createComment()"></p-button></div>
   <ul id="comments-list" class="comments-list">
     <li *ngFor="let comment of listComents; let i=index">
       <div class="comment-main-level">
