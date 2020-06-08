@@ -1,7 +1,7 @@
 <div class="ui-g-2"></div>
-<div class="ui-g-8" *ngIf=" this.userPerfilForm">
+<div class="ui-g-8" *ngIf=" this.profileUserForm">
   <div class="ui-g-9">
-    <form [formGroup]="userPerfilForm">
+    <form [formGroup]="profileUserForm">
       <p-panel id="panel">
         <p-header>
           <h3>Perfil usuario</h3>
@@ -15,7 +15,7 @@
                   <input pInputText type="text" formControlName="user_name"/>
               </div>
               <div class="ui-grid-col-4">
-                  <p-message severity="error" text="nombre no cargado" *ngIf="!userPerfilForm.controls['user_name'].valid&&userPerfilForm.controls['user_name'].dirty"></p-message>
+                  <p-message severity="error" text="nombre no cargado" *ngIf="!profileUserForm.controls['user_name'].valid&&profileUserForm.controls['user_name'].dirty"></p-message>
             </div>
           </div>
               <div class="ui-grid-row">
@@ -26,7 +26,7 @@
                       <input pInputText type="text" formControlName="user_surnames"/>
                   </div>
                   <div class="ui-grid-col-4">
-                      <p-message severity="error" text="apellido no cargado" *ngIf="!userPerfilForm.controls['user_surnames'].valid&&userPerfilForm.controls['user_surnames'].dirty"></p-message>
+                      <p-message severity="error" text="apellido no cargado" *ngIf="!profileUserForm.controls['user_surnames'].valid&&profileUserForm.controls['user_surnames'].dirty"></p-message>
                   </div>
               </div>
 
@@ -38,7 +38,7 @@
                   <input pInputText type="text" formControlName="user_email"/>
               </div>
               <div class="ui-grid-col-4">
-                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!userPerfilForm.controls['user_email'].valid&&userPerfilForm.controls['user_email'].dirty"></p-message>
+                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!profileUserForm.controls['user_email'].valid&&profileUserForm.controls['user_email'].dirty"></p-message>
               </div>
             </div>
 
@@ -51,7 +51,7 @@
                   <input pInputText type="tel" id="phone" name="phone" formControlName="phone" placeholder="666888444" pattern="[0-9]{9}" required/>
               </div>
               <div class="ui-grid-col-4">
-                  <p-message severity="error" text="El telefono no respeta el patron" *ngIf="!userPerfilForm.controls['phone'].valid&&userPerfilForm.controls['phone'].dirty"></p-message>
+                  <p-message severity="error" text="El telefono no respeta el patron" *ngIf="!profileUserForm.controls['phone'].valid&&profileUserForm.controls['phone'].dirty"></p-message>
               </div>
             </div>
             <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
@@ -63,7 +63,7 @@
                     <input pInputText type="text" formControlName="direction" />
                 </div>
                 <div class="ui-grid-col-4">
-                    <p-message severity="error" text="dirección no cargada" *ngIf="!userPerfilForm.controls['direction'].valid&&userPerfilForm.controls['direction'].dirty"></p-message>
+                    <p-message severity="error" text="dirección no cargada" *ngIf="!profileUserForm.controls['direction'].valid&&profileUserForm.controls['direction'].dirty"></p-message>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
                   <input pInputText type="text" name="dni" placeholder="Introduzca su DNI" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" />
               </div>
               <div class="ui-grid-col-4">
-                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!userPerfilForm.controls['user_email'].valid&&userPerfilForm.controls['user_email'].dirty"></p-message>
+                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!profileUserForm.controls['user_email'].valid&&profileUserForm.controls['user_email'].dirty"></p-message>
               </div>
             </div> -->
               <div class="ui-grid-row">
@@ -95,16 +95,16 @@
                     <input pInputText type="text" formControlName="user_gender" />
                   </div>
                   <div class="ui-grid-col-4">
-                      <p-message severity="error" text="género no cargado" *ngIf="!userPerfilForm.controls['user_gender'].valid&&userPerfilForm.controls['user_gender'].dirty"></p-message>
+                      <p-message severity="error" text="género no cargado" *ngIf="!profileUserForm.controls['user_gender'].valid && profileUserForm.controls['user_gender'].dirty"></p-message>
                   </div>
               </div>
               <div class="ui-grid-row">
                   <div class="ui-grid-col-6">
-                      <button pButton type="button" label="Enviar"  style="background-color: #20A900;border-color: blanchedalmond;" (click)="actualizarPerfil(userPerfilForm.value)" ></button>
+                      <button pButton type="button" label="Enviar"  style="background-color: #20A900;border-color: blanchedalmond;" (click)="updateProfile(profileUserForm.value)" ></button>
                   </div>
                   <div class="ui-grid-col-6">
-                    <button pButton type="button" label="Editar" style="background-color: #0088A9;border-color: blanchedalmond;" (click)="editarPerfil()"></button>
-                    <!-- [disabled]="!userPerfilForm.valid" -->
+                    <button pButton type="button" label="Editar" style="background-color: #0088A9;border-color: blanchedalmond;" (click)="editProfile()"></button>
+                    <!-- [disabled]="!profileUserForm.valid" -->
                   </div>
               </div>
 

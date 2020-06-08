@@ -13,7 +13,7 @@ import { LoginService } from "../../services/login.service";
 })
 export class PaymentFormComponent implements OnInit {
 
-  formularioTargeta: FormGroup;
+  targetForm: FormGroup;
   userId = null;
   products = null;
   constructor(private fb: FormBuilder,
@@ -26,7 +26,7 @@ export class PaymentFormComponent implements OnInit {
   ngOnInit(): void {
     this.userId = localStorage.getItem('idUser');
     this.products = JSON.parse(localStorage.getItem('productsBasketList'));
-    this.formularioTargeta = this.fb.group({
+    this.targetForm = this.fb.group({
         'digitsPart1': new FormControl('', Validators.compose([Validators.required,Validators.minLength(4),Validators.maxLength(4)])),
         'digitsPart2': new FormControl('', Validators.compose([Validators.required,Validators.minLength(4),Validators.maxLength(4)])),
         'digitsPart3': new FormControl('', Validators.compose([Validators.required,Validators.minLength(4),Validators.maxLength(4)])),
@@ -37,19 +37,14 @@ export class PaymentFormComponent implements OnInit {
         'cvv': new FormControl('', Validators.compose([Validators.required,Validators.minLength(3),Validators.maxLength(3)]))
     });
 
-     this.billService.getBillById(13).subscribe(
-        res => {
-        console.log(res);
-        err => console.log(err);
-      });
   }
 
-    calcularTotal(){
-    let totalCesta = 0;
+    calculateTotal(){
+    let totalBasket = 0;
     this.products.forEach(element => {
-      totalCesta+= element.buyKilos * element.price;
+      totalBasket+= element.buyKilos * element.price;
     });
-    return totalCesta;
+    return totalBasket;
   }
 
 
@@ -67,7 +62,7 @@ export class PaymentFormComponent implements OnInit {
         }
        let dates = {
           id_user :  parseInt(this.userId),
-          price: this.calcularTotal() ,
+          price: this.calculateTotal() ,
           discount: 0
         }
         console.log(dates);
@@ -84,7 +79,7 @@ export class PaymentFormComponent implements OnInit {
                   };
                   this.billService.createBillDetails(dates).subscribe(
                       respuesta => {
-                      console.log("soy una respueta" + respuesta);
+                      console.log("soy una respueta");
                       err => console.log(err);
                          },
                     err => console.log(err)

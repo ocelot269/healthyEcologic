@@ -9,20 +9,22 @@ import { LoginService } from '../../services/login.service';
 
 export class BasketComponent implements OnInit {
 
-  listaCesta:any = [];
+  listBasket:any = [];
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.listaCesta = JSON.parse(localStorage.getItem('productsBasketList'));
+    this.listBasket = JSON.parse(localStorage.getItem('productsBasketList'));
   }
 
-  calcularTotal(){
-    let totalCesta = 0;
-    if ( this.listaCesta) {
-      this.listaCesta.forEach(element => {
-      totalCesta+= element.buyKilos * element.price;
+
+  totalQuantity(){
+
+    let basketTotal = 0;
+    if ( this.listBasket) {
+      this.listBasket.forEach(element => {
+      basketTotal+= element.buyKilos * element.price;
     });
-    return totalCesta;
+    return basketTotal;
     }
 
   }

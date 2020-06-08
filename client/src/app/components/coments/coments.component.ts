@@ -14,13 +14,12 @@ export class ComentsComponent implements OnInit {
   constructor(private commentService : CommentService) { }
 
   ngOnInit(): void {
-    console.log(this.idProduct);
-    this.listaComentarios();
+    this.commentList();
     this.idUser = localStorage.getItem('idUser');
   }
 
 
-  listaComentarios(){
+  commentList(){
      this.commentService.getListCommentsByIdProduct(this.idProduct).subscribe(
       res => {
         console.log(res);
@@ -30,7 +29,7 @@ export class ComentsComponent implements OnInit {
     );
   }
 
-  crearComentario(){
+  createComment(){
       let comentarioObjeto: any = {
         id_product: this.idProduct,
 	      id_user: localStorage.getItem('idUser'),
@@ -40,13 +39,13 @@ export class ComentsComponent implements OnInit {
           this.commentService.createComment(comentarioObjeto).subscribe(
             res => {
               this.comment= null;
-              this.listaComentarios();
+              this.commentList();
             },
             err => console.log(err)
         );
       }
       this.comment= null;
-      this.listaComentarios();
+      this.commentList();
   }
 
 }

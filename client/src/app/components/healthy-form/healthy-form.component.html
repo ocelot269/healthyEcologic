@@ -1,10 +1,10 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 <div class="ui-g-2"></div>
 <div class="ui-g-8 prueba">
-<form [formGroup]="formUsuario" >
+<form [formGroup]="formUser" >
     <p-panel>
       <p-header>
-        <h3>Formulario de registro para {{tipoUsuario}}</h3>
+        <h3>Formulario de registro para {{userType}}</h3>
     </p-header>
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-grid-row">
@@ -15,7 +15,7 @@
                     <input pInputText type="text" formControlName="user_name" placeholder="Obligatorio"/>
                 </div>
                 <div class="ui-grid-col-3">
-                    <p-message severity="error" text="El nombre es Obligatorio" *ngIf="!formUsuario.controls['user_name'].valid&&formUsuario.controls['user_name'].dirty"></p-message>
+                    <p-message severity="error" text="El nombre es Obligatorio" *ngIf="!formUser.controls['user_name'].valid&&formUser.controls['user_name'].dirty"></p-message>
                 </div>
             </div>
             <div class="ui-grid-row">
@@ -26,7 +26,7 @@
                     <input pInputText type="text" formControlName="user_surnames" placeholder="Obligatorio"/>
                 </div>
                 <div class="ui-grid-col-3">
-                    <p-message severity="error" text="Los apellidos son obligatorios" *ngIf="!formUsuario.controls['user_surnames'].valid&&formUsuario.controls['user_surnames'].dirty"></p-message>
+                    <p-message severity="error" text="Los apellidos son obligatorios" *ngIf="!formUser.controls['user_surnames'].valid&&formUser.controls['user_surnames'].dirty"></p-message>
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                   <input pInputText type="text" formControlName="user_email" placeholder="Email Obligatorio"/>
               </div>
               <div class="ui-grid-col-3">
-                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!formUsuario.controls['user_email'].valid&&formUsuario.controls['user_email'].dirty"></p-message>
+                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!formUser.controls['user_email'].valid&&formUser.controls['user_email'].dirty"></p-message>
               </div>
             </div>
 
@@ -50,7 +50,7 @@
                   <input pInputText type="tel" formControlName="phone" id="phone" placeholder="666888000" pattern="[0-9]{9}" required />
               </div>
               <div class="ui-grid-col-3">
-                  <p-message severity="error" text="No coincide con el patron" *ngIf="!formUsuario.controls['phone'].valid&&formUsuario.controls['phone'].dirty"></p-message>
+                  <p-message severity="error" text="No coincide con el patron" *ngIf="!formUser.controls['phone'].valid&&formUser.controls['phone'].dirty"></p-message>
               </div>
             </div>
 
@@ -63,7 +63,7 @@
                     <input pInputText type="text" formControlName="direction" placeholder="Calle inventada numero 12"/>
                 </div>
                 <div class="ui-grid-col-3">
-                    <p-message severity="error" text="dirección no añadida" *ngIf="!formUsuario.controls['direction'].valid&&formUsuario.controls['direction'].dirty"></p-message>
+                    <p-message severity="error" text="dirección no añadida" *ngIf="!formUser.controls['direction'].valid&&formUser.controls['direction'].dirty"></p-message>
                 </div>
               </div>
             </div>
@@ -78,8 +78,8 @@
                     <input pInputText type="password" formControlName="password" placeholder="Contraseña minimo 9 caracteres"/>
                 </div>
                 <div class="ui-grid-col-3">
-                <p-message severity="error" [text]="formUsuario.controls['password'].errors['required'] ? 'La contraseña es requerida' : formUsuario.controls['password'].errors['minlength'] ? 'No menos de 9 caracteres' : ''"
-                        *ngIf="!formUsuario.controls['password'].valid&&formUsuario.controls['password'].dirty"></p-message>
+                <p-message severity="error" [text]="formUser.controls['password'].errors['required'] ? 'La contraseña es requerida' : formUser.controls['password'].errors['minlength'] ? 'No menos de 9 caracteres' : ''"
+                        *ngIf="!formUser.controls['password'].valid&&formUser.controls['password'].dirty"></p-message>
                 </div>
             </div>
 
@@ -88,11 +88,11 @@
                   Repite Contraseña *:
               </div>
               <div class="ui-grid-col-6">
-                  <input pInputText type="password" formControlName="repitePassword" placeholder="Repite Contraseña"/>
+                  <input pInputText type="password" formControlName="repeatPassword" placeholder="Repite Contraseña"/>
               </div>
               <div class="ui-grid-col-3">
-              <p-message severity="error" [text]="formUsuario.controls['repitePassword'].errors['required'] ? 'La contraseña es Obligatoria' : formUsuario.controls['repitePassword'].errors['minlength'] ? 'No menos de 9 caracteres' : ''"
-                      *ngIf="!formUsuario.controls['repitePassword'].valid&&formUsuario.controls['repitePassword'].dirty"></p-message>
+              <p-message severity="error" [text]="formUser.controls['repeatPassword'].errors['required'] ? 'La contraseña es Obligatoria' : formUser.controls['repeatPassword'].errors['minlength'] ? 'No menos de 9 caracteres' : ''"
+                      *ngIf="!formUser.controls['repeatPassword'].valid&&formUser.controls['repeatPassword'].dirty"></p-message>
               </div>
           </div>
 
@@ -110,24 +110,18 @@
                     Género *:
                 </div>
                 <div class="ui-grid-col-6">
-                    <p-dropdown [options]="genero" formControlName="user_gender"></p-dropdown>
+                    <p-dropdown [options]="this.gender" formControlName="user_gender"></p-dropdown>
                 </div>
                 <div class="ui-grid-col-3">
-                    <p-message severity="error" text="El genero es obligatorio" *ngIf="!formUsuario.controls['user_gender'].valid&&formUsuario.controls['user_gender'].dirty"></p-message>
+                    <p-message severity="error" text="El genero es obligatorio" *ngIf="!formUser.controls['user_gender'].valid&&formUser.controls['user_gender'].dirty"></p-message>
                 </div>
             </div>
             <div class="ui-grid-row">
                 <div class="ui-grid-col-3"></div>
                 <div class="ui-grid-col-6">
-                    <button pButton type="submit" label="Enviar" [disabled]="!formUsuario.valid" (click)="registrarUsuario(formUsuario.value)"  style="background-color: #0088A9;border-color: blanchedalmond;" routerLink="/"></button>
+                    <button pButton type="submit" label="Enviar" [disabled]="!formUser.valid" (click)="registerUser(formUser.value)"  style="background-color: #0088A9;border-color: blanchedalmond;" routerLink="/"></button>
                 </div>
                 <div class="ui-grid-col-3"></div>
-            </div>
-
-            <div style="text-align:center;margin-top:20px" *ngIf="submitted">
-                Formulario enviado
-                <br>
-                {{diagnostic}}
             </div>
         </div>
     </p-panel>
