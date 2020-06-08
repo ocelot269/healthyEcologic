@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import {MessageService} from 'primeng/api';
 import { LoginService } from '../../services/login.service';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-products',
@@ -11,10 +12,12 @@ import { LoginService } from '../../services/login.service';
 })
 export class ProductsComponent implements OnInit {
   products:any = [];
+  copyProduts:any = [];
   trolleyElements:any = [];
   constructor(private productsService: ProductsService,
               private messageService: MessageService,
-              private loginService: LoginService
+              private loginService: LoginService,
+              private sharedService: SharedService
 
   ) { }
 
@@ -23,17 +26,22 @@ export class ProductsComponent implements OnInit {
     if (JSON.parse(localStorage.getItem('productsBasketList'))) {
         this.trolleyElements = JSON.parse(localStorage.getItem('productsBasketList'));
     }
+     this.sharedService.changeEmitted.subscribe(
+      text => {
+          this.products = this.copyProduts;
+          this.products = [...this.products.filter(element => element.name_product.includes(text))]
+      });
   }
 
   getProductList(){
       this.productsService.getProductList().subscribe(
       res => {
         this.products = res;
+        this.copyProduts = res;
       },
       err => console.log(err)
     );
     }
-
 
     getProductsCart(event){
       let found = false;

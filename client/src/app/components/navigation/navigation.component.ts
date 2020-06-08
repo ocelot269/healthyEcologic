@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { UserService } from '../../services/user.service';
+import { SharedService } from '../../services/shared.service';
+
 import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -14,7 +16,9 @@ export class NavigationComponent implements OnInit {
   typeUser = null;
   constructor(private loginService: LoginService,
               private userService: UserService,
-              @Inject(DOCUMENT) private document: Document,) { }
+              @Inject(DOCUMENT) private document: Document,
+              private sharedService: SharedService
+) { }
 
   ngOnInit() {
     this.user = this.getUser(this.loginService.getIdUser());
@@ -45,6 +49,10 @@ export class NavigationComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  findProduct(event){
+    this.sharedService.emitChange(event);
   }
 
 }

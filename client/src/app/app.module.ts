@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule} from 'primeng/card';
 import { ProductsService } from './services/products.service';
 import { CommentService } from './services/comment.service';
+import { SharedService } from './services/shared.service';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule} from 'primeng/button';
@@ -87,7 +89,8 @@ import { Utils } from './services/utils';
     BillService,
     NavigationComponent,
     CommentService,
-    Utils
+    Utils,
+    SharedService
   ],
   bootstrap: [AppComponent]
 })
