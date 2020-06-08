@@ -1,18 +1,7 @@
 create database healthyEcologic_db;
 USE healthyEcologic_db;
 
- CREATE TABLE products(
-    id_product INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_provider INT(11) NOT NULL,
-    name_product VARCHAR(50)NOT NULL,
-    product_description VARCHAR(100)NOT NULL,
-    units INT(7) NOT NULL, 
-    price DECIMAL(10,2) NOT NULL,
-    kilos DECIMAL(8,2)NOT NULL,
-    image VARCHAR(4294967295)NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_provider) REFERENCES users(id_user)
-);
+
 
 CREATE TABLE users(
     id_user INT(11)NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -26,6 +15,21 @@ CREATE TABLE users(
     phone INT(9),
     direction VARCHAR(244)
 );
+
+ CREATE TABLE products(
+    id_product INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_provider INT(11) NOT NULL,
+    name_product VARCHAR(50)NOT NULL,
+    product_description VARCHAR(100)NOT NULL,
+    units INT(7) NOT NULL, 
+    price DECIMAL(10,2) NOT NULL,
+    kilos DECIMAL(8,2)NOT NULL,
+    image BLOB(4294967295)NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_provider) REFERENCES users(id_user)
+);
+
+
 
 CREATE TABLE orders(
     id_order INT(11)NOT NULL AUTO_INCREMENT PRIMARY KEY,

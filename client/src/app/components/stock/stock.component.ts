@@ -77,7 +77,7 @@ export class StockComponent implements OnInit {
   });
   }
 
-  crearProducto(producto){
+  createProduct(producto){
     this.productsService.addProduct(producto).subscribe(
       res => {
         console.log(res);
@@ -88,12 +88,12 @@ export class StockComponent implements OnInit {
         this.messageService.add({severity:'warn', summary: 'Warn Message', detail:'El producto no se ha podido guardar'});
       }
     )
-    this.recargarPagina();
+    this.reloadPage();
   }
 
-  recargarPagina(){ this.document.location.reload(); }
+  reloadPage(){ this.document.location.reload(); }
 
-  resetearImagen(){
+  resetImage(){
     this. uploadedFiles = [];
     this.newProduct.value.image = '';
   }

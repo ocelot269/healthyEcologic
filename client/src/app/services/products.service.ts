@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Product } from "../models/Product";
+import { Utils } from "./utils";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  IP = this.utils.host;
+  API_URL = `http://${this.IP}:3000/api`;
 
-  API_URL = 'http://localhost:3000/api';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private utils: Utils) { }
 
   getProductList(){
     return this.http.get(`${this.API_URL}/vegetables`);

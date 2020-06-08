@@ -1,7 +1,7 @@
 <div class="row">
 <div class="ui-g-2"></div>
 <div class="ui-g-5">
-  <app-shopping-basket #basket [basketElements]="this.listaCesta"></app-shopping-basket>
+  <app-shopping-basket #basket [basketElements]="this.listBasket"></app-shopping-basket>
 </div>
 <div class="ui-g-3">
   <p-fieldset>
@@ -19,7 +19,7 @@
       <h4>PVP</h4>
     </div>
 
-    <div id="bodyProductos" *ngFor="let item of listaCesta; let i=index">
+    <div id="bodyProductos" *ngFor="let item of listBasket; let i=index">
       <div class="ui-g-6" >
         {{item.name_product}}
       </div>
@@ -32,8 +32,8 @@
     </div>
 
     <div id="totalCesta">
-     <h3>Total cesta: {{calcularTotal()}} €</h3>
-     <button class="button" style="border: none; min-height: 50px;font-size: x-large;margin-top: 10px;" [disabled]="!this.calcularTotal()" [routerLink]="['/pago']" pButton type="button" label="Pagar"></button>
+     <h3>Total cesta: {{totalQuantity()}} €</h3>
+     <button class="button" style="border: none; min-height: 50px;font-size: x-large;margin-top: 10px;" [disabled]="!this.totalQuantity()" [routerLink]="['/pago']" pButton type="button" label="Pagar"></button>
     </div>
   </p-fieldset>
 

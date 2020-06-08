@@ -11,7 +11,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class ProductsComponent implements OnInit {
   products:any = [];
-  elementosCarro:any = [];
+  trolleyElements:any = [];
   constructor(private productsService: ProductsService,
               private messageService: MessageService,
               private loginService: LoginService
@@ -20,8 +20,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductList();
-   if (JSON.parse(localStorage.getItem('productsBasketList')).length > 0) {
-       this.elementosCarro =  JSON.parse(localStorage.getItem('productsBasketList'));
+    if (JSON.parse(localStorage.getItem('productsBasketList'))) {
+        this.trolleyElements = JSON.parse(localStorage.getItem('productsBasketList'));
     }
   }
 
@@ -34,23 +34,24 @@ export class ProductsComponent implements OnInit {
     );
     }
 
-    obtenerProductosCarrito(event){
-      let encontrado = false;
+
+    getProductsCart(event){
+      let found = false;
      if (event.buyKilos < event.kilos || event.buyKilos) {
        if (event.buyKilos > 0 ||  event.buyKilos) {
-        this.elementosCarro.forEach((element,index) => {
+        this.trolleyElements.forEach((element,index) => {
           let totalKilos = event.buyKilos + element.buyKilos;
           if (event.id_product == element.id_product &&  totalKilos < event.kilos ) {
-            this.elementosCarro[index].buyKilos = totalKilos;
-            encontrado = true;
+            this.trolleyElements[index].buyKilos = totalKilos;
+            found = true;
           }else if (event.id_product == element.id_product &&  totalKilos >= event.kilos ){
-            this.elementosCarro[index] = event;
-            encontrado = true;
+            this.trolleyElements[index] = event;
+            found = true;
           }
         });
-        if(!encontrado){
-          this.elementosCarro.push(event);
-          this.loginService.setProductsBasket(this.elementosCarro);
+        if(!found){
+          this.trolleyElements.push(event);
+          this.loginService.setProductsBasket(this.trolleyElements);
         }
 
        }else {

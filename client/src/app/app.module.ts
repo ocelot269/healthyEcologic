@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HealthyFormComponent } from './components/healthy-form/healthy-form.component';
-import { CardProductComponent } from './components/card-products/card-product.component';
+import { CardProductComponent } from './components/card-product/card-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule} from 'primeng/card';
 import { ProductsService } from './services/products.service';
@@ -34,10 +34,12 @@ import { BasketComponent } from './components/basket/basket.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { BillService } from './services/bill.service';
 import { HomeComponent } from './components/home/home.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
 import { DetailsProductComponent } from './components/details-product/details-product.component';
 import { ComentsComponent } from './components/coments/coments.component';
+import { Utils } from './services/utils';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ import { ComentsComponent } from './components/coments/coments.component';
     BasketComponent,
     PaymentFormComponent,
     HomeComponent,
-    PerfilComponent,
+    ProfileComponent,
     ShoppingHistoryComponent,
     DetailsProductComponent,
     ComentsComponent,
@@ -84,7 +86,8 @@ import { ComentsComponent } from './components/coments/coments.component';
     LoginService,
     BillService,
     NavigationComponent,
-    CommentService
+    CommentService,
+    Utils
   ],
   bootstrap: [AppComponent]
 })

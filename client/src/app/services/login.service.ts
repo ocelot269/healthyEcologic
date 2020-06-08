@@ -37,8 +37,6 @@ export class LoginService {
       this.productsBasket = list;
 
       localStorage.setItem('productsBasketList', JSON.stringify(list));
-
-
     }
 }
 
