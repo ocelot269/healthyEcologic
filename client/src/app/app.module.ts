@@ -38,6 +38,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ShoppingHistoryComponent } from './components/shopping-history/shopping-history.component';
 import { DetailsProductComponent } from './components/details-product/details-product.component';
 import { ComentsComponent } from './components/coments/coments.component';
+import { Utils } from './services/utils';
+
 
 @NgModule({
   declarations: [
@@ -84,7 +86,8 @@ import { ComentsComponent } from './components/coments/coments.component';
     LoginService,
     BillService,
     NavigationComponent,
-    CommentService
+    CommentService,
+    Utils
   ],
   bootstrap: [AppComponent]
 })
