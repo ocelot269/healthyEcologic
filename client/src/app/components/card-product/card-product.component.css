@@ -11,9 +11,9 @@ img {
   height: 150px;
 }
 
-center {
+.center {
   display: flex;
-  justify-content: flex-start;
+  align-content: flex-end;
 }
 
 rigth {
