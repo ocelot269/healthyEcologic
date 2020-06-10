@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {Validators,FormControl,FormGroup,FormBuilder} from '@angular/forms';
 import {MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
@@ -65,7 +65,6 @@ export class PaymentFormComponent implements OnInit {
           price: this.calculateTotal() ,
           discount: 0
         }
-        console.log(dates);
       this.billService.createBill(dates).subscribe(
           res => {
             this.products.forEach(element => {
@@ -79,7 +78,6 @@ export class PaymentFormComponent implements OnInit {
                   };
                   this.billService.createBillDetails(dates).subscribe(
                       respuesta => {
-                      console.log("soy una respueta");
                       err => console.log(err);
                          },
                     err => console.log(err)

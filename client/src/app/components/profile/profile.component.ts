@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser(localStorage.getItem('idUser')).subscribe(
       res => {
         this.profileUser = res[0];
-        console.log(res[0]);
         this.profileUserForm = this.fb.group({
         'user_name': new FormControl({value: this.profileUser.user_name , disabled: this.disabled}),
         'user_surnames': new FormControl({value:  this.profileUser.user_surnames , disabled: this.disabled}),

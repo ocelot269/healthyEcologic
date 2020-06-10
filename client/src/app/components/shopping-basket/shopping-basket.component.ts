@@ -13,11 +13,12 @@ export class ShoppingBasketComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.basketElements);
-    if (this.basketElements.length == 0) {
+    if (this.basketElements) {
       if (localStorage.getItem('productsBasketList')) {
         this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
       }
+    }else {
+      this.basketElements = [];
     }
   }
 
@@ -32,7 +33,7 @@ export class ShoppingBasketComponent implements OnInit {
       total+= element.buyKilos * element.price;
     });
     localStorage.setItem('productsBasketList', JSON.stringify(this.basketElements));
-    return total;
+    return Math.round(total * 100) / 100;
   }
 
   deleteProductBasket(i){

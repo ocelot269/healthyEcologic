@@ -80,7 +80,6 @@ export class StockComponent implements OnInit {
   createProduct(producto){
     this.productsService.addProduct(producto).subscribe(
       res => {
-        console.log(res);
         this.messageService.add({severity: 'success', summary: 'Producto Guardado', detail: 'El producto se ha creado correctamente'});
       },
       err => {

@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule} from 'primeng/card';
 import { ProductsService } from './services/products.service';
 import { CommentService } from './services/comment.service';
+import { SharedService } from './services/shared.service';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule} from 'primeng/button';
@@ -39,6 +41,7 @@ import { ShoppingHistoryComponent } from './components/shopping-history/shopping
 import { DetailsProductComponent } from './components/details-product/details-product.component';
 import { ComentsComponent } from './components/coments/coments.component';
 import { Utils } from './services/utils';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -59,6 +62,7 @@ import { Utils } from './services/utils';
     ShoppingHistoryComponent,
     DetailsProductComponent,
     ComentsComponent,
+    SidebarComponent,
 
   ],
   imports: [
@@ -87,7 +91,8 @@ import { Utils } from './services/utils';
     BillService,
     NavigationComponent,
     CommentService,
-    Utils
+    Utils,
+    SharedService
   ],
   bootstrap: [AppComponent]
 })

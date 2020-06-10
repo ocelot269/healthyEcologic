@@ -20,7 +20,7 @@
           unidades <input style="width: 50%;" id="input" type="number" size="99999"  pInputText [(ngModel)]="this.element.buyUnits">
         </div> -->
         <div class="ui-g-10">
-          Cantidad en kilos <input style="width: 50%;" id="input" type="number" size="99999"  pInputText [(ngModel)]="this.element.buyKilos">
+          Cantidad en kilos <input style="width: 50%;" id="input" type="number"  min="1" [max]="this.element.kilos" size="99999"  pInputText [(ngModel)]="this.element.buyKilos">
         </div>
         <div class="ui-g-2">
           <button style="margin-left: 13%;"  pButton type="button" icon="pi pi-times" class="ui-button-danger" (click)="this.deleteProductBasket(i)"></button>
