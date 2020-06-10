@@ -13,18 +13,25 @@ export class ShoppingBasketComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.basketElements) {
-      if (localStorage.getItem('productsBasketList')) {
-        this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
-      }
-    }else {
-      this.basketElements = [];
-    }
+
+
+
+
+    // if (this.basketElements) {
+    //   if (localStorage.getItem('productsBasketList')) {
+    //     this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
+    //   }
+    //   if (localStorage.getItem('productsBasketList')) {
+    //     this.basketElements =  JSON.parse(localStorage.getItem('productsBasketList'));
+    //   }
+    //   }else {
+    //     this.basketElements = [];
+    //   }
   }
 
 
   calculateQuantity(i){
-    return this.basketElements[i].buyKilos * this.basketElements[i].price;
+    return Math.round((this.basketElements[i].buyKilos * this.basketElements[i].price) * 100) / 100;
   }
 
   calculateAllCesta(){
