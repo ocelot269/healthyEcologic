@@ -65,7 +65,6 @@ export class PaymentFormComponent implements OnInit {
           price: this.calculateTotal() ,
           discount: 0
         }
-        console.log(dates);
       this.billService.createBill(dates).subscribe(
           res => {
             this.products.forEach(element => {

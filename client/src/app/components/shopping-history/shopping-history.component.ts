@@ -19,7 +19,6 @@ export class ShoppingHistoryComponent implements OnInit {
        this.billService.getHistoyShoppingByIdUser(this.userId).subscribe(
         res => {
           this.listShopping = res;
-          console.log(res);
         },
         err =>{
           console.log(err);

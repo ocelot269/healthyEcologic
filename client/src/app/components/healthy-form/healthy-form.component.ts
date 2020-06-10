@@ -52,7 +52,6 @@ export class HealthyFormComponent implements OnInit {
         delete value.repeatPassword;
         this.userService.addUser(value).subscribe(
           res => {
-            console.log(res);
             this.messageService.add({severity:'info', summary:'Registrado correctamente', detail:'Formulario enviado'});
           },
           err => console.log(err)

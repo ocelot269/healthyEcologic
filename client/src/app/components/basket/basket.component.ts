@@ -24,7 +24,7 @@ export class BasketComponent implements OnInit {
       this.listBasket.forEach(element => {
       basketTotal+= element.buyKilos * element.price;
     });
-    return basketTotal;
+    return Math.round(basketTotal * 100) / 100;
     }
 
   }

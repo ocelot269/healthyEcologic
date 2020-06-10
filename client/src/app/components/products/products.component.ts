@@ -70,4 +70,12 @@ export class ProductsComponent implements OnInit {
       }
     }
 
+    sidebarFilter(event){
+      if (event === 'Productos') {
+          this.products = this.copyProduts;
+      }else {
+          this.products = this.copyProduts;
+          this.products = [...this.products.filter(element => element.name_product.includes(event))];
+      }
+    }
 }
