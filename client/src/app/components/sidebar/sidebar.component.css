@@ -1,0 +1,36 @@
+.sticky {
+position: sticky;
+top:80px;
+border: 5px solid #1B75CE;
+}
+
+
+.sidebar .nav-item .nav-link {
+    position: relative;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0.8rem 2rem;
+    color: #042452;
+    border-bottom: 2px dotted #ccc
+}
+.sidebar .nav-item .nav-link:focus,
+.sidebar .nav-item .nav-link:hover,
+.sidebar .sidemenu .nav-item.active .nav-link {
+    color: #042452;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-item:last-child .nav-link {
+  border-bottom: 0;
+}
+
+.sidebar .nav-item .nav-link::before {
+    content: "\f101";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding-right: 5px;
+    padding-left: 1rem;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+}

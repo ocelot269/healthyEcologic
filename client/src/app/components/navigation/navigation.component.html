@@ -15,7 +15,7 @@
         </ul>
         <div>
           <form id="buscador" class="form-inline my-2 my-lg-0">
-            <input id="input-search" class="form-control mr-sm-2" type="text" placeholder="Buscar">
+            <input id="input-search" class="form-control mr-sm-2" (keyup)="findProduct($event.target.value)" type="text" placeholder="Buscar">
             <button id="search" class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
           </form>
         </div>

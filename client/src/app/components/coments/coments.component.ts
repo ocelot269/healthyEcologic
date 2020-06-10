@@ -22,7 +22,6 @@ export class ComentsComponent implements OnInit {
   commentList(){
      this.commentService.getListCommentsByIdProduct(this.idProduct).subscribe(
       res => {
-        console.log(res);
         this.listComents = res;
       },
       err => console.log(err)

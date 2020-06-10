@@ -1,0 +1,16 @@
+<div class="sticky">
+  <div class="sidebar card shadow-sm">
+    <div class="card-header" (click)="productSelected('Productos')">Productos</div>
+    <ul class="nav flex-column sidemenu accordion" id="accordionExample">
+      <li class="nav-item" *ngFor="let product of productsList">
+        <a *ngIf="product.type === 'hortaliza'" class="nav-link" (click)="productSelected(product.name_product)">{{product.name_product}}</a>
+      </li>
+    </ul>
+    <div class="card-header">Frutas</div>
+    <ul class="nav flex-column sidemenu accordion" id="accordionExample">
+      <li class="nav-item" *ngFor="let product of productsList">
+        <a *ngIf="product.type === 'fruta'" class="nav-link">{{product.name_product}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
