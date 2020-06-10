@@ -51,6 +51,10 @@ export class NavigationComponent implements OnInit {
     );
   }
 
+  Logout(){
+    localStorage.clear();
+  }
+
   findProduct(event){
     this.sharedService.emitChange(event);
   }

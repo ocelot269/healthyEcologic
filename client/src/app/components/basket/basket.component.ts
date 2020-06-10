@@ -16,9 +16,7 @@ export class BasketComponent implements OnInit {
     this.listBasket = JSON.parse(localStorage.getItem('productsBasketList'));
   }
 
-
   totalQuantity(){
-
     let basketTotal = 0;
     if ( this.listBasket) {
       this.listBasket.forEach(element => {

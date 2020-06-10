@@ -23,7 +23,7 @@
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0 collapse navbar-collapse" *ngIf="!this.isLogged()">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Register
+              Registro
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" routerLink="/cliente/registro" routerLinkActive="active">Cliente</a>
@@ -36,7 +36,7 @@
         </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 collapse navbar-collapse" *ngIf="this.isLogged()">
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <img src="../../../assets/imagenes/profile.png" width="30" height="30" alt="Ajustes">{{this.getNameUser()}}</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" routerLink="/perfil" routerLinkActive="active" >Mi perfil</a>
@@ -44,10 +44,16 @@
               </div>
           </li>
           <li class="nav-item">
+            <a class="navbar-brand" routerLink="/" (click)="Logout()">
+              <img src="../../../assets/imagenes/logout.png" width="30" height="30" alt="logout">
+              Logout</a>
+          </li>
+          <li class="nav-item">
             <a class="navbar-brand" routerLink="/cesta" routerLinkActive="active" >
               <img src="../../../assets/imagenes/cesta.png" width="30" height="30" alt="cesta">
               Cesta</a>
           </li>
+
         </ul>
       </div>
     </div>
