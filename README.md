@@ -51,40 +51,68 @@ caso (mejor que no se de).
 
 	11. El cliente quiere añadir sus comentarios sobre los productos
 
-#### 4. Descripción técnica:
+#### 4. Testing
+
+La aplicación contendrá test de tipo E2E creados con selenium IDE
+
+
+<img src="https://swat-it.co/wp-content/uploads/2015/tools_icons/Selenium-logo.gif">
+
+
+
+#### 5. Descripción técnica:
 + Arquitectura de la aplicación y tecnologías utilizadas.
 
 	HealthyEcologic es una web de compra-venta de alimentos para versión escritorio que se desarrollará con el patrón de modelo-vista-controlador(MVC) y utilizará una metodología de desarrollo por Prototipos.
 	
    **Vista** :
+   
 	 **Angular**: Todo el front o vista estará diseñado con Angular framework de javascript la versión que utilizaré es 8.0.3.
-	 **PrimeNG**: Nos provee de componentes para el front o vista del proyecto y la versión que utilizaré es 8.0.0.
+	
+	**PrimeNG**: Nos provee de componentes para el front o vista del proyecto y la versión que utilizaré es 8.0.0.
 	 
    **Controlador** :
+	
 	**Node** : Será nuestro backend y crearemos la API REST del proyecto y la versión de node es 12.4.0.
 
    **Modelo**: 
+	
 	**Mysql**: Será la base de datos del proyecto y contendrá todos los datos y la versión que utilizaré es 10.4.11.
 	
    **Control de versiones**:
+	
 	**Git**: Lo usaremos como control de versión y la versión que utilizaremos es 2.19.1.
 	
 + Dependencias del proyecto
 
    **Cors**: Te permite hacer middleware para conectar backend y el front facilitando los problemas que te puede dar los CORS y la versión que utilizaré 2.8.6.
+   
    **Express**: Te ofrece  un conjunto sólido de características para las aplicaciones web y móviles  y la versión que usaré es  4.17.6. 
+   
    **Mysql**: Este es un controlador node.js para mysql y la versión que utilizaré es 2.15.10.
+   
    **Promise-mysql**: Es la misma librería para conectar sql pero soporta promise gracias a bluebird y la versión que utilizaré es 4.1.3.
+   
    **Bcryptjs**: Sirve para securizar las contraseñas y la versión que utilizaré es 2.4.3.
+   
    **Morgan**:  Te permite ver el registro de peticiones HTTP y la versión que utilizaré es 1.9.0.
+   
    **Typescript**:  Es una librería que permite dar tipos a las variables javascript y utilizaré la versión 3.8.3.
+   
    **Nodemon**: Recarga el script automáticamente cuando hacemos cualquier en él 2.0.3.
-	
-	
-	
-	
-+ Diagrama de componentes. [doc]
+
++ Arquitectura de la aplicación y tecnologías utilizadas
+
+<img src="../master/client/src/assets/documentacion/diagrama.png">	
+
++ Diagrama de componentes
+
+<img src="../master/client/src/assets/documentacion/diagrama_componentes.png">
+
 + Opcional: Diagrama E/R de la base de datos (o el que proceda).
+
+<img src="../master/client/src/assets/documentacion/db.png">
+
 
 
 
