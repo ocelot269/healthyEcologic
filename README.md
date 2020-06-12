@@ -8,13 +8,13 @@
 
 #### 1. Motivación
 
-Un dia comprando unas verduras me parecio excesivo el precio de los productos agricolas cuando estos mismos ganaderos podrian vender a menos de la mitad del precio habitual pudiedon obtener mas beneficios mientras el consumidor ahorra un dineral.
+Un día comprando unas verduras me pareció excesivo el precio de los productos agrícolas. Me puse a pensar sobre este hecho y me di cuenta que tendría que haber algún modo de que los ganaderos pudiesen obtener más beneficios sin tener que vender sus productos a un precio muy elevado y que el consumidor no tuviese que pagar tanto dinero, pudiendo comprar productos de calidad sin la necesidad de que por ello debiese pagar cantidades desorbitadas. 
 
-Healthy ecologic aparece en un momento en el cual los productores locales perciben un precio muy diminuto por sus productos.
+Healthy ecologic aparece en un momento en el que los productores locales perciben un margen de beneficio muy pequeño por la venta de sus productos y los ciudadanos pagan cantidades muy elevadas por éstos. 
 
 #### 2. Objetivos
 
-El objetivo de este proyecto es crear una aplicación de escritorio de  compra-venta de alimentos naturales y en un futuro para plataformas móviles.
+El objetivo de este proyecto es crear una aplicación de escritorio de compra-venta de alimentos naturales y en un futuro para plataformas móviles.
 
 Este proyecto tendrá 3 tipos de usuarios, proveedor, cliente y admin lo que permitirá a cada rol hacer diferentes tipos de acciones.
 
@@ -112,6 +112,26 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 + Opcional: Diagrama E/R de la base de datos (o el que proceda).
 
 <img src="../master/client/src/assets/documentacion/db.png">
+
++ Metodología de desarrollo utilizada
+
+**La metodología del desarrollo del proyecto ha sido crear los siguientes aspectos:**
+
+-El contenido en la base de datos
+
+-El controlador que haga las peticiones a la base datos
+
+-El servicio que haga las llamadas al controlador
+
+-El componente que utilizará el servicio
+
+**En git el flujo de trabajo es el siguiente:**
+
+- El contenido relacionado con el backend o base de datos se realiza en la rama conexión-bbdd
+
+- El contenido relacionado con el front, se hace en la rama front
+
+- A continuación se mezclan los cambios en "develop" y posteriormente se agregan los cambios de "develop" a "master"
 
 
 
