@@ -26,8 +26,7 @@ La aplicación mostrará diferentes pestañas dependiendo si eres un tipo de usu
 
 #### 3. Demostración
 
-+ Justificación de los objetivos alcanzados y no alcanzados, si se da el
-caso (mejor que no se de).
++ Justificación de los objetivos alcanzados
 
 	1.  El proveedor desea registrarse para poder vender sus productos.
 
@@ -101,7 +100,7 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
    
    **Nodemon**: Recarga el script automáticamente cuando hacemos cualquier en él 2.0.3.
 
-+ Arquitectura de la aplicación y tecnologías utilizadas
++ Arquitectura de la aplicación
 
 <img src="../master/client/src/assets/documentacion/diagrama.png">	
 
@@ -112,6 +111,9 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 + Opcional: Diagrama E/R de la base de datos (o el que proceda).
 
 <img src="../master/client/src/assets/documentacion/db.png">
+
+
+
 
 + Metodología de desarrollo utilizada
 
@@ -135,6 +137,27 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 
 
++ Diagrama de Gantt previo y final del desarrollo de la app
 
+**Previo**
 
+<img src="../master/client/src/assets/documentacion/diagrama_de_gant.png">
+
+**Final**
+
+<img src="../master/client/src/assets/documentacion/clockify.png">
+
+**Justificación del exceso de tiempo**
+
+Tuve un exceso de horas de 19 en las cuales las dedique ha: 
+
+- Implementación de la funcionalidad del search
+
+- Se añadieron test E2E a la aplicación
+
+- Se añadio el despliegue de la aplicación
+
++ Clockify
+
+<img src="../master/client/src/assets/documentacion/datos_clockify.png">
 
