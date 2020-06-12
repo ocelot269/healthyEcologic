@@ -115,7 +115,7 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 
 
-+ Metodología de desarrollo utilizada
+#### 6.Metodología de desarrollo utilizada
 
 **La metodología del desarrollo del proyecto ha sido crear los siguientes aspectos:**
 
@@ -136,8 +136,7 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 - A continuación se mezclan los cambios en "develop" y posteriormente se agregan los cambios de "develop" a "master"
 
 
-
-+ Diagrama de Gantt previo y final del desarrollo de la app
+#### 7.Diagrama de Gantt previo y final del desarrollo de la app
 
 **Previo**
 
@@ -149,6 +148,15 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 **Justificación del exceso de tiempo**
 
+Tuve un exceso de horas de 19 por culpa de diferentes errores y en buscar información para añadir funcionalidades a la aplicación.
+
+
+#### 8.Clockify
+
+<img src="../master/client/src/assets/documentacion/datos_clockify.png">
+
+**Análisis y justificación del tiempo invertido.**
+
 Tuve un exceso de horas de 19 en las cuales las dedique ha: 
 
 - Implementación de la funcionalidad del search
@@ -157,7 +165,22 @@ Tuve un exceso de horas de 19 en las cuales las dedique ha:
 
 - Se añadio el despliegue de la aplicación
 
-+ Clockify
+#### 9.Presupuesto
 
-<img src="../master/client/src/assets/documentacion/datos_clockify.png">
+<img src="../master/client/src/assets/documentacion/presupuesto.png">
+
+
+#### 10.Conclusiones.
+
+**Posibles mejoras.**
+
+- Añadir sesiones
+
+- Crear el componentes de detalles de factura 
+
+- Mejorar la base de datos con nuevas tablas
+
+- Añadir Ids a los productos 
+
+
 
