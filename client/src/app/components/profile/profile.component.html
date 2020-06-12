@@ -15,7 +15,6 @@
                   <input pInputText type="text" formControlName="user_name"/>
               </div>
               <div class="ui-grid-col-4">
-                  <p-message severity="error" text="nombre no cargado" *ngIf="!profileUserForm.controls['user_name'].valid&&profileUserForm.controls['user_name'].dirty"></p-message>
             </div>
           </div>
               <div class="ui-grid-row">
@@ -25,9 +24,7 @@
                   <div class="ui-grid-col-6">
                       <input pInputText type="text" formControlName="user_surnames"/>
                   </div>
-                  <div class="ui-grid-col-4">
-                      <p-message severity="error" text="apellido no cargado" *ngIf="!profileUserForm.controls['user_surnames'].valid&&profileUserForm.controls['user_surnames'].dirty"></p-message>
-                  </div>
+
               </div>
 
             <div class="ui-grid-row">
@@ -38,7 +35,6 @@
                   <input pInputText type="text" formControlName="user_email"/>
               </div>
               <div class="ui-grid-col-4">
-                  <p-message severity="error" text="El email es Obligatorio" *ngIf="!profileUserForm.controls['user_email'].valid&&profileUserForm.controls['user_email'].dirty"></p-message>
               </div>
             </div>
 
@@ -50,9 +46,7 @@
               <div class="ui-grid-col-6">
                   <input pInputText type="tel" id="phone" name="phone" formControlName="phone" placeholder="666888444" pattern="[0-9]{9}" required/>
               </div>
-              <div class="ui-grid-col-4">
-                  <p-message severity="error" text="El telefono no respeta el patron" *ngIf="!profileUserForm.controls['phone'].valid&&profileUserForm.controls['phone'].dirty"></p-message>
-              </div>
+
             </div>
             <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
               <div class="ui-grid-row">
@@ -62,9 +56,6 @@
                 <div class="ui-grid-col-6">
                     <input pInputText type="text" formControlName="direction" />
                 </div>
-                <div class="ui-grid-col-4">
-                    <p-message severity="error" text="dirección no cargada" *ngIf="!profileUserForm.controls['direction'].valid&&profileUserForm.controls['direction'].dirty"></p-message>
-              </div>
             </div>
           </div>
             <!-- <div class="ui-grid-row">
@@ -89,7 +80,7 @@
               </div>
               <div class="ui-grid-row">
                   <div class="ui-grid-col-2 colorInput">
-                      Género *:
+                      Sexo *:
                   </div>
                   <div class="ui-grid-col-6">
                     <input pInputText type="text" formControlName="user_gender" />

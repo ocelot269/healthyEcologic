@@ -7,7 +7,7 @@ border: 5px solid #1B75CE;
 
 .sidebar .nav-item .nav-link {
     position: relative;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 500;
     padding: 0.8rem 2rem;
     color: #042452;
@@ -33,4 +33,7 @@ border: 5px solid #1B75CE;
     font-size: 12px;
     position: absolute;
     left: 0;
+}
+.negrita {
+  font-weight: bold;
 }

@@ -3,11 +3,13 @@ import {ProductsService} from "../../services/products.service";
 import {LoginService} from "../../services/login.service";
 import {UserService} from "../../services/user.service";
 import { Router } from '@angular/router'
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-card-product',
   templateUrl: './card-product.component.html',
-  styleUrls: ['./card-product.component.css']
+  styleUrls: ['./card-product.component.css'],
+  providers: [MessageService]
 })
 export class CardProductComponent implements OnInit {
   @Input() products: any = [];
@@ -18,7 +20,8 @@ export class CardProductComponent implements OnInit {
   constructor(private productsServices: ProductsService,
               private loginService: LoginService,
               private userService:UserService,
-              private router: Router
+              private router: Router,
+              private messageService: MessageService
               ) { }
 
    producto: any = {
@@ -61,6 +64,7 @@ export class CardProductComponent implements OnInit {
     this.productsServices.updateProduct(this.products[index].id_product, productoNuevo).subscribe(
       res => {
         console.log(res);
+        this.messageService.add({severity:'info', summary:'Actualizado correctamente', detail:'Actualizado correctamente los datos del producto'});
       },
       err => console.log(err)
     );
@@ -85,6 +89,7 @@ export class CardProductComponent implements OnInit {
       this.productsServices.deleteProduct(this.products[i].id_product).subscribe(
       res => {
         this.products.splice(i,1);
+        this.messageService.add({severity:'success', summary: 'Borrado correctamente', detail:'Borrado el producto correctamente'});
       },
       err => console.log(err)
     )
@@ -94,6 +99,7 @@ export class CardProductComponent implements OnInit {
     this.productsServices.addProduct(this.producto).subscribe(
       res => {
         this.products = res;
+        this.messageService.add({severity:'success', summary: 'Agragado producto', detail:'El producto se ha añadido correctamente'});
       },
       err => console.log(err)
     );
