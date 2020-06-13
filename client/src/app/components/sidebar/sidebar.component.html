@@ -1,15 +1,15 @@
 <div class="sticky">
   <div class="sidebar card shadow-sm">
-    <div class="card-header negrita" (click)="productSelected('Productos')">Productos</div>
+    <div class="card-header negrita" (click)="productSelected('Productos')"><img style="width: 30px;" src="../../../assets/imagenes/verduras_icono.png" alt="icono">Productos</div>
     <ul class="nav flex-column sidemenu accordion" id="accordionExample">
       <li class="nav-item" *ngFor="let product of productsList">
-        <a *ngIf="product.type === 'hortaliza'" class="nav-link" routerLinkActive="active" (click)="productSelected(product.name_product)">{{product.name_product}}</a>
+        <a *ngIf="product.type === 'hortaliza'" class="nav-link" routerLinkActive="active" (click)="productSelected(product.name_product)"><img style="width: 20px;" src="../../../assets/imagenes/ensalada.png" alt="icono">   {{product.name_product}}</a>
       </li>
     </ul>
-    <div class="card-header negrita" (click)="productSelected('Frutas')">Frutas</div>
+    <div class="card-header negrita" (click)="productSelected('Frutas')"><img style="width: 30px;" src="../../../assets/imagenes/frutas.png" alt="icono">Frutas</div>
     <ul class="nav flex-column sidemenu accordion" id="accordionExample">
       <li class="nav-item" *ngFor="let product of productsList">
-        <a *ngIf="product.type === 'fruta'" class="nav-link" routerLinkActive="active" (click)="productSelected(product.name_product)" >{{product.name_product}}</a>
+        <a *ngIf="product.type === 'fruta'" class="nav-link" routerLinkActive="active" (click)="productSelected(product.name_product)"><img style="width: 20px;" src="../../../assets/imagenes/aguacate.png" alt="icono">{{product.name_product}}</a>
       </li>
     </ul>
   </div>

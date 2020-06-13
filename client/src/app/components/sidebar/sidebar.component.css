@@ -25,7 +25,6 @@ border: 5px solid #1B75CE;
 }
 
 .sidebar .nav-item .nav-link::before {
-    content: "\f101";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     padding-right: 5px;
