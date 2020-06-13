@@ -14,21 +14,21 @@ Healthy ecologic aparece en un momento en el que los productores locales percibe
 
 #### 2. Objetivos
 
-El objetivo de este proyecto es crear una aplicación de escritorio de compra-venta de alimentos naturales y en un futuro para plataformas móviles.
+El objetivo de este proyecto es crear una aplicación de escritorio basándose en la compra-venta de alimentos naturales y en un futuro ser una plataformas para móviles.
 
-Este proyecto tendrá 3 tipos de usuarios, proveedor, cliente y admin lo que permitirá a cada rol hacer diferentes tipos de acciones.
+Este proyecto tendrá 3 tipos de usuarios: proveedor, cliente y admin. Esta variedad permitirá a cada rol hacer diferentes tipos de acciones.
 
-Los proveedores podrán subir sus productos, sus precios y sus propias descripciones si lo desean, también tendrán una pestaña propia para ver sus productos en stock.
+-Los proveedores podrán subir sus productos, sus precios y sus propias descripciones si lo desean. Incluso tendrán una pestaña propia para ver sus productos en stock.
 
-Los clientes podrán comprar los productos que deseen de la web, ya sea de un solo productor o de varios. Podrán valorar si el productor o su producto es de calidad y leer los comentarios de los demas.
+-Los clientes podrán comprar los productos que deseen de la web, ya sea de un solo productor o de varios. Además, podrán valorar si el proveedor o su producto es de calidad y leer los comentarios del resto de usuarios sobre dicho producto.
 
-La aplicación mostrará diferentes pestañas dependiendo si eres un tipo de usuario u otro y para ello crearemos historias de usuario para agilizar el proceso de desarrollo.
+La aplicación mostrará diferentes pestañas dependiendo si eres un tipo de usuario u otro y para ello crearemos historias de usuario. Este hecho nos ayuda a agilizar el proceso de desarrollo.
 
 #### 3. Demostración
 
-+ Justificación de los objetivos alcanzados
++ Justificación de los objetivos alcanzados:
 
-	1.  El proveedor desea registrarse para poder vender sus productos.
+	1. El proveedor desea registrarse para poder vender sus productos.
 
 	2. El proveedor quiere añadir sus nuevos productos para poder venderlos.
 
@@ -38,17 +38,17 @@ La aplicación mostrará diferentes pestañas dependiendo si eres un tipo de usu
 
 	5. El cliente quiere finalizar la compra de sus productos.
 
-	6. El proveedor quiere consultar sus productos en venta y unidades.
+	6. El proveedor quiere consultar sus productos en venta y las unidades de éstos.
 
-	7. El proveedor quiere borrar diferentes productos y unidades.
+	7. El proveedor quiere borrar diferentes productos y unidades de éstos.
 
-	8. El proveedor quiere actualizar sus productos .
+	8. El proveedor quiere actualizar sus productos.
 
 	9. El proveedor quiere consultar su información personal.
 
 	10. El cliente quiere consultar su última compra.
 
-	11. El cliente quiere añadir sus comentarios sobre los productos
+	11. El cliente quiere añadir sus comentarios sobre los productos.
 
 #### 4. Testing
 
@@ -60,7 +60,8 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 
 #### 5. Descripción técnica:
-+ Arquitectura de la aplicación y tecnologías utilizadas.
+
++ Arquitectura de la aplicación y tecnologías utilizadas:
 
 	HealthyEcologic es una web de compra-venta de alimentos para versión escritorio que se desarrollará con el patrón de modelo-vista-controlador(MVC) y utilizará una metodología de desarrollo por Prototipos.
 	
@@ -76,35 +77,35 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
    **Modelo**: 
 	
-	**Mysql**: Será la base de datos del proyecto y contendrá todos los datos y la versión que utilizaré es 10.4.11.
+	**Mysql**: Será la base de datos del proyecto y contendrá todos los datos y la versión que utilizará es 10.4.11.
 	
    **Control de versiones**:
 	
 	**Git**: Lo usaremos como control de versión y la versión que utilizaremos es 2.19.1.
 	
-+ Dependencias del proyecto
++ Dependencias del proyecto:
 
-   **Cors**: Te permite hacer middleware para conectar backend y el front facilitando los problemas que te puede dar los CORS y la versión que utilizaré 2.8.6.
+   **Cors**: Te permite hacer middleware para conectar backend y el front, facilitando los problemas que te pueden dar los CORS y la versión que utilizaremos es 2.8.6.
    
-   **Express**: Te ofrece  un conjunto sólido de características para las aplicaciones web y móviles  y la versión que usaré es  4.17.6. 
+   **Express**: Te ofrece un conjunto sólido de características para las aplicaciones web y móviles y la versión que usaremos es  4.17.6. 
    
-   **Mysql**: Este es un controlador node.js para mysql y la versión que utilizaré es 2.15.10.
+   **Mysql**: Este es un controlador node.js para mysql y la versión que utilizaremos es 2.15.10.
    
-   **Promise-mysql**: Es la misma librería para conectar sql pero soporta promise gracias a bluebird y la versión que utilizaré es 4.1.3.
+   **Promise-mysql**: Es la misma librería para conectar sql pero soporta promise gracias a bluebird y la versión que utilizaremos es 4.1.3.
    
-   **Bcryptjs**: Sirve para securizar las contraseñas y la versión que utilizaré es 2.4.3.
+   **Bcryptjs**: Sirve para securizar las contraseñas y la versión que utilizaremos es 2.4.3.
    
-   **Morgan**:  Te permite ver el registro de peticiones HTTP y la versión que utilizaré es 1.9.0.
+   **Morgan**:  Te permite ver el registro de peticiones HTTP y la versión que utilizaremos es 1.9.0.
    
-   **Typescript**:  Es una librería que permite dar tipos a las variables javascript y utilizaré la versión 3.8.3.
+   **Typescript**:  Es una librería que permite dar tipos a las variables javascript y utilizaremos la versión 3.8.3.
    
    **Nodemon**: Recarga el script automáticamente cuando hacemos cualquier en él 2.0.3.
 
-+ Arquitectura de la aplicación
++ Arquitectura de la aplicación:
 
 <img src="../master/client/src/assets/documentacion/diagrama.png">	
 
-+ Diagrama de componentes
++ Diagrama de componentes:
 
 <img src="../master/client/src/assets/documentacion/diagrama_componentes.png">
 
@@ -133,7 +134,7 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 - El contenido relacionado con el front, se hace en la rama front
 
-- A continuación se mezclan los cambios en "develop" y posteriormente se agregan los cambios de "develop" a "master"
+- A continuación se mezclan los cambios en develop y posteriormente se agregan los cambios de develop a master
 
 
 #### 7.Diagrama de Gantt previo y final del desarrollo de la app
@@ -148,8 +149,7 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 **Justificación del exceso de tiempo**
 
-Tuve un exceso de horas de 19 por culpa de diferentes errores y en buscar información para añadir funcionalidades a la aplicación.
-
+Tuve un exceso de horas de 19 por culpa de diferentes errores y en buscar de información para añadir funcionalidades a la aplicación.
 
 #### 8.Clockify
 
@@ -157,9 +157,9 @@ Tuve un exceso de horas de 19 por culpa de diferentes errores y en buscar inform
 
 **Análisis y justificación del tiempo invertido.**
 
-Tuve un exceso de horas de 19 en las cuales las dedique ha: 
+Tuve un exceso de horas de 19 en las cuales las dedique a: 
 
-- Implementación de la funcionalidad del search
+- Implementación de la funcionalidad del "search"
 
 - Se añadieron test E2E a la aplicación
 
@@ -170,7 +170,7 @@ Tuve un exceso de horas de 19 en las cuales las dedique ha:
 <img src="../master/client/src/assets/documentacion/presupuesto.png">
 
 
-#### 10.Conclusiones.
+#### 10.Conclusiones
 
 **Posibles mejoras.**
 
@@ -182,5 +182,5 @@ Tuve un exceso de horas de 19 en las cuales las dedique ha:
 
 - Añadir Ids a los productos 
 
-
+**Principales dificultades encontradas.**
 
