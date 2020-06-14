@@ -14,9 +14,9 @@ export class SidebarComponent implements OnInit {
     { name_product: "tomate", type: "hortaliza" },
     { name_product: "pimiento", type: "hortaliza" },
     { name_product: "brocoli", type: "hortaliza" },
-    { name_product: "platano", type: "fruta" },
+    { name_product: "plátano", type: "fruta" },
     { name_product: "naranja", type: "fruta" },
-    { name_product: "limon", type: "fruta" },
+    { name_product: "limón", type: "fruta" },
     { name_product: "fresa", type: "fruta" },
   ];
   constructor() {}
