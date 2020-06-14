@@ -4,7 +4,7 @@
 
   <textarea *ngIf="this.idUser" [rows]="5" [cols]="77" pInputTextarea placeholder="comentarios"  [(ngModel)]="this.comment"></textarea>
   <div class="derecha"  *ngIf="this.idUser"><p-button label="Enviar" (click)="createComment()"></p-button></div>
-  <ul id="comments-list" class="comments-list">
+  <ul id="comments-list"  *ngIf="this.listComents.length > 0;else noComents" class="comments-list">
     <li *ngFor="let comment of listComents; let i=index">
       <div class="comment-main-level">
         <!-- Avatar -->
@@ -24,4 +24,16 @@
       </div>
     </li>
   </ul>
+  <ng-template #noComents>
+
+      <div class="comment-main-level" style="border: 1px solid black;">
+        <div class="comment-box" >
+          <div class="comment-content" style="height: 100px;">
+            No hay comentarios para este producto
+          </div>
+        </div>
+      </div>
+
+  </ng-template>
+
 </div>
