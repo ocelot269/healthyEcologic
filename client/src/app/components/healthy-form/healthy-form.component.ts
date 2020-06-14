@@ -58,13 +58,10 @@ export class HealthyFormComponent implements OnInit {
         );
     }
 
-
     selectTypeUser(){
       const snapshot: RouterStateSnapshot = this.router.routerState.snapshot;
       snapshot.root['_urlSegment'].children.primary.segments[0].path === 'proveedor' ? this.userType = snapshot.root['_urlSegment'].children.primary.segments[0].path : 'Cliente';
     }
-
-    get diagnostic() { return JSON.stringify(this.formUser.value); }
 
 }
 

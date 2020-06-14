@@ -13,7 +13,7 @@
                 <a *ngIf="this.getUserType() == 'proveedor' || this.getUserType() == 'admin'"class="nav-link" routerLink="/proveedor/stock" routerLinkActive="active">Stock</a>
             </li>
         </ul>
-        <div>
+        <div *ngIf="isProducts()">
           <form id="buscador" class="form-inline my-2 my-lg-0">
             <input id="input-search" class="form-control mr-sm-2" (keyup)="findProduct($event.target.value)" type="text" placeholder="Buscar">
             <button id="search" class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>

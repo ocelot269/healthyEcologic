@@ -5,6 +5,8 @@ import { SharedService } from '../../services/shared.service';
 
 import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Router, RouterStateSnapshot  } from '@angular/router';
+
 
 @Component({
   selector: 'app-navigation',
@@ -17,7 +19,8 @@ export class NavigationComponent implements OnInit {
   constructor(private loginService: LoginService,
               private userService: UserService,
               @Inject(DOCUMENT) private document: Document,
-              private sharedService: SharedService
+              private sharedService: SharedService,
+              private router: Router
 ) { }
 
   ngOnInit() {
@@ -58,5 +61,14 @@ export class NavigationComponent implements OnInit {
   findProduct(event){
     this.sharedService.emitChange(event);
   }
+
+  isProducts(){
+    const snapshot: RouterStateSnapshot = this.router.routerState.snapshot;
+    if (snapshot.root['_urlSegment'].children.primary) {
+       return snapshot.root['_urlSegment'].children.primary.segments[0].path === 'productos' ? true : false;
+    }
+
+  }
+
 
 }
