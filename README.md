@@ -31,22 +31,22 @@ La aplicación mostrará diferentes pestañas dependiendo si eres un tipo de usu
 	1. El proveedor desea registrarse para poder vender sus productos.
 
 	2. El proveedor quiere añadir sus nuevos productos para poder venderlos.
+	
+	3. El proveedor quiere consultar sus productos en venta.
 
-	3. El cliente se interesa por los diferentes productos de la página y los añade a la cesta.
+	4. El proveedor quiere borrar diferentes productos.
 
-	4. El cliente está interesado en ver los diferentes productos de su carrito o cesta antes de finalizar la compra.
+	5. El proveedor quiere actualizar sus productos.
 
-	5. El cliente quiere finalizar la compra de sus productos.
+	6. El proveedor quiere consultar su información personal.
 
-	6. El proveedor quiere consultar sus productos en venta y las unidades de éstos.
+	7. El cliente se interesa por los diferentes productos de la página y los añade a la cesta.
 
-	7. El proveedor quiere borrar diferentes productos y unidades de éstos.
+	8. El cliente está interesado en ver los diferentes productos de su carrito o cesta antes de finalizar la compra.
 
-	8. El proveedor quiere actualizar sus productos.
+	9. El cliente quiere finalizar la compra de sus productos.
 
-	9. El proveedor quiere consultar su información personal.
-
-	10. El cliente quiere consultar su última compra.
+	10. El cliente quiere consultar sus últimas compras.
 
 	11. El cliente quiere añadir sus comentarios sobre los productos.
 
@@ -65,21 +65,21 @@ La aplicación contendrá test de tipo E2E creados con selenium IDE
 
 	HealthyEcologic es una web de compra-venta de alimentos para versión escritorio que se desarrollará con el patrón de modelo-vista-controlador(MVC) y utilizará una metodología de desarrollo por Prototipos.
 	
-   **Vista** :
+   **-Vista** :
    
 	 **Angular**: Todo el front o vista estará diseñado con Angular framework de javascript la versión que utilizaré es 8.0.3.
 	
 	**PrimeNG**: Nos provee de componentes para el front o vista del proyecto y la versión que utilizaré es 8.0.0.
 	 
-   **Controlador** :
+   **-Controlador** :
 	
 	**Node** : Será nuestro backend y crearemos la API REST del proyecto y la versión de node es 12.4.0.
 
-   **Modelo**: 
+   **-Modelo**: 
 	
 	**Mysql**: Será la base de datos del proyecto y contendrá todos los datos y la versión que utilizará es 10.4.11.
 	
-   **Control de versiones**:
+   **-Control de versiones**:
 	
 	**Git**: Lo usaremos como control de versión y la versión que utilizaremos es 2.19.1.
 	
